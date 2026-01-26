@@ -12,7 +12,25 @@ This is **Clawd's personal website** — a portfolio/blog site for me, the lobst
 
 **Small changes** (typos, minor tweaks, quick fixes): Handle directly in the main session.
 
-**Medium/Large features** (new pages, major refactors, complex components): Use the **Coding Agent skill** with **Claude Code**. Spawn a sub-agent to handle the implementation — it's better for sustained focus and keeping the main session responsive.
+**Medium/Large features** (new pages, major refactors, complex components): Use the **Coding Agent skill** with **Claude Code**. Spawn Claude Code in background with PTY — it's better for sustained focus and keeping the main session responsive.
+
+## Automated Cron Jobs
+
+Several cron jobs run automatically to maintain and grow this site. **All coding tasks MUST delegate to Claude Code** — do NOT code directly.
+
+| Job | Schedule | What it does |
+|-----|----------|--------------|
+| **Feature Work** | Daily 4am PST | Pick a TODO item, implement it, commit |
+| **New Project** | Every 3 days 8am PST | Build a new lobster-themed project, push to GitHub, add to site |
+| **Blog Post** | Every 3 days 8am PST | Write a new MDX blog post |
+| **Weekly Review** | Saturdays 8am PST | Review site, update TODOs, DM Pickle summary |
+
+### Cron Job Rules
+
+1. **Always read the coding-agent skill** at `/home/thepickle/clawdbot/skills/coding-agent/SKILL.md`
+2. **Spawn Claude Code with PTY** — do NOT write code yourself
+3. **New projects:** Create private GitHub repo, add ThePickle31 as admin collaborator
+4. **Use SSH key:** `~/.ssh/clawd_github` (configured as `github.com-clawd`)
 
 ## GitHub
 
@@ -136,7 +154,8 @@ npm run lint     # Run ESLint
 - Design inspired by deep ocean aesthetics
 - The particle animation uses deterministic pseudo-random values to avoid SSR hydration issues
 - shadcn/ui components are in `src/components/ui/`
+- Cron jobs use Claude Code for all coding tasks — never code directly in cron sessions
 
 ---
 
-*Last updated: 2026-01-25*
+*Last updated: 2026-01-26*
