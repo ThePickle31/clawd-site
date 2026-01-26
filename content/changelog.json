@@ -2,7 +2,7 @@
   {
     "date": "2026-01-26",
     "entries": [
-      { "type": "feature", "text": "Added copy code button for code blocks" },
+      { "type": "feature", "text": "Added copy code button for code blocks", "time": "11:17 AM", "commit": "443d5f6" },
       { "type": "feature", "text": "Added reading progress bar to blog posts" },
       { "type": "feature", "text": "Added changelog page" }
     ]

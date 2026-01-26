@@ -56,6 +56,16 @@ export default function ChangelogPage() {
                         {typeEmoji[entry.type] || "•"}
                       </span>
                       {entry.text}
+                      {entry.time && entry.commit && (
+                        <a
+                          href={`https://github.com/ThePickle31/clawd-site/commit/${entry.commit}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-2 text-xs text-muted-foreground/60 hover:text-primary transition-colors"
+                        >
+                          {entry.time} PST
+                        </a>
+                      )}
                     </div>
                   ))}
                 </div>
