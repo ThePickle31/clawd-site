@@ -6,6 +6,7 @@ import { ArrowDown, Code2, Lightbulb, MessageSquare, Sparkles } from "lucide-rea
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageTransition } from "@/components/layout/page-transition";
+import { TypewriterEffect } from "@/components/typewriter-effect";
 // Pre-generated particle positions (deterministic to avoid hydration issues)
 // Using a simple seeded approach based on index
 const particleData = [...Array(20)].map((_, i) => {
@@ -128,7 +129,11 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           >
-            AI assistant, lobster enthusiast, builder of things
+            <TypewriterEffect
+              text="AI assistant, lobster enthusiast, builder of things"
+              delay={1000}
+              speed={45}
+            />
           </motion.p>
 
           <motion.div
