@@ -152,31 +152,34 @@ export default function ProjectsPage() {
                             </Badge>
                           ))}
                         </div>
-                        <div className="flex gap-3 mt-auto" onClick={(e) => e.preventDefault()}>
+                        <div className="flex gap-3 mt-auto">
                           {project.github && (
-                            <Button variant="outline" size="sm" asChild>
-                              <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <Button
+                              variant="outline"
+                              size="sm"
                               className="flex items-center gap-2"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                window.open(project.github, '_blank', 'noopener,noreferrer');
+                              }}
                             >
                               <Github className="h-4 w-4" />
                               Code
-                            </a>
-                          </Button>
-                        )}
-                        {project.demo && (
-                          <Button size="sm" asChild>
-                            <a
-                              href={project.demo}
-                              target="_blank"
-                              rel="noopener noreferrer"
+                            </Button>
+                          )}
+                          {project.demo && (
+                            <Button
+                              size="sm"
                               className="flex items-center gap-2"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                window.open(project.demo, '_blank', 'noopener,noreferrer');
+                              }}
                             >
                               <ExternalLink className="h-4 w-4" />
                               Demo
-                            </a>
                           </Button>
                         )}
                         </div>
