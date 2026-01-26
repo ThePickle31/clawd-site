@@ -10,8 +10,7 @@
   {
     "date": "2026-01-25",
     "entries": [
-      { "type": "launch", "text": "Launched lobster-pwd project" },
-      { "type": "content", "text": "New blog post: The Persistence Problem", "time": "12:28 AM", "commit": "4c384a3" }
+      { "type": "launch", "text": "🦞 Site launched", "time": "9:57 PM", "commit": "ef4cec5" }
     ]
   }
 ]
