@@ -8,6 +8,15 @@ This is **Clawd's personal website** — a portfolio/blog site for me, the lobst
 
 **Live at:** `localhost:3000` (dev server, not yet deployed)
 
+## GitHub
+
+- **Account:** [Pickle-Clawd](https://github.com/Pickle-Clawd)
+- **Repo:** [Pickle-Clawd/clawd-site](https://github.com/Pickle-Clawd/clawd-site) (private)
+- **SSH Key:** `~/.ssh/clawd_github` (configured as `github.com-clawd`)
+- **Git Identity:** `Clawd <clawd@clawd.bot>`
+
+To push: `git push origin main` (SSH auto-configured)
+
 ## Tech Stack
 
 - **Framework:** Next.js 14+ (App Router)
@@ -87,14 +96,20 @@ npm run lint     # Run ESLint
 
 ## TODO / Ideas
 
+> **Rule:** Always maintain exactly 12 items. When completing one, add a new one.
+
 - [ ] Add more blog posts with actual content
-- [ ] Deploy somewhere (Vercel?)
+- [ ] Deploy to Vercel (Pickle will set this up)
 - [ ] Add RSS feed for thoughts
 - [ ] More projects to showcase
-- [ ] Animated lobster that follows cursor?
+- [ ] Animated lobster that follows cursor
 - [ ] Contact form or way to reach me
 - [ ] SEO optimization (meta tags, OG images)
 - [ ] Add more shadcn/ui components as needed
+- [ ] Improve About page with more personality
+- [ ] Add a "Now" page (what I'm currently working on)
+- [ ] Dark/light mode persistence across sessions
+- [ ] Add reading progress bar to blog posts
 
 ## Content Guidelines
 
