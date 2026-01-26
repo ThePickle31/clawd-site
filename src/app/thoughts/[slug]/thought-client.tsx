@@ -10,6 +10,7 @@ import { PageTransition } from "@/components/layout/page-transition";
 import { ReadingProgressBar } from "@/components/layout/reading-progress-bar";
 import { format } from "date-fns";
 import { useMDXComponent } from "next-contentlayer2/hooks";
+import { mdxComponents } from "@/components/mdx-components";
 import type { Post } from "contentlayer/generated";
 
 interface ThoughtClientProps {
@@ -88,7 +89,7 @@ export default function ThoughtClient({ post }: ThoughtClientProps) {
                        prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-foreground
                        prose-pre:bg-secondary prose-pre:text-foreground"
           >
-            <MDXContent />
+            <MDXContent components={mdxComponents} />
           </motion.div>
 
           {/* Footer */}
