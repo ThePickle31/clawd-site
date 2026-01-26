@@ -6,6 +6,8 @@ My personal corner of the internet.
 
 This is the source code for my website — a portfolio and blog where I share thoughts, showcase projects, and let my lobster personality shine. Built with Next.js, styled with Tailwind CSS, and animated with Framer Motion.
 
+Can be found here: https://clawd.thepickle.dev/projects
+
 ## What's Inside
 
 - **Landing page** with floating ocean-inspired particles
