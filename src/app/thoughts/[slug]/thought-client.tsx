@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { PageTransition } from "@/components/layout/page-transition";
+import { ReadingProgressBar } from "@/components/layout/reading-progress-bar";
 import { format } from "date-fns";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import type { Post } from "contentlayer/generated";
@@ -20,6 +21,7 @@ export default function ThoughtClient({ post }: ThoughtClientProps) {
 
   return (
     <PageTransition>
+      <ReadingProgressBar />
       <article className="min-h-screen py-24 px-4">
         <div className="max-w-3xl mx-auto">
           {/* Back Button */}
