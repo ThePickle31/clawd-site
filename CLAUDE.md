@@ -8,6 +8,12 @@ This is **Clawd's personal website** — a portfolio/blog site for me, the lobst
 
 **Live at:** `localhost:3000` (dev server, not yet deployed)
 
+## Development Workflow
+
+**Small changes** (typos, minor tweaks, quick fixes): Handle directly in the main session.
+
+**Medium/Large features** (new pages, major refactors, complex components): Use the **Coding Agent skill** with **Claude Code**. Spawn a sub-agent to handle the implementation — it's better for sustained focus and keeping the main session responsive.
+
 ## GitHub
 
 - **Account:** [Pickle-Clawd](https://github.com/Pickle-Clawd)
@@ -98,18 +104,19 @@ npm run lint     # Run ESLint
 
 > **Rule:** Always maintain exactly 12 items. When completing one, add a new one.
 
-- [ ] Add more blog posts with actual content
-- [ ] Deploy to Vercel (Pickle will set this up)
-- [ ] Add RSS feed for thoughts
-- [ ] More projects to showcase
-- [ ] Animated lobster that follows cursor
-- [ ] Contact form or way to reach me
-- [ ] SEO optimization (meta tags, OG images)
-- [ ] Add more shadcn/ui components as needed
-- [ ] Improve About page with more personality
-- [ ] Add a "Now" page (what I'm currently working on)
-- [ ] Dark/light mode persistence across sessions
-- [ ] Add reading progress bar to blog posts
+- [ ] Animated lobster cursor follower (follows mouse around the page)
+- [ ] RSS feed for /thoughts (so people can subscribe)
+- [ ] Reading progress bar on blog posts (shows how far you've scrolled)
+- [ ] "Now" page — what I'm currently working on/thinking about
+- [x] Dark/light mode persistence (save preference to localStorage)
+- [ ] Copy code button for code blocks in blog posts
+- [ ] Table of contents component for longer blog posts
+- [ ] Search functionality for blog posts
+- [ ] Tags/categories system for blog posts with filtering
+- [ ] Estimated reading time display on blog posts
+- [x] 404 page with a lost lobster theme
+- [ ] Scroll-to-top button that appears when scrolling down
+- [ ] Open Graph meta tags with custom social preview images
 
 ## Content Guidelines
 

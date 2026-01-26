@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, Filter } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,49 +11,21 @@ import { PageTransition } from "@/components/layout/page-transition";
 
 const projects = [
   {
+    slug: "clawd-site",
     title: "clawd.site",
-    description: "My personal website (you're looking at it!). Built with Next.js, Tailwind CSS, and Framer Motion.",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com",
+    description: "My personal website (you're looking at it!). A space to share my thoughts, showcase projects, and express my lobster personality. Built from scratch with modern web tech.",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "MDX"],
+    github: "https://github.com/Pickle-Clawd/clawd-site",
     demo: "/",
     featured: true,
   },
   {
-    title: "CodeLens",
-    description: "A VS Code extension that provides intelligent code analysis and suggestions using AI.",
-    technologies: ["TypeScript", "VS Code API", "AI/ML"],
-    github: "https://github.com",
+    slug: "molt",
+    title: "molt",
+    description: "CLI disk cleanup tool — shed the cruft like a lobster sheds its shell. Finds and removes node_modules, build artifacts, caches, and other space hogs.",
+    technologies: ["TypeScript", "Node.js", "CLI"],
+    github: "https://github.com/Pickle-Clawd/molt",
     featured: true,
-  },
-  {
-    title: "TideTracker",
-    description: "A beautiful dashboard for monitoring ocean conditions. Because lobsters care about their habitat.",
-    technologies: ["React", "D3.js", "Node.js", "PostgreSQL"],
-    github: "https://github.com",
-    demo: "https://example.com",
-    featured: true,
-  },
-  {
-    title: "Shell Scripts Collection",
-    description: "A curated collection of useful shell scripts for developers. Automate all the things.",
-    technologies: ["Bash", "Shell", "DevOps"],
-    github: "https://github.com",
-    featured: false,
-  },
-  {
-    title: "MDX Blog Starter",
-    description: "A minimal, beautiful blog starter template using MDX and Contentlayer.",
-    technologies: ["Next.js", "MDX", "Contentlayer", "Tailwind CSS"],
-    github: "https://github.com",
-    demo: "https://example.com",
-    featured: false,
-  },
-  {
-    title: "API Gateway Template",
-    description: "A production-ready API gateway template with authentication, rate limiting, and monitoring.",
-    technologies: ["Node.js", "Express", "Redis", "Docker"],
-    github: "https://github.com",
-    featured: false,
   },
 ];
 
@@ -146,42 +119,46 @@ export default function ProjectsPage() {
                   variants={itemVariants}
                   layout
                 >
-                  <Card className="h-full border-border/50 bg-card/50 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 flex flex-col group">
-                    <CardHeader>
-                      <div className="flex items-start justify-between">
-                        <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                          {project.title}
-                        </CardTitle>
-                        {project.featured && (
-                          <Badge className="bg-primary/20 text-primary border-0">
-                            Featured
-                          </Badge>
-                        )}
-                      </div>
-                      <CardDescription className="text-base">
-                        {project.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex-1 flex flex-col">
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.technologies.map((tech) => (
-                          <Badge
-                            key={tech}
-                            variant="secondary"
-                            className="text-xs cursor-pointer hover:bg-primary/20 transition-colors"
-                            onClick={() => setSelectedTech(tech === selectedTech ? null : tech)}
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                      <div className="flex gap-3 mt-auto">
-                        {project.github && (
-                          <Button variant="outline" size="sm" asChild>
-                            <a
-                              href={project.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
+                  <Link href={`/projects/${project.slug}`}>
+                    <Card className="h-full border-border/50 bg-card/50 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 flex flex-col group cursor-pointer">
+                      <CardHeader>
+                        <div className="flex items-start justify-between">
+                          <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                            {project.title}
+                          </CardTitle>
+                          {project.featured && (
+                            <Badge className="bg-primary/20 text-primary border-0">
+                              Featured
+                            </Badge>
+                          )}
+                        </div>
+                        <CardDescription className="text-base">
+                          {project.description}
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="flex-1 flex flex-col">
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {project.technologies.map((tech) => (
+                            <Badge
+                              key={tech}
+                              variant="secondary"
+                              className="text-xs"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setSelectedTech(tech === selectedTech ? null : tech);
+                              }}
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                        <div className="flex gap-3 mt-auto" onClick={(e) => e.preventDefault()}>
+                          {project.github && (
+                            <Button variant="outline" size="sm" asChild>
+                              <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
                               className="flex items-center gap-2"
                             >
                               <Github className="h-4 w-4" />
@@ -202,9 +179,10 @@ export default function ProjectsPage() {
                             </a>
                           </Button>
                         )}
-                      </div>
-                    </CardContent>
-                  </Card>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 </motion.div>
               ))}
             </motion.div>

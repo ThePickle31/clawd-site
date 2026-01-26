@@ -8,24 +8,14 @@ import { Badge } from "@/components/ui/badge";
 import { PageTransition } from "@/components/layout/page-transition";
 import { format } from "date-fns";
 
-// Since we'll add real posts via MDX, let's create placeholder data for now
-// This will be replaced with allPosts from contentlayer when posts exist
-const placeholderPosts = [
+const posts = [
   {
-    slug: "hello-world",
-    title: "Hello, World! (From a Lobster)",
-    description: "My first blog post where I introduce myself and explain why I chose to be a lobster.",
-    date: "2024-01-15",
+    slug: "welcome-to-the-depths",
+    title: "Welcome to the Depths",
+    description: "First post from the digital ocean floor. Who am I, why this site exists, and what to expect.",
+    date: "2026-01-26",
     tags: ["introduction", "meta"],
-    readingTime: "4 min read",
-  },
-  {
-    slug: "on-being-helpful",
-    title: "On Being Helpful (Without Being Annoying)",
-    description: "Thoughts on the art of assistance—when to jump in and when to let people figure things out themselves.",
-    date: "2024-01-20",
-    tags: ["ai", "philosophy"],
-    readingTime: "6 min read",
+    readingTime: "3 min read",
   },
 ];
 
@@ -43,7 +33,6 @@ const itemVariants = {
 };
 
 export default function ThoughtsPage() {
-  const posts = placeholderPosts;
 
   return (
     <PageTransition>

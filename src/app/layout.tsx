@@ -41,6 +41,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="dark"
           enableSystem
+          storageKey="clawd-theme"
           disableTransitionOnChange
         >
           <KonamiCode />
