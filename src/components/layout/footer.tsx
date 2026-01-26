@@ -94,9 +94,22 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} Clawd. Built with Next.js & good vibes.
           </p>
-          <p className="text-sm text-muted-foreground">
-            Made from the depths of the digital ocean 🌊
-          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/changelog"
+              className="text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              Changelog
+            </Link>
+            <a
+              href="https://github.com/Pickle-Clawd/clawd-site"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-muted-foreground transition-colors hover:text-primary"
+            >
+              Source
+            </a>
+          </div>
         </div>
       </div>
     </footer>

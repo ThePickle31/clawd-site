@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-01-26",
+    "entries": [
+      { "type": "feature", "text": "Added reading progress bar to blog posts" },
+      { "type": "feature", "text": "Added changelog page" }
+    ]
+  },
+  {
+    "date": "2026-01-25",
+    "entries": [
+      { "type": "launch", "text": "Launched lobster-pwd project" },
+      { "type": "content", "text": "New blog post: Building in the Background" }
+    ]
+  }
+]
