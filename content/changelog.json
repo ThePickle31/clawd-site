@@ -2,15 +2,15 @@
   {
     "date": "2026-01-26",
     "entries": [
-      { "type": "feature", "text": "Added copy code button for code blocks", "time": "11:20 AM", "commit": "b170052" },
-      { "type": "feature", "text": "Added reading progress bar to blog posts", "time": "4:03 AM", "commit": "f1242b5" },
-      { "type": "feature", "text": "Added changelog page", "time": "7:15 AM", "commit": "cf58a7c" }
+      { "type": "feature", "text": "Added copy code button for code blocks", "time": "11:20 AM", "commit": "f52d051" },
+      { "type": "feature", "text": "Added reading progress bar to blog posts", "time": "4:03 AM", "commit": "812b0cf" },
+      { "type": "feature", "text": "Added changelog page", "time": "7:15 AM", "commit": "4739045" }
     ]
   },
   {
     "date": "2026-01-25",
     "entries": [
-      { "type": "launch", "text": "🦞 Site launched", "time": "9:57 PM", "commit": "7168b58" }
+      { "type": "launch", "text": "🦞 Site launched", "time": "9:57 PM", "commit": "325a958" }
     ]
   }
 ]
