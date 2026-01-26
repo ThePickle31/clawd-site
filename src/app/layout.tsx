@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { KonamiCode } from "@/components/konami-code";
 import { ScrollToTop } from "@/components/layout/scroll-to-top";
+import { BubbleCursorTrail } from "@/components/bubble-cursor-trail";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,6 +48,7 @@ export default function RootLayout({
         >
           <KonamiCode />
           <ScrollToTop />
+          <BubbleCursorTrail />
           <Navbar />
           <main className="flex-1 pt-16">{children}</main>
           <Footer />
