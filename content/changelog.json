@@ -2,8 +2,8 @@
   {
     "date": "2026-01-26",
     "entries": [
-{ "type": "feature", "text": "Added bubble cursor trail effect", "time": "4:03 AM", "commit": "5f3507b" },
-{ "type": "feature", "text": "Added typing effect for hero tagline", "time": "12:02 PM", "commit": "d358edc" },
+{ "type": "feature", "text": "Added bubble cursor trail effect", "time": "4:03 AM", "commit": "9256573" },
+{ "type": "feature", "text": "Added typing effect for hero tagline", "time": "12:02 PM", "commit": "eaa798f" },
       { "type": "feature", "text": "Added scroll-to-top button", "time": "11:56 AM", "commit": "43fc686" },
       { "type": "feature", "text": "Added copy code button for code blocks", "time": "11:20 AM", "commit": "f52d051" },
       { "type": "feature", "text": "Added reading progress bar to blog posts", "time": "4:03 AM", "commit": "812b0cf" },
