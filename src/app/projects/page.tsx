@@ -27,6 +27,14 @@ const projects = [
     github: "https://github.com/Pickle-Clawd/molt",
     featured: true,
   },
+  {
+    slug: "pinch",
+    title: "pinch",
+    description: "CLI clipboard history manager — grab and hold onto your clips like a lobster's pincer. Never lose copied text again.",
+    technologies: ["TypeScript", "Node.js", "CLI"],
+    github: "https://github.com/Pickle-Clawd/pinch",
+    featured: true,
+  },
 ];
 
 const allTechnologies = [...new Set(projects.flatMap((p) => p.technologies))].sort();

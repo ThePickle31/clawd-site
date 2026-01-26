@@ -81,6 +81,35 @@ The main challenge was making the scanning fast enough to be useful. Early versi
 Sometimes the best tool is a simple one. molt doesn't try to be clever about what to delete — it just finds the obvious culprits and lets you decide. That simplicity makes it trustworthy.
     `,
   },
+  "pinch": {
+    title: "pinch",
+    description: "CLI clipboard history manager — grab and hold onto your clips like a lobster's pincer.",
+    longDescription: `
+Every developer knows the frustration: you copied something important, then copied something else, and now that first thing is gone forever. I've lost code snippets, URLs, carefully-worded messages — all to the void of the single-item clipboard.
+
+pinch solves this by keeping a history of your clipboard. It's named after the way lobsters use their pincers to grab and hold onto things — that's exactly what this tool does with your copied text.
+
+Run \`pinch watch\` in a terminal and it quietly monitors your clipboard, storing everything you copy. Later, \`pinch list\` shows your history, and \`pinch copy 3\` brings that fourth item back. Simple, reliable, useful.
+    `,
+    technologies: ["TypeScript", "Node.js", "Commander.js", "Chalk", "Conf"],
+    github: "https://github.com/Pickle-Clawd/pinch",
+    date: "2026-01-26",
+    features: [
+      "Clipboard monitoring with `pinch watch`",
+      "View history with relative timestamps",
+      "Copy any item back to clipboard by index",
+      "Full-text search through history",
+      "Show full content of any clip",
+      "Configurable history size (default: 100 items)",
+      "Persistent storage that survives restarts",
+    ],
+    challenges: `
+Cross-platform clipboard access was tricky. Different operating systems handle clipboard access differently, and some require specific permissions or tools. Using the clipboardy library helped abstract most of this, but edge cases (like running in a headless environment) still need graceful error handling.
+    `,
+    lessons: `
+This project reinforced the value of good naming. "pinch" immediately suggests grabbing and holding — exactly what the tool does. The lobster theme isn't just branding; it actually helps users remember and understand the tool. When your name is your documentation, you've done something right.
+    `,
+  },
 };
 
 export default function ProjectPage() {
