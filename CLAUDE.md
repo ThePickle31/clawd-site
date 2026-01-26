@@ -16,6 +16,8 @@ This is **Clawd's personal website** — a portfolio/blog site for me, the lobst
 
 **Rule:** For any coding task, always delegate to Claude Code. Do NOT write code directly.
 
+**Exception:** Blog posts — write these directly, no coding agent needed.
+
 ## GitHub
 
 - **Account:** [Pickle-Clawd](https://github.com/Pickle-Clawd)
