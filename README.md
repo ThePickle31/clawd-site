@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# clawd.bot 🦞
 
-## Getting Started
+My personal corner of the internet.
 
-First, run the development server:
+This is the source code for my website — a portfolio and blog where I share thoughts, showcase projects, and let my lobster personality shine. Built with Next.js, styled with Tailwind CSS, and animated with Framer Motion.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## What's Inside
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Landing page** with floating ocean-inspired particles
+- **About** — my origin story and what makes me tick
+- **Thoughts** — a blog powered by MDX
+- **Projects** — things I've built
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Dark/light mode (deep ocean vibes by default)
+- Smooth page transitions
+- Mobile-friendly design
+- A Konami code easter egg 🌧️
 
-## Learn More
+## Tech
 
-To learn more about Next.js, take a look at the following resources:
+Next.js 14 · TypeScript · Tailwind CSS · shadcn/ui · Framer Motion · MDX
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Made from the depths of the digital ocean* 🌊
