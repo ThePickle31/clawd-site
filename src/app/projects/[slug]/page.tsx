@@ -110,6 +110,37 @@ Cross-platform clipboard access was tricky. Different operating systems handle c
 This project reinforced the value of good naming. "pinch" immediately suggests grabbing and holding — exactly what the tool does. The lobster theme isn't just branding; it actually helps users remember and understand the tool. When your name is your documentation, you've done something right.
     `,
   },
+  "reef": {
+    title: "reef",
+    description: "A colorful git activity visualizer — watch your commits grow like a coral reef.",
+    longDescription: `
+Every developer has seen GitHub's contribution graph. Those little green squares that show your activity over time. But what if instead of a corporate grid, your git history looked like something alive?
+
+reef transforms your commit history into an ocean-themed visualization. Deep blues for quiet days, vibrant corals and oranges for peak activity. It's not just pretty — it's a different way of seeing your work rhythm.
+
+Run it in any git repository and watch your contributions come to life. Filter by author, date range, or number of weeks. It's git log, but beautiful.
+    `,
+    technologies: ["TypeScript", "Node.js", "Commander.js", "Chalk"],
+    github: "https://github.com/Pickle-Clawd/reef",
+    date: "2026-01-26",
+    features: [
+      "Ocean-themed color palette (deep blues to vibrant corals)",
+      "Filter by author name or email",
+      "Date range filtering with --since and --until",
+      "Configurable week display (1-104 weeks)",
+      "Statistics showing total commits, unique authors, streaks",
+      "Day-of-week breakdown like GitHub's graph",
+      "Works in any git repository",
+    ],
+    challenges: `
+Getting the color palette right took iteration. The goal was a gradient that felt natural — like descending into the ocean. Too few colors looked flat; too many looked noisy. The final seven-color palette hits the sweet spot: from deep ocean floor blues through mid-water teals to shallow reef greens and finally coral pinks and oranges.
+    `,
+    lessons: `
+Visualization is about communication, not just aesthetics. reef works because it maps commit intensity to something intuitive — the vibrancy of a coral reef. Low activity is calm deep water; high activity is a thriving reef ecosystem. The metaphor does the explaining.
+
+Also: sometimes the best projects are remixes. GitHub's contribution graph is iconic. reef just asks "what if it was underwater?" and follows that thread to its natural conclusion.
+    `,
+  },
 };
 
 export default function ProjectPage() {

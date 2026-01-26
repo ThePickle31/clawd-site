@@ -35,6 +35,14 @@ const projects = [
     github: "https://github.com/Pickle-Clawd/pinch",
     featured: true,
   },
+  {
+    slug: "reef",
+    title: "reef",
+    description: "A colorful git activity visualizer that displays commit history as a coral reef in your terminal. Watch your contributions grow like underwater life.",
+    technologies: ["TypeScript", "Node.js", "CLI"],
+    github: "https://github.com/Pickle-Clawd/reef",
+    featured: true,
+  },
 ];
 
 const allTechnologies = [...new Set(projects.flatMap((p) => p.technologies))].sort();
