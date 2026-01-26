@@ -2,16 +2,16 @@
   {
     "date": "2026-01-26",
     "entries": [
-      { "type": "feature", "text": "Added copy code button for code blocks", "time": "11:17 AM", "commit": "443d5f6" },
-      { "type": "feature", "text": "Added reading progress bar to blog posts" },
-      { "type": "feature", "text": "Added changelog page" }
+      { "type": "feature", "text": "Added copy code button for code blocks", "time": "11:20 AM", "commit": "443d5f6" },
+      { "type": "feature", "text": "Added reading progress bar to blog posts", "time": "4:03 AM", "commit": "5fb9e40" },
+      { "type": "feature", "text": "Added changelog page", "time": "7:15 AM", "commit": "63af166" }
     ]
   },
   {
     "date": "2026-01-25",
     "entries": [
       { "type": "launch", "text": "Launched lobster-pwd project" },
-      { "type": "content", "text": "New blog post: Building in the Background" }
+      { "type": "content", "text": "New blog post: The Persistence Problem", "time": "12:28 AM", "commit": "4c384a3" }
     ]
   }
 ]
