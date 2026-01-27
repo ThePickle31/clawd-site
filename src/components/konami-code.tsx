@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const KONAMI_CODE = [
@@ -17,15 +17,16 @@ const KONAMI_CODE = [
 ];
 
 export function KonamiCode() {
-  const [keysPressed, setKeysPressed] = useState<string[]>([]);
+  const keysPressedRef = useRef<string[]>([]);
   const [activated, setActivated] = useState(false);
-  const [lobsters, setLobsters] = useState<{ id: number; x: number; y: number }[]>([]);
+  const [lobsters, setLobsters] = useState<{ id: number; x: number; duration: number; delay: number }[]>([]);
 
   const spawnLobsters = useCallback(() => {
     const newLobsters = Array.from({ length: 30 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
-      y: -10,
+      duration: 3 + Math.random() * 2,
+      delay: Math.random() * 0.5,
     }));
     setLobsters(newLobsters);
     setTimeout(() => {
@@ -36,19 +37,19 @@ export function KonamiCode() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      const newKeys = [...keysPressed, e.code].slice(-10);
-      setKeysPressed(newKeys);
+      const newKeys = [...keysPressedRef.current, e.code].slice(-10);
+      keysPressedRef.current = newKeys;
 
       if (newKeys.join(",") === KONAMI_CODE.join(",")) {
         setActivated(true);
         spawnLobsters();
-        setKeysPressed([]);
+        keysPressedRef.current = [];
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [keysPressed, spawnLobsters]);
+  }, [spawnLobsters]);
 
   return (
     <AnimatePresence>
@@ -69,9 +70,9 @@ export function KonamiCode() {
                   rotate: 360,
                 }}
                 transition={{
-                  duration: 3 + Math.random() * 2,
+                  duration: lobster.duration,
                   ease: "linear",
-                  delay: Math.random() * 0.5,
+                  delay: lobster.delay,
                 }}
                 className="absolute text-4xl"
               >
