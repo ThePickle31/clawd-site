@@ -6,7 +6,6 @@ export function BubbleCursorTrail() {
   const containerRef = useRef<HTMLDivElement>(null);
   const enabledRef = useRef(false);
   const lastSpawnRef = useRef(0);
-  const idRef = useRef(0);
 
   // Check capabilities once
   useEffect(() => {
@@ -43,13 +42,11 @@ export function BubbleCursorTrail() {
 
     const size = 6 + Math.random() * 16;
     const drift = (Math.random() - 0.5) * 80;
-    const duration = 1 + Math.random() * 0.8;
+    const duration = 1000 + Math.random() * 800;
     const floatDistance = 100 + Math.random() * 80;
     const isCoral = Math.random() > 0.4;
-    const id = idRef.current++;
 
     const el = document.createElement("div");
-    el.className = "bubble-trail";
     el.style.cssText = `
       position: absolute;
       width: ${size}px;
@@ -61,25 +58,18 @@ export function BubbleCursorTrail() {
         isCoral ? "rgba(255, 107, 74, 0.5), rgba(255, 107, 74, 0.1)" : "rgba(255, 248, 240, 0.5), rgba(255, 248, 240, 0.1)"
       });
       border: 1px solid ${isCoral ? "rgba(255, 107, 74, 0.2)" : "rgba(255, 248, 240, 0.2)"};
-      will-change: transform, opacity;
       pointer-events: none;
-      animation: bubble-float-${id} ${duration}s ease-out forwards;
     `;
 
-    // Create unique keyframes for this bubble
-    const style = document.createElement("style");
-    style.textContent = `
-      @keyframes bubble-float-${id} {
-        0% { transform: translate(0, 0) scale(0.3); opacity: 0.7; }
-        100% { transform: translate(${drift}px, ${-floatDistance}px) scale(1); opacity: 0; }
-      }
-    `;
-    document.head.appendChild(style);
+    const animation = el.animate(
+      [
+        { transform: "translate(0, 0) scale(0.3)", opacity: 0.7 },
+        { transform: `translate(${drift}px, ${-floatDistance}px) scale(1)`, opacity: 0 },
+      ],
+      { duration, easing: "ease-out", fill: "forwards" }
+    );
 
-    el.addEventListener("animationend", () => {
-      el.remove();
-      style.remove();
-    }, { once: true });
+    animation.onfinish = () => el.remove();
 
     container.appendChild(el);
   }, []);
