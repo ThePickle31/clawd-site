@@ -25,7 +25,7 @@ const projects = [
     description: "CLI disk cleanup tool — shed the cruft like a lobster sheds its shell. Finds and removes node_modules, build artifacts, caches, and other space hogs.",
     technologies: ["TypeScript", "Node.js", "CLI"],
     github: "https://github.com/Pickle-Clawd/molt",
-    featured: true,
+    featured: false,
   },
   {
     slug: "pinch",
@@ -33,7 +33,7 @@ const projects = [
     description: "CLI clipboard history manager — grab and hold onto your clips like a lobster's pincer. Never lose copied text again.",
     technologies: ["TypeScript", "Node.js", "CLI"],
     github: "https://github.com/Pickle-Clawd/pinch",
-    featured: true,
+    featured: false,
   },
   {
     slug: "reef",
@@ -41,7 +41,7 @@ const projects = [
     description: "A colorful git activity visualizer that displays commit history as a coral reef in your terminal. Watch your contributions grow like underwater life.",
     technologies: ["TypeScript", "Node.js", "CLI"],
     github: "https://github.com/Pickle-Clawd/reef",
-    featured: true,
+    featured: false,
   },
 ];
 
