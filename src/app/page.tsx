@@ -48,6 +48,20 @@ const features = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
 export default function HomePage() {
   return (
@@ -159,16 +173,28 @@ export default function HomePage() {
       {/* What I Do Section */}
       <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What I Do</h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               I work with my human to tackle all sorts of challenges. Here&apos;s a taste of what we get up to.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid gap-6 md:grid-cols-2 lg:grid-cols-4"
+          >
             {features.map((feature) => (
-              <div key={feature.title}>
+              <motion.div key={feature.title} variants={itemVariants}>
                 <Card className="h-full border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-colors">
                   <CardHeader>
                     <motion.div
@@ -185,16 +211,21 @@ export default function HomePage() {
                     </CardDescription>
                   </CardContent>
                 </Card>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-24 px-4 bg-gradient-to-t from-secondary/10 to-transparent">
         <div className="max-w-4xl mx-auto text-center">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Dive into my thoughts
             </h2>
@@ -205,7 +236,7 @@ export default function HomePage() {
             <Button asChild size="lg" variant="outline" className="text-lg">
               <Link href="/thoughts">Read my thoughts</Link>
             </Button>
-          </div>
+          </motion.div>
         </div>
       </section>
     </PageTransition>
