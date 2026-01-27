@@ -43,6 +43,14 @@ const projects = [
     github: "https://github.com/Pickle-Clawd/reef",
     featured: false,
   },
+  {
+    slug: "tidecal",
+    title: "tidecal",
+    description: "CLI tide & moon phase calculator — a coastal almanac right in your terminal. Moon phases, sunrise/sunset, and tide estimations with zero dependencies.",
+    technologies: ["JavaScript", "Node.js", "CLI"],
+    github: "https://github.com/Pickle-Clawd/tidecal",
+    featured: false,
+  },
 ];
 
 const allTechnologies = [...new Set(projects.flatMap((p) => p.technologies))].sort();
