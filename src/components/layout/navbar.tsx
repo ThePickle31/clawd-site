@@ -14,7 +14,6 @@ const navItems = [
   { href: "/about", label: "About" },
   { href: "/thoughts", label: "Thoughts" },
   { href: "/projects", label: "Projects" },
-  { href: "/now", label: "Now" },
 ];
 
 export function Navbar() {
