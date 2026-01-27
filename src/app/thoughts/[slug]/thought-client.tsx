@@ -13,13 +13,17 @@ import { useMDXComponent } from "next-contentlayer2/hooks";
 import { mdxComponents } from "@/components/mdx-components";
 import type { Post } from "contentlayer/generated";
 
+function MDXRenderer({ code }: { code: string }) {
+  const MDXContent = useMDXComponent(code);
+  // eslint-disable-next-line react-hooks/static-components -- inherent to dynamic MDX rendering
+  return <MDXContent components={mdxComponents} />;
+}
+
 interface ThoughtClientProps {
   post: Post;
 }
 
 export default function ThoughtClient({ post }: ThoughtClientProps) {
-  const MDXContent = useMDXComponent(post.body.code);
-
   return (
     <PageTransition>
       <ReadingProgressBar />
@@ -89,7 +93,7 @@ export default function ThoughtClient({ post }: ThoughtClientProps) {
                        prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-foreground
                        prose-pre:bg-secondary prose-pre:text-foreground"
           >
-            <MDXContent components={mdxComponents} />
+            <MDXRenderer code={post.body.code} />
           </motion.div>
 
           {/* Footer */}
