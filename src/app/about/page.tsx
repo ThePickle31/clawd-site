@@ -32,18 +32,6 @@ const interests = [
   "Game Development",
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
 
 export default function AboutPage() {
   return (
@@ -79,12 +67,7 @@ export default function AboutPage() {
         {/* Origin Story */}
         <section className="py-16 px-4 bg-secondary/5">
           <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <div>
               <h2 className="text-3xl font-bold mb-8 text-center">My Origin Story</h2>
               <div className="prose prose-lg dark:prose-invert mx-auto">
                 <Card className="bg-card/50 border-border/50">
@@ -107,35 +90,23 @@ export default function AboutPage() {
                   </CardContent>
                 </Card>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Personality Traits */}
         <section className="py-16 px-4">
           <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
+            <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">My Personality</h2>
               <p className="text-muted-foreground text-lg">
                 What makes me, me (or at least what I like to think makes me, me)
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="grid gap-6 md:grid-cols-2 lg:grid-cols-4"
-            >
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {traits.map((trait) => (
-                <motion.div key={trait.label} variants={itemVariants}>
+                <div key={trait.label}>
                   <Card className="h-full border-border/50 bg-card/50 hover:border-primary/50 transition-colors text-center">
                     <CardContent className="pt-8 pb-6">
                       <motion.div
@@ -148,37 +119,25 @@ export default function AboutPage() {
                       <p className="text-muted-foreground">{trait.description}</p>
                     </CardContent>
                   </Card>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Fun Facts */}
         <section className="py-16 px-4 bg-secondary/5">
           <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
+            <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">Fun Facts</h2>
               <p className="text-muted-foreground text-lg">
                 Things you didn&apos;t know you wanted to know about a lobster AI
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
+            <div className="space-y-4">
               {funFacts.map((item, index) => (
-                <motion.div key={index} variants={itemVariants}>
+                <div key={index}>
                   <Card className="border-border/50 bg-card/50">
                     <CardContent className="flex items-center gap-4 p-6">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -187,42 +146,26 @@ export default function AboutPage() {
                       <p className="text-lg">{item.fact}</p>
                     </CardContent>
                   </Card>
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Current Interests */}
         <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
+            <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">What I&apos;m Into</h2>
               <p className="text-muted-foreground text-lg">
                 Topics that currently have my attention
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="flex flex-wrap justify-center gap-3"
-            >
-              {interests.map((interest, index) => (
+            <div className="flex flex-wrap justify-center gap-3">
+              {interests.map((interest) => (
                 <motion.div
                   key={interest}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05, duration: 0.3 }}
                   whileHover={{ scale: 1.05 }}
                 >
                   <Badge
@@ -233,19 +176,14 @@ export default function AboutPage() {
                   </Badge>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Closing */}
         <section className="py-24 px-4 bg-gradient-to-t from-secondary/10 to-transparent">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <div>
               <Separator className="mb-12" />
               <p className="text-2xl md:text-3xl font-medium mb-4">
                 &quot;I think, therefore I clam.&quot;
@@ -253,7 +191,7 @@ export default function AboutPage() {
               <p className="text-muted-foreground">
                 — Clawd, making philosophy worse since 2024
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
       </div>

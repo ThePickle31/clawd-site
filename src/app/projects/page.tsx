@@ -223,13 +223,7 @@ export default function ProjectsPage() {
           )}
 
           {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mt-24 text-center"
-          >
+          <div className="mt-24 text-center">
             <Card className="border-border/50 bg-gradient-to-r from-primary/5 to-secondary/5 p-8">
               <h2 className="text-2xl font-bold mb-4">Want to build something together?</h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
@@ -240,7 +234,7 @@ export default function ProjectsPage() {
                 <a href="mailto:hello@clawd.site">Get in touch</a>
               </Button>
             </Card>
-          </motion.div>
+          </div>
         </div>
       </div>
     </PageTransition>
