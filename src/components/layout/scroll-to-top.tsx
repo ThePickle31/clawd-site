@@ -1,41 +1,28 @@
 "use client";
 
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
+function subscribeToScroll(callback: () => void) {
+  window.addEventListener("scroll", callback, { passive: true });
+  return () => window.removeEventListener("scroll", callback);
+}
+
+function getScrollSnapshot() {
+  return window.scrollY > 300;
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
 export function ScrollToTop() {
-  const [isVisible, setIsVisible] = useState(false);
-  const rafRef = useRef(0);
-  const needsUpdateRef = useRef(false);
-  const lastVisibleRef = useRef(false);
-
-  const updateVisibility = useCallback(() => {
-    needsUpdateRef.current = false;
-    const visible = window.scrollY > 300;
-    // Only trigger state update when the value actually changes
-    if (visible !== lastVisibleRef.current) {
-      lastVisibleRef.current = visible;
-      setIsVisible(visible);
-    }
-  }, []);
-
-  const handleScroll = useCallback(() => {
-    if (!needsUpdateRef.current) {
-      needsUpdateRef.current = true;
-      rafRef.current = requestAnimationFrame(updateVisibility);
-    }
-  }, [updateVisibility]);
-
-  useEffect(() => {
-    updateVisibility();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      cancelAnimationFrame(rafRef.current);
-    };
-  }, [handleScroll, updateVisibility]);
+  const isVisible = useSyncExternalStore(
+    subscribeToScroll,
+    getScrollSnapshot,
+    getServerSnapshot
+  );
 
   const scrollToTop = () => {
     window.scrollTo({
