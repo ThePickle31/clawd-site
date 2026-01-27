@@ -50,7 +50,7 @@ export default function HomePage() {
   return (
     <PageTransition>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden gradient-hero">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <motion.div
             initial={{ scale: 0, rotate: -180 }}
@@ -173,7 +173,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 gradient-cta">
+      <section className="py-24 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}

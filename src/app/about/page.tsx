@@ -77,7 +77,7 @@ export default function AboutPage() {
         </section>
 
         {/* Origin Story */}
-        <section className="py-16 px-4 gradient-section">
+        <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -155,7 +155,7 @@ export default function AboutPage() {
         </section>
 
         {/* Fun Facts */}
-        <section className="py-16 px-4 gradient-section">
+        <section className="py-16 px-4">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -238,7 +238,7 @@ export default function AboutPage() {
         </section>
 
         {/* Closing */}
-        <section className="py-24 px-4 gradient-cta">
+        <section className="py-24 px-4">
           <div className="max-w-3xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}

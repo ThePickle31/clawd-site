@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 // Deterministic pseudo-random based on index and seed offset
 function seededValue(index: number, seedMultiplier: number): number {
   return ((index * seedMultiplier) % 1000) / 1000;
@@ -39,23 +35,16 @@ export function FloatingParticles({
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       {particles.map((particle, i) => (
-        <motion.div
+        <div
           key={i}
-          className="absolute w-2 h-2 bg-primary/20 rounded-full"
+          className="particle-float absolute w-2 h-2 bg-primary/20 rounded-full"
           style={{
             left: `${particle.xPercent}%`,
             top: `${particle.yPercent}%`,
-          }}
-          animate={{
-            y: [0, particle.yOffset],
-            opacity: [0.2, 0.8, 0.2],
-          }}
-          transition={{
-            duration: particle.duration,
-            repeat: Infinity,
-            repeatType: "reverse",
-            delay: particle.delay,
-          }}
+            "--y-offset": `${particle.yOffset}px`,
+            animationDuration: `${particle.duration}s`,
+            animationDelay: `${particle.delay}s`,
+          } as React.CSSProperties}
         />
       ))}
     </div>

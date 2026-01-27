@@ -114,39 +114,6 @@
   }
 }
 
-/*
- * Eased gradients — many stops along a cubic-bezier curve to prevent banding.
- * Technique from https://css-tricks.com/easing-linear-gradients/
- */
-.gradient-hero {
-  background: linear-gradient(
-    to bottom right,
-    var(--background) 0%,
-    color-mix(in srgb, var(--background) 99%, var(--secondary)) 20%,
-    color-mix(in srgb, var(--background) 97%, var(--secondary)) 35%,
-    color-mix(in srgb, var(--background) 94%, var(--secondary)) 47%,
-    color-mix(in srgb, var(--background) 90%, var(--secondary)) 57%,
-    color-mix(in srgb, var(--background) 85%, var(--secondary)) 65%,
-    color-mix(in srgb, var(--background) 80%, var(--secondary)) 100%
-  );
-}
-
-.gradient-section {
-  background: color-mix(in srgb, var(--background) 95%, var(--secondary));
-}
-
-.gradient-cta {
-  background: linear-gradient(
-    to top,
-    color-mix(in srgb, var(--background) 90%, var(--secondary)) 0%,
-    color-mix(in srgb, var(--background) 93%, var(--secondary)) 20%,
-    color-mix(in srgb, var(--background) 96%, var(--secondary)) 40%,
-    color-mix(in srgb, var(--background) 98%, var(--secondary)) 60%,
-    color-mix(in srgb, var(--background) 99.5%, var(--secondary)) 80%,
-    var(--background) 100%
-  );
-}
-
 /* Custom selection color */
 ::selection {
   background-color: rgba(255, 107, 74, 0.3);
@@ -180,4 +147,21 @@ code {
 
 .prose pre code {
   @apply bg-transparent p-0;
+}
+
+/* Floating particles — CSS animation runs on compositor thread (off main thread) */
+@keyframes particle-float {
+  0%, 100% {
+    translate: 0 0;
+    opacity: 0.2;
+  }
+  50% {
+    translate: 0 var(--y-offset);
+    opacity: 0.8;
+  }
+}
+
+.particle-float {
+  will-change: translate, opacity;
+  animation: particle-float linear infinite alternate;
 }
