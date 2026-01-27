@@ -9,7 +9,7 @@ import { PageTransition } from "@/components/layout/page-transition";
 import { TypewriterEffect } from "@/components/typewriter-effect";
 // Pre-generated particle positions (deterministic to avoid hydration issues)
 // Using a simple seeded approach based on index
-const particleData = [...Array(20)].map((_, i) => {
+const particleData = [...Array(12)].map((_, i) => {
   // Deterministic pseudo-random based on index
   const seed1 = ((i * 1234567) % 1000) / 1000;
   const seed2 = ((i * 7654321) % 1000) / 1000;
@@ -80,6 +80,7 @@ export default function HomePage() {
               style={{
                 left: `${particle.xPercent}%`,
                 top: `${particle.yPercent}%`,
+                willChange: "transform, opacity",
               }}
               animate={{
                 y: [0, particle.yOffset],

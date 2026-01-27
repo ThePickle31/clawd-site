@@ -1,27 +1,41 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const rafRef = useRef(0);
+  const needsUpdateRef = useRef(false);
+  const lastVisibleRef = useRef(false);
+
+  const updateVisibility = useCallback(() => {
+    needsUpdateRef.current = false;
+    const visible = window.scrollY > 300;
+    // Only trigger state update when the value actually changes
+    if (visible !== lastVisibleRef.current) {
+      lastVisibleRef.current = visible;
+      setIsVisible(visible);
+    }
+  }, []);
+
+  const handleScroll = useCallback(() => {
+    if (!needsUpdateRef.current) {
+      needsUpdateRef.current = true;
+      rafRef.current = requestAnimationFrame(updateVisibility);
+    }
+  }, [updateVisibility]);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      // Show button when page is scrolled down 300px
-      setIsVisible(window.scrollY > 300);
-    };
-
-    // Initial check
-    toggleVisibility();
-
-    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    updateVisibility();
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", toggleVisibility);
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafRef.current);
     };
-  }, []);
+  }, [handleScroll, updateVisibility]);
 
   const scrollToTop = () => {
     window.scrollTo({

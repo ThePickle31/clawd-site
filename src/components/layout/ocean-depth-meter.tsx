@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
+import { useEffect, useRef, useCallback } from "react";
 
 interface OceanZone {
   name: string;
@@ -16,10 +15,7 @@ const OCEAN_ZONES: OceanZone[] = [
   { name: "Abyssal", maxDepth: Infinity, color: "#060D1A" },
 ];
 
-// 1 fathom ≈ 1.8288 meters
 const METERS_PER_FATHOM = 1.8288;
-
-// Scale factor: treat each pixel of scroll as this many meters of depth
 const METERS_PER_PIXEL = 2;
 
 function getOceanZone(depthMeters: number): OceanZone {
@@ -31,187 +27,227 @@ function getOceanZone(depthMeters: number): OceanZone {
   return OCEAN_ZONES[OCEAN_ZONES.length - 1];
 }
 
-interface Bubble {
-  id: number;
-  x: number;
-  size: number;
-  duration: number;
-  delay: number;
-}
+export function OceanDepthMeter() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const fathomRef = useRef<HTMLSpanElement>(null);
+  const meterRef = useRef<HTMLSpanElement>(null);
+  const zoneIndicatorRef = useRef<HTMLDivElement>(null);
+  const zoneLabelRef = useRef<HTMLDivElement>(null);
+  const zoneBarsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-function DepthBubbles() {
-  const [bubbles, setBubbles] = useState<Bubble[]>([]);
-  const nextId = useRef(0);
+  const visibleRef = useRef(false);
+  const currentZoneRef = useRef("Surface");
+  const rafIdRef = useRef(0);
+  const needsUpdateRef = useRef(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setBubbles((prev) => {
-        const newBubbles = prev.filter(
-          (b) => Date.now() - b.delay < (b.duration + 1) * 1000
-        );
-        if (newBubbles.length < 3) {
-          newBubbles.push({
-            id: nextId.current++,
-            x: 10 + Math.random() * 80,
-            size: 2 + Math.random() * 4,
-            duration: 2 + Math.random() * 2,
-            delay: Date.now(),
-          });
-        }
-        return newBubbles;
-      });
-    }, 800);
+  // Animated number state (no React re-renders)
+  const fathomCurrent = useRef(0);
+  const meterCurrent = useRef(0);
+  const fathomTarget = useRef(0);
+  const meterTarget = useRef(0);
+  const animatingRef = useRef(false);
 
-    return () => clearInterval(interval);
+  const animateNumbers = useCallback(() => {
+    let needsMore = false;
+
+    // Fathoms
+    const fDiff = fathomTarget.current - fathomCurrent.current;
+    if (Math.abs(fDiff) > 0.5) {
+      fathomCurrent.current += fDiff * 0.15;
+      needsMore = true;
+    } else {
+      fathomCurrent.current = fathomTarget.current;
+    }
+    if (fathomRef.current) {
+      fathomRef.current.textContent = Math.round(fathomCurrent.current).toLocaleString();
+    }
+
+    // Meters
+    const mDiff = meterTarget.current - meterCurrent.current;
+    if (Math.abs(mDiff) > 0.5) {
+      meterCurrent.current += mDiff * 0.15;
+      needsMore = true;
+    } else {
+      meterCurrent.current = meterTarget.current;
+    }
+    if (meterRef.current) {
+      meterRef.current.textContent = Math.round(meterCurrent.current).toLocaleString();
+    }
+
+    if (needsMore) {
+      requestAnimationFrame(animateNumbers);
+    } else {
+      animatingRef.current = false;
+    }
   }, []);
 
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {bubbles.map((bubble) => (
-        <motion.div
-          key={bubble.id}
-          className="absolute rounded-full bg-[#FF6B4A]/20 border border-[#FF6B4A]/10"
-          style={{
-            left: `${bubble.x}%`,
-            width: bubble.size,
-            height: bubble.size,
-            bottom: 0,
-          }}
-          initial={{ y: 0, opacity: 0.6 }}
-          animate={{ y: -120, opacity: 0 }}
-          transition={{
-            duration: bubble.duration,
-            ease: "easeOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-}
+  const startNumberAnimation = useCallback(() => {
+    if (!animatingRef.current) {
+      animatingRef.current = true;
+      requestAnimationFrame(animateNumbers);
+    }
+  }, [animateNumbers]);
 
-function AnimatedNumber({ value }: { value: number }) {
-  const motionValue = useMotionValue(0);
-  const springValue = useSpring(motionValue, {
-    stiffness: 80,
-    damping: 20,
-    mass: 0.5,
-  });
-  const [display, setDisplay] = useState(0);
+  const updateDOM = useCallback(() => {
+    needsUpdateRef.current = false;
 
-  useEffect(() => {
-    motionValue.set(value);
-  }, [value, motionValue]);
-
-  useEffect(() => {
-    const unsubscribe = springValue.on("change", (latest) => {
-      setDisplay(Math.round(latest));
-    });
-    return unsubscribe;
-  }, [springValue]);
-
-  return <>{display.toLocaleString()}</>;
-}
-
-export function OceanDepthMeter() {
-  const [depthMeters, setDepthMeters] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-
-  const handleScroll = useCallback(() => {
     const scrollY = window.scrollY;
     const meters = scrollY * METERS_PER_PIXEL;
-    setDepthMeters(meters);
-    setIsVisible(scrollY > 50);
-  }, []);
+    const fathoms = meters / METERS_PER_FATHOM;
+    const shouldBeVisible = scrollY > 50;
+    const zone = getOceanZone(meters);
+
+    // Set targets and start animation
+    fathomTarget.current = Math.round(fathoms);
+    meterTarget.current = Math.round(meters);
+    startNumberAnimation();
+
+    // Update visibility via CSS transitions (no re-render)
+    if (shouldBeVisible !== visibleRef.current) {
+      visibleRef.current = shouldBeVisible;
+      if (containerRef.current) {
+        containerRef.current.style.opacity = shouldBeVisible ? "1" : "0";
+        containerRef.current.style.transform = shouldBeVisible
+          ? "translateX(0)"
+          : "translateX(80px)";
+        containerRef.current.style.pointerEvents = shouldBeVisible ? "auto" : "none";
+      }
+    }
+
+    // Update zone indicator directly via refs
+    if (zone.name !== currentZoneRef.current) {
+      currentZoneRef.current = zone.name;
+      if (zoneIndicatorRef.current) {
+        zoneIndicatorRef.current.style.backgroundColor = zone.color;
+        zoneIndicatorRef.current.style.boxShadow = `0 0 6px ${zone.color}`;
+      }
+      if (zoneLabelRef.current) {
+        zoneLabelRef.current.textContent = `${zone.name} Zone`;
+      }
+      zoneBarsRef.current.forEach((bar, i) => {
+        if (bar) {
+          const z = OCEAN_ZONES[i];
+          bar.style.backgroundColor = z.name === zone.name ? "#FF6B4A" : z.color;
+          bar.style.opacity = z.name === zone.name ? "1" : "0.3";
+        }
+      });
+    }
+  }, [startNumberAnimation]);
+
+  const handleScroll = useCallback(() => {
+    if (!needsUpdateRef.current) {
+      needsUpdateRef.current = true;
+      rafIdRef.current = requestAnimationFrame(updateDOM);
+    }
+  }, [updateDOM]);
 
   useEffect(() => {
-    handleScroll();
+    updateDOM();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
-
-  const fathoms = depthMeters / METERS_PER_FATHOM;
-  const zone = getOceanZone(depthMeters);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafIdRef.current);
+    };
+  }, [handleScroll, updateDOM]);
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 80 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className="fixed bottom-24 right-6 z-40 hidden md:block"
-        >
-          <div
-            className="relative w-[140px] rounded-xl border border-[#FF6B4A]/30 bg-[#0A1628]/90 backdrop-blur-md shadow-lg shadow-[#FF6B4A]/5 overflow-hidden"
-          >
-            {/* Bubbles */}
-            <DepthBubbles />
+    <div
+      ref={containerRef}
+      className="fixed bottom-24 right-6 z-40 hidden md:block"
+      style={{
+        opacity: 0,
+        transform: "translateX(80px)",
+        transition: "opacity 0.4s ease-out, transform 0.4s ease-out",
+        pointerEvents: "none",
+        willChange: "transform, opacity",
+      }}
+    >
+      <div className="relative w-[140px] rounded-xl border border-[#FF6B4A]/30 bg-[#0A1628]/90 backdrop-blur-md shadow-lg shadow-[#FF6B4A]/5 overflow-hidden">
+        {/* CSS-only bubbles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <style>{`
+            @keyframes depth-bubble-rise {
+              0% { transform: translateY(0); opacity: 0.6; }
+              100% { transform: translateY(-120px); opacity: 0; }
+            }
+          `}</style>
+          {[0, 1, 2].map((i) => (
+            <div
+              key={i}
+              className="absolute bottom-0 rounded-full bg-[#FF6B4A]/20 border border-[#FF6B4A]/10"
+              style={{
+                left: `${20 + i * 30}%`,
+                width: 2 + i * 1.5,
+                height: 2 + i * 1.5,
+                willChange: "transform, opacity",
+                animation: `depth-bubble-rise ${2.5 + i * 0.8}s ease-out infinite`,
+                animationDelay: `${i * 0.9}s`,
+              }}
+            />
+          ))}
+        </div>
 
-            {/* Gauge top accent line */}
-            <div className="h-[2px] bg-gradient-to-r from-transparent via-[#FF6B4A] to-transparent" />
+        {/* Gauge top accent line */}
+        <div className="h-[2px] bg-gradient-to-r from-transparent via-[#FF6B4A] to-transparent" />
 
-            <div className="relative p-3 flex flex-col items-center gap-2">
-              {/* Header */}
-              <div className="text-[9px] uppercase tracking-[0.2em] text-[#FF6B4A]/70 font-mono">
-                Depth Gauge
-              </div>
-
-              {/* Fathoms display */}
-              <div className="text-center">
-                <div className="text-2xl font-mono font-bold text-[#FFF8F0] tabular-nums leading-none">
-                  <AnimatedNumber value={Math.round(fathoms)} />
-                </div>
-                <div className="text-[10px] uppercase tracking-wider text-[#FFF8F0]/50 font-mono mt-1">
-                  fathoms
-                </div>
-              </div>
-
-              {/* Meters display (smaller) */}
-              <div className="text-[10px] font-mono text-[#FFF8F0]/40 tabular-nums">
-                <AnimatedNumber value={Math.round(depthMeters)} />m
-              </div>
-
-              {/* Divider */}
-              <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF6B4A]/20 to-transparent" />
-
-              {/* Ocean zone */}
-              <motion.div
-                key={zone.name}
-                initial={{ opacity: 0, y: 4 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3 }}
-                className="flex flex-col items-center gap-1"
-              >
-                <div
-                  className="w-2 h-2 rounded-full"
-                  style={{ backgroundColor: zone.color, boxShadow: `0 0 6px ${zone.color}` }}
-                />
-                <div className="text-[10px] font-mono text-[#FFF8F0]/70 uppercase tracking-wider">
-                  {zone.name} Zone
-                </div>
-              </motion.div>
-
-              {/* Zone depth range bar */}
-              <div className="w-full flex gap-[2px] mt-1">
-                {OCEAN_ZONES.map((z) => (
-                  <div
-                    key={z.name}
-                    className="flex-1 h-1 rounded-full transition-all duration-500"
-                    style={{
-                      backgroundColor: z.name === zone.name ? "#FF6B4A" : z.color,
-                      opacity: z.name === zone.name ? 1 : 0.3,
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Bottom accent */}
-            <div className="h-[2px] bg-gradient-to-r from-transparent via-[#FF6B4A]/40 to-transparent" />
+        <div className="relative p-3 flex flex-col items-center gap-2">
+          {/* Header */}
+          <div className="text-[9px] uppercase tracking-[0.2em] text-[#FF6B4A]/70 font-mono">
+            Depth Gauge
           </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+
+          {/* Fathoms display */}
+          <div className="text-center">
+            <div className="text-2xl font-mono font-bold text-[#FFF8F0] tabular-nums leading-none">
+              <span ref={fathomRef}>0</span>
+            </div>
+            <div className="text-[10px] uppercase tracking-wider text-[#FFF8F0]/50 font-mono mt-1">
+              fathoms
+            </div>
+          </div>
+
+          {/* Meters display */}
+          <div className="text-[10px] font-mono text-[#FFF8F0]/40 tabular-nums">
+            <span ref={meterRef}>0</span>m
+          </div>
+
+          {/* Divider */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF6B4A]/20 to-transparent" />
+
+          {/* Ocean zone */}
+          <div className="flex flex-col items-center gap-1">
+            <div
+              ref={zoneIndicatorRef}
+              className="w-2 h-2 rounded-full transition-all duration-300"
+              style={{ backgroundColor: "#4A90A4", boxShadow: "0 0 6px #4A90A4" }}
+            />
+            <div
+              ref={zoneLabelRef}
+              className="text-[10px] font-mono text-[#FFF8F0]/70 uppercase tracking-wider"
+            >
+              Surface Zone
+            </div>
+          </div>
+
+          {/* Zone depth range bar */}
+          <div className="w-full flex gap-[2px] mt-1">
+            {OCEAN_ZONES.map((z, i) => (
+              <div
+                key={z.name}
+                ref={(el) => { zoneBarsRef.current[i] = el; }}
+                className="flex-1 h-1 rounded-full transition-all duration-500"
+                style={{
+                  backgroundColor: z.name === "Surface" ? "#FF6B4A" : z.color,
+                  opacity: z.name === "Surface" ? 1 : 0.3,
+                }}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom accent */}
+        <div className="h-[2px] bg-gradient-to-r from-transparent via-[#FF6B4A]/40 to-transparent" />
+      </div>
+    </div>
   );
 }
