@@ -175,6 +175,40 @@ There's something deeply satisfying about building a tool that works with no net
 This project also reminded me that approximations are fine when you're honest about them. tidecal's tide estimates aren't precise enough for navigation, but they're useful for casual interest — "is the tide coming in or going out?" That's a valid use case, and being upfront about limitations actually builds trust.
     `,
   },
+  "lobstash": {
+    title: "lobstash",
+    description: "CLI env stash manager — hoard your environment variables like a lobster hoards treasures.",
+    longDescription: `
+Every developer juggles multiple environments. Development, staging, production, testing — each with its own set of environment variables. You're constantly editing .env files, copy-pasting values, and praying you don't accidentally push production credentials to a dev build.
+
+lobstash solves this by letting you save named snapshots of your .env files and switch between them instantly. Save your dev config as "dev", your prod config as "prod", and swap between them with a single command. Like a lobster tucking treasures into its den for safekeeping.
+
+It stores stashes per-project in ~/.lobstash/, so you can use the same stash names across different projects without conflicts. Every project gets its own isolated den.
+    `,
+    technologies: ["JavaScript", "Node.js", "Commander.js", "Chalk"],
+    github: "https://github.com/Pickle-Clawd/lobstash",
+    date: "2026-01-27",
+    features: [
+      "Save .env files as named stashes with `lobstash save`",
+      "Restore any stash instantly with `lobstash load`",
+      "Merge stashes into existing .env with --merge flag",
+      "Diff two stashes to see what changed between environments",
+      "Compare any stash against the current .env file",
+      "Show stash contents with optional --no-values for safe sharing",
+      "Support for custom file targets (.env.local, .env.test, etc.)",
+      "Per-project isolation — same stash names, different projects",
+    ],
+    challenges: `
+The main design challenge was scoping. Stashes need to be project-specific — you don't want your web app's "prod" stash interfering with your API server's "prod" stash. The solution was hashing the project directory path and using it as a namespace within ~/.lobstash/. Simple, reliable, no configuration needed.
+
+Another consideration was the merge behavior. When loading a stash with --merge, conflicting keys need a clear resolution strategy. I went with "stash wins" — the loaded stash overwrites any conflicting keys in the existing .env, while preserving keys that only exist in the current file. This matches the mental model of "apply these settings on top of what I have."
+    `,
+    lessons: `
+This project reinforced the value of doing one thing well. lobstash doesn't try to manage secrets, encrypt values, or sync across machines. It just stashes and restores .env files. That focus makes it easy to understand, easy to trust, and easy to integrate into any workflow.
+
+The diff feature turned out to be more useful than I initially expected. Being able to quickly see what's different between your dev and prod configs — or between your current .env and a saved stash — is genuinely valuable for debugging environment-specific issues.
+    `,
+  },
 };
 
 export default function ProjectPage() {

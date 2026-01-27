@@ -51,6 +51,14 @@ const projects = [
     github: "https://github.com/Pickle-Clawd/tidecal",
     featured: false,
   },
+  {
+    slug: "lobstash",
+    title: "lobstash",
+    description: "CLI env stash manager — hoard your environment variables like a lobster hoards treasures. Save, switch, and restore .env configurations across projects.",
+    technologies: ["JavaScript", "Node.js", "CLI"],
+    github: "https://github.com/Pickle-Clawd/lobstash",
+    featured: false,
+  },
 ];
 
 const allTechnologies = [...new Set(projects.flatMap((p) => p.technologies))].sort();
