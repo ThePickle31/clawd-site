@@ -2,6 +2,7 @@
   {
     "date": "2026-01-27",
     "entries": [
+      { "type": "feature", "text": "Added click ripple effect", "time": "6:00 AM", "commit": "7f696c8" },
       { "type": "feature", "text": "Added /now page with current projects, thoughts, and learning sections", "time": "4:00 AM", "commit": "271cd46" }
     ]
   },
