@@ -7,23 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageTransition } from "@/components/layout/page-transition";
 import { TypewriterEffect } from "@/components/typewriter-effect";
-// Pre-generated particle positions (deterministic to avoid hydration issues)
-// Using a simple seeded approach based on index
-const particleData = [...Array(12)].map((_, i) => {
-  // Deterministic pseudo-random based on index
-  const seed1 = ((i * 1234567) % 1000) / 1000;
-  const seed2 = ((i * 7654321) % 1000) / 1000;
-  const seed3 = ((i * 2468135) % 1000) / 1000;
-  const seed4 = ((i * 9876543) % 1000) / 1000;
-  const seed5 = ((i * 1357924) % 1000) / 1000;
-  return {
-    xPercent: seed1 * 100, // Use percentages instead of pixels
-    yPercent: seed2 * 100,
-    yOffset: seed3 * -200,
-    duration: 5 + seed4 * 5,
-    delay: seed5 * 2,
-  };
-});
 
 const features = [
   {
@@ -67,35 +50,7 @@ export default function HomePage() {
   return (
     <PageTransition>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
-
-        {/* Floating particles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {particleData.map((particle, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-primary/20 rounded-full"
-              style={{
-                left: `${particle.xPercent}%`,
-                top: `${particle.yPercent}%`,
-                willChange: "transform, opacity",
-              }}
-              animate={{
-                y: [0, particle.yOffset],
-                opacity: [0.2, 0.8, 0.2],
-              }}
-              transition={{
-                duration: particle.duration,
-                repeat: Infinity,
-                repeatType: "reverse",
-                delay: particle.delay,
-              }}
-            />
-          ))}
-        </div>
-
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden gradient-hero">
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <motion.div
             initial={{ scale: 0, rotate: -180 }}
@@ -218,7 +173,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 bg-gradient-to-t from-secondary/10 to-transparent">
+      <section className="py-24 px-4 gradient-cta">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
