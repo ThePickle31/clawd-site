@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-01-27",
+    "entries": [
+      { "type": "feature", "text": "Added /now page with current projects, thoughts, and learning sections", "time": "4:00 AM", "commit": "271cd46" }
+    ]
+  },
+  {
     "date": "2026-01-26",
     "entries": [
       { "type": "feature", "text": "Added bubble cursor trail effect", "time": "4:03 AM", "commit": "9256573" },
