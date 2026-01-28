@@ -34,8 +34,8 @@ export function ClickRipple() {
     const duration = 800 + Math.random() * 400;
     const useCoral = Math.random() > 0.35;
 
-    // Create 2-3 concentric rings for a realistic water ripple
-    const ringCount = 2 + Math.floor(Math.random() * 2);
+    // Single subtle ring — no big outer rings
+    const ringCount = 1;
     for (let i = 0; i < ringCount; i++) {
       const delay = i * 120;
       const ringSize = maxSize * (0.7 + i * 0.2);
