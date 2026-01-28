@@ -10,6 +10,7 @@ import { BubbleCursorTrail } from "@/components/bubble-cursor-trail";
 import { FloatingParticles } from "@/components/floating-particles";
 import { ClickRipple } from "@/components/click-ripple";
 import { DepthMeter } from "@/components/layout/depth-meter";
+import { WanderingCrab } from "@/components/wandering-crab";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -60,6 +61,7 @@ export default function RootLayout({
           <ClickRipple />
           <FloatingParticles />
           <DepthMeter />
+          <WanderingCrab />
           <Navbar />
           <main className="flex-1 pt-16 relative z-10">{children}</main>
           <Footer />
