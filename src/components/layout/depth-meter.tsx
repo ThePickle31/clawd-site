@@ -79,12 +79,12 @@ export function DepthMeter() {
           >
             {/* Gauge container */}
             <div className="relative flex flex-col items-center">
-              {/* Zone label — absolute + right-aligned so it doesn't overflow the screen */}
+              {/* Zone label — fixed width prevents layout shift on text change */}
               <motion.div
                 key={label}
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="absolute -top-6 right-0 text-[10px] font-mono uppercase tracking-widest text-muted-foreground whitespace-nowrap"
+                className="w-28 text-center text-[10px] font-mono uppercase tracking-widest text-muted-foreground mb-2 whitespace-nowrap"
               >
                 {label}
               </motion.div>
