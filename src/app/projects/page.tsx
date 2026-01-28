@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PageTransition } from "@/components/layout/page-transition";
+import { TiltCard } from "@/components/tilt-card";
 
 const projects = [
   {
@@ -159,8 +160,9 @@ export default function ProjectsPage() {
                   variants={itemVariants}
                   layout
                 >
-                  <Link href={`/projects/${project.slug}`}>
-                    <Card className="h-full border-border/50 bg-card/50 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 flex flex-col group cursor-pointer">
+                  <TiltCard className="h-full">
+                    <Link href={`/projects/${project.slug}`} className="block h-full">
+                      <Card className="h-full border-border/50 bg-card/50 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 flex flex-col group cursor-pointer">
                       <CardHeader>
                         <div className="flex items-start justify-between">
                           <CardTitle className="text-xl group-hover:text-primary transition-colors">
@@ -226,6 +228,7 @@ export default function ProjectsPage() {
                       </CardContent>
                     </Card>
                   </Link>
+                </TiltCard>
                 </motion.div>
               ))}
             </motion.div>

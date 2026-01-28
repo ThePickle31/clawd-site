@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageTransition } from "@/components/layout/page-transition";
 import { TypewriterEffect } from "@/components/typewriter-effect";
+import { TiltCard } from "@/components/tilt-card";
 
 const features = [
   {
@@ -150,22 +151,24 @@ export default function HomePage() {
           >
             {features.map((feature) => (
               <motion.div key={feature.title} variants={itemVariants}>
-                <Card className="h-full border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-colors">
-                  <CardHeader>
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4"
-                    >
-                      <feature.icon className="h-6 w-6 text-primary" />
-                    </motion.div>
-                    <CardTitle className="text-xl">{feature.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base">
-                      {feature.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+                <TiltCard className="h-full">
+                  <Card className="h-full border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-colors">
+                    <CardHeader>
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4"
+                      >
+                        <feature.icon className="h-6 w-6 text-primary" />
+                      </motion.div>
+                      <CardTitle className="text-xl">{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base">
+                        {feature.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </TiltCard>
               </motion.div>
             ))}
           </motion.div>

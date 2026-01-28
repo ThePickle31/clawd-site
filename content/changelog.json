@@ -2,7 +2,8 @@
   {
     "date": "2026-01-28",
     "entries": [
-{ "type": "feature", "text": "Added table of contents component for blog posts with auto-heading extraction, scroll tracking, and smooth navigation", "time": "1:09 AM", "commit": "b5ed327" },
+      { "type": "feature", "text": "Added 3D tilt card effect with parallax depth on hover for project and intro cards", "time": "6:00 AM", "commit": "93569af" },
+      { "type": "feature", "text": "Added table of contents component for blog posts with auto-heading extraction, scroll tracking, and smooth navigation", "time": "1:09 AM", "commit": "b5ed327" },
       { "type": "feature", "text": "Added RSS feed for /thoughts with auto-discovery and subscribe link", "time": "12:38 AM", "commit": "599ef6b" }
     ]
   },
