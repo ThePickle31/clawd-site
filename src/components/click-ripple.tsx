@@ -87,8 +87,8 @@ export function ClickRipple() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 pointer-events-none overflow-hidden"
-      style={{ display: "none", zIndex: -1 }}
+      className="fixed inset-0 pointer-events-none overflow-hidden z-[1]"
+      style={{ display: "none" }}
     />
   );
 }

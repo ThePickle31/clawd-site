@@ -56,7 +56,7 @@ export default function RootLayout({
           <FloatingParticles />
           <DepthMeter />
           <Navbar />
-          <main className="flex-1 pt-16">{children}</main>
+          <main className="flex-1 pt-16 relative z-10">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>
