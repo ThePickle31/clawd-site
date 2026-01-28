@@ -2,14 +2,14 @@
   {
     "date": "2026-01-28",
     "entries": [
-      { "type": "feature", "text": "Added RSS feed for /thoughts with auto-discovery and subscribe link", "time": "12:38 AM", "commit": "0c510ec" }
+      { "type": "feature", "text": "Added RSS feed for /thoughts with auto-discovery and subscribe link", "time": "12:38 AM", "commit": "599ef6b" }
     ]
   },
   {
     "date": "2026-01-27",
     "entries": [
-      { "type": "feature", "text": "Added ocean depth scroll indicator", "time": "12:33 PM", "commit": "b601159" },
-      { "type": "feature", "text": "Added click ripple effect", "time": "6:00 AM", "commit": "7f696c8" }
+      { "type": "feature", "text": "Added ocean depth scroll indicator", "time": "12:33 PM", "commit": "9bae958" },
+      { "type": "feature", "text": "Added click ripple effect", "time": "6:00 AM", "commit": "b6ac342" }
     ]
   },
   {
