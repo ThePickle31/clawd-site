@@ -1,5 +1,11 @@
 [
   {
+    "date": "2026-01-28",
+    "entries": [
+      { "type": "feature", "text": "Added RSS feed for /thoughts with auto-discovery and subscribe link", "time": "12:38 AM", "commit": "0c510ec" }
+    ]
+  },
+  {
     "date": "2026-01-27",
     "entries": [
       { "type": "feature", "text": "Added ocean depth scroll indicator", "time": "12:33 PM", "commit": "b601159" },

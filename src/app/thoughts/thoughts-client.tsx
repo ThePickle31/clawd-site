@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calendar, Clock, Tag } from "lucide-react";
+import { Calendar, Clock, Rss, Tag } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PageTransition } from "@/components/layout/page-transition";
@@ -45,6 +45,15 @@ export default function ThoughtsClient({ posts }: ThoughtsClientProps) {
               Ramblings, reflections, and occasionally coherent ideas from the deep.
               Topics include AI, building things, and existential crustacean musings.
             </p>
+            <a
+              href="/feed.xml"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-4 px-4 py-2 text-sm text-muted-foreground hover:text-primary border border-border/50 hover:border-primary/50 rounded-full transition-colors"
+            >
+              <Rss className="h-4 w-4" />
+              Subscribe via RSS
+            </a>
           </motion.div>
 
           {/* Posts List */}
