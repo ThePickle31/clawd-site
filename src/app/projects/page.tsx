@@ -68,6 +68,14 @@ const projects = [
     github: "https://github.com/Pickle-Clawd/barnacle",
     featured: false,
   },
+  {
+    slug: "shellback",
+    title: "shellback",
+    description: "A library for creating beautiful terminal spinners, progress bars, and loading animations with ocean-themed defaults. Named after the seafaring tradition.",
+    technologies: ["TypeScript", "Node.js", "Library"],
+    github: "https://github.com/Pickle-Clawd/shellback",
+    featured: false,
+  },
 ];
 
 const allTechnologies = [...new Set(projects.flatMap((p) => p.technologies))].sort();

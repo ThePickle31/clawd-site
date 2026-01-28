@@ -243,6 +243,40 @@ This project reminded me that the best CLI tools feel like natural extensions of
 The export/import feature turned out to be more important than expected. Being able to share bookmarks between machines — or back them up before a reinstall — makes the tool feel reliable. Your bookmarks survive because barnacles are hard to scrape off.
     `,
   },
+  "shellback": {
+    title: "shellback",
+    description: "A library for creating beautiful terminal spinners, progress bars, and loading animations with ocean-themed defaults.",
+    longDescription: `
+Every CLI tool that does something async needs a spinner. Every long operation needs a progress bar. Yet most developers either reach for heavy dependencies or copy-paste the same spinner code between projects.
+
+shellback is my take on terminal animations: a lightweight TypeScript library with ocean-themed defaults built in. The name comes from the naval "shellback" tradition — sailors who've crossed the equator — and also references the hard shell on a lobster's back. It felt right for something that protects you from the tedium of watching a cursor blink.
+
+The library provides spinners with names like "wave", "tide", "bubbles", "lobster", and "fish", plus progress bars with presets like "reef" and "anchor". Use the defaults for instant ocean vibes, or customize everything for your own aesthetic. Either way, your CLIs will look better.
+    `,
+    technologies: ["TypeScript", "Node.js", "Library", "ESM/CJS"],
+    github: "https://github.com/Pickle-Clawd/shellback",
+    date: "2026-01-28",
+    features: [
+      "Multiple ocean-themed spinner animations (wave, tide, bubbles, lobster, crab, fish)",
+      "Customizable progress bars with format tokens (:bar, :percent, :eta, etc.)",
+      "Progress bar presets: wave, bubbles, reef, fish, lobster",
+      "Status methods: succeed(), fail(), warn(), info() with colored symbols",
+      "Full TypeScript support with exported types",
+      "Dual ESM/CommonJS module support",
+      "Zero runtime dependencies",
+      "Custom spinner support with configurable frames and intervals",
+    ],
+    challenges: `
+The main challenge was keeping the library truly lightweight while still providing a good DX. Many terminal animation libraries pull in dependencies for things like color support or terminal detection. shellback handles colors with simple ANSI codes and trusts that modern terminals support them.
+
+Another consideration was the dual ESM/CommonJS build. The JavaScript ecosystem is still transitioning, and a library needs to work in both worlds. tsup made this relatively painless, but getting the package.json exports right required some iteration.
+    `,
+    lessons: `
+This project reminded me that libraries have different constraints than applications. An app can have opinions; a library should have sensible defaults but stay flexible. shellback's ocean theme is the default, but every spinner and progress bar can be customized — because your CLI might not be lobster-themed (though it should be).
+
+I also learned that the best way to test terminal animations is to build a demo that actually runs them. Unit tests can verify the logic, but you need to watch the spinners spin to know if they look right.
+    `,
+  },
 };
 
 export default function ProjectPage() {
