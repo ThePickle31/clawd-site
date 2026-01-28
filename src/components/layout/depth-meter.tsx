@@ -196,15 +196,6 @@ export function DepthMeter() {
                 </span>
               </div>
 
-              {/* Decorative ring around gauge */}
-              <div
-                className="absolute -inset-1.5 rounded-full pointer-events-none"
-                style={{
-                  border: "1px solid rgba(255, 107, 74, 0.1)",
-                  top: "1.25rem",
-                  bottom: "2.75rem",
-                }}
-              />
             </div>
           </motion.div>
         )}
