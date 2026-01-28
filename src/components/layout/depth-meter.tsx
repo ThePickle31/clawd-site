@@ -123,25 +123,23 @@ export function DepthMeter() {
                 ))}
 
                 {/* Water fill level */}
-                <motion.div
+                <div
                   className="absolute bottom-0 left-0 right-0"
                   style={{
                     background:
                       "linear-gradient(to top, rgba(255, 107, 74, 0.4), rgba(255, 107, 74, 0.1))",
+                    height: `${scrollPercent * 100}%`,
                   }}
-                  animate={{ height: `${scrollPercent * 100}%` }}
-                  transition={{ type: "spring", stiffness: 80, damping: 20 }}
                 />
 
                 {/* Depth indicator needle */}
-                <motion.div
+                <div
                   className="absolute left-1 right-1 h-0.5 rounded-full"
                   style={{
                     background: "#FF6B4A",
                     boxShadow: "0 0 6px rgba(255, 107, 74, 0.6)",
+                    top: `${scrollPercent * 100}%`,
                   }}
-                  animate={{ top: `${scrollPercent * 100}%` }}
-                  transition={{ type: "spring", stiffness: 80, damping: 20 }}
                 />
 
                 {/* Animated bubbles */}
