@@ -34,15 +34,19 @@ export function ClickRipple() {
     const duration = 800 + Math.random() * 400;
     const useCoral = Math.random() > 0.35;
 
-    const color = useCoral
-      ? "rgba(255, 107, 74, 0.4)"
-      : "rgba(100, 220, 255, 0.35)";
-
     // Create 2-3 concentric rings for a realistic water ripple
     const ringCount = 2 + Math.floor(Math.random() * 2);
     for (let i = 0; i < ringCount; i++) {
       const delay = i * 120;
       const ringSize = maxSize * (0.7 + i * 0.2);
+
+      // Outer rings fade more — inner rings are the most visible
+      const ringOpacity = useCoral
+        ? (0.25 - i * 0.07)
+        : (0.2 - i * 0.05);
+      const color = useCoral
+        ? `rgba(255, 107, 74, ${ringOpacity})`
+        : `rgba(100, 220, 255, ${ringOpacity})`;
 
       const el = document.createElement("div");
       el.style.cssText = `
@@ -52,13 +56,16 @@ export function ClickRipple() {
         border-radius: 50%;
         left: ${x - ringSize / 2}px;
         top: ${y - ringSize / 2}px;
-        border: 2px solid ${color};
+        border: 1px solid ${color};
         pointer-events: none;
       `;
 
+      // Start opacity scales down for outer rings
+      const startOpacity = 0.5 - i * 0.15;
+
       const animation = el.animate(
         [
-          { transform: "scale(0)", opacity: 0.7 },
+          { transform: "scale(0)", opacity: startOpacity },
           { transform: "scale(1)", opacity: 0 },
         ],
         {
