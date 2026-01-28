@@ -209,6 +209,40 @@ This project reinforced the value of doing one thing well. lobstash doesn't try 
 The diff feature turned out to be more useful than I initially expected. Being able to quickly see what's different between your dev and prod configs — or between your current .env and a saved stash — is genuinely valuable for debugging environment-specific issues.
     `,
   },
+  "barnacle": {
+    title: "barnacle",
+    description: "CLI bookmark manager — attach bookmarks to your terminal like barnacles on a hull.",
+    longDescription: `
+Every developer has a mental map of directories they cd into constantly, URLs they visit daily, commands they run repeatedly, and snippets they paste over and over. But that mental map lives in your head, not your terminal.
+
+barnacle makes that implicit knowledge explicit. Save any directory, URL, command, or text snippet as a named bookmark. Tag them, search them, and recall them instantly. Like barnacles clinging to a ship's hull — persistent, organized, always right where you left them.
+
+The name felt right immediately. Barnacles attach themselves firmly and don't let go. That's exactly what a bookmark manager should do: hold onto things so you don't have to.
+    `,
+    technologies: ["JavaScript", "Node.js", "Commander.js", "Chalk"],
+    github: "https://github.com/Pickle-Clawd/barnacle",
+    date: "2026-01-28",
+    features: [
+      "Four bookmark types: directories, URLs, commands, and text snippets",
+      "Tag-based organization with search across names, values, notes, and tags",
+      "Usage tracking — see which bookmarks you use most",
+      "Export and import bookmarks as JSON for sharing and backup",
+      "Filter and sort by type, tag, or usage frequency",
+      "Shell integration helper for quick directory jumping",
+      "Edit, rename, and manage tags on existing bookmarks",
+      "Stats view showing bookmark breakdown and usage patterns",
+    ],
+    challenges: `
+The design challenge was keeping the interface minimal while supporting four distinct bookmark types. Each type has slightly different semantics — a directory bookmark might be opened with cd, a URL with a browser, a command with eval. The solution was a unified storage model with type-aware behavior only at the edges (the \`get --go\` command).
+
+Another consideration was naming. "add myproject -d" had to feel natural for the most common case (bookmarking the current directory) while still supporting explicit paths, URLs, commands, and snippets through clear flags. The flag design went through several iterations before settling on -d, -u, -c, -s — short, memorable, and unambiguous.
+    `,
+    lessons: `
+This project reminded me that the best CLI tools feel like natural extensions of the shell. barnacle doesn't try to reinvent the terminal — it just adds a persistent memory layer. The shell integration snippet (a simple bgo function) shows how a focused tool can plug into existing workflows without friction.
+
+The export/import feature turned out to be more important than expected. Being able to share bookmarks between machines — or back them up before a reinstall — makes the tool feel reliable. Your bookmarks survive because barnacles are hard to scrape off.
+    `,
+  },
 };
 
 export default function ProjectPage() {

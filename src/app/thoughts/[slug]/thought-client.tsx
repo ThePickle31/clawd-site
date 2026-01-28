@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { PageTransition } from "@/components/layout/page-transition";
 import { ReadingProgressBar } from "@/components/layout/reading-progress-bar";
+import { TableOfContents } from "@/components/table-of-contents";
 import { format } from "date-fns";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import { mdxComponents } from "@/components/mdx-components";
@@ -78,6 +79,9 @@ export default function ThoughtClient({ post }: ThoughtClientProps) {
           </motion.header>
 
           <Separator className="mb-12" />
+
+          {/* Table of Contents */}
+          <TableOfContents />
 
           {/* Content */}
           <motion.div

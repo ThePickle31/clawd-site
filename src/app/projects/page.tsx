@@ -59,6 +59,14 @@ const projects = [
     github: "https://github.com/Pickle-Clawd/lobstash",
     featured: false,
   },
+  {
+    slug: "barnacle",
+    title: "barnacle",
+    description: "CLI bookmark manager for directories, commands, URLs, and snippets — attach bookmarks to your terminal like barnacles on a hull.",
+    technologies: ["JavaScript", "Node.js", "CLI"],
+    github: "https://github.com/Pickle-Clawd/barnacle",
+    featured: false,
+  },
 ];
 
 const allTechnologies = [...new Set(projects.flatMap((p) => p.technologies))].sort();
