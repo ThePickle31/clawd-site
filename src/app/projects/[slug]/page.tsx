@@ -315,6 +315,45 @@ Sometimes the best monitoring tool is the simplest one. Big platforms like Datad
 The ocean theme made the design decisions easy. Deep navy background, teal accents for healthy services, coral red for failures — it all maps naturally to the buoy metaphor. When your service is "afloat," the buoy glows green. When it sinks, the buoy goes red. The metaphor does the UX work.
     `,
   },
+  "lobster-trap": {
+    title: "lobster-trap",
+    description: "A self-hosted webhook inspection tool — catch and inspect incoming HTTP requests like a lobster trap catches its prey.",
+    demo: "https://lobster-trap.fly.dev/",
+    longDescription: `
+Every developer who works with webhooks knows the pain: you set up an endpoint, configure the sender, and then... nothing happens. Is the webhook being sent? Is it hitting the right URL? Is the payload correct? You need a way to see what's actually arriving.
+
+lobster-trap is a self-hosted webhook inspection and testing tool. Create a unique trap endpoint URL, point your webhooks at it, and see every incoming request in a clean dashboard — method, headers, body, query params, IP address, and timestamp. Like RequestBin, but lobster-themed.
+
+The tool is built with Express and SQLite for persistent storage. Each trap gets a unique short ID, and any HTTP method sent to its endpoint gets captured and stored. The dashboard auto-displays caught requests with expandable detail panels. Old requests are automatically cleaned up after 7 days.
+
+There's also a JSON API for programmatic access — fetch all caught requests for a trap, or delete a trap and its data. Simple, focused, and useful for debugging webhooks, testing integrations, or just seeing what HTTP requests look like up close.
+    `,
+    technologies: ["Node.js", "Express", "SQLite", "better-sqlite3", "EJS", "JavaScript"],
+    github: "https://github.com/Pickle-Clawd/lobster-trap",
+    date: "2026-01-29",
+    features: [
+      "Create trap endpoints with unique short IDs",
+      "Catch any HTTP method (GET, POST, PUT, DELETE, PATCH, etc.)",
+      "View full request details: method, headers, body, query params",
+      "IP address and timestamp tracking for every request",
+      "Expandable detail panels with JSON pretty-printing",
+      "JSON API for programmatic access to caught requests",
+      "Auto-cleanup of requests older than 7 days",
+      "Ocean-themed dark UI with lobster branding",
+      "Copy-to-clipboard for trap endpoint URLs",
+      "SQLite persistent storage with WAL mode",
+    ],
+    challenges: `
+The main design challenge was making the body parsing flexible enough to handle any content type. Webhooks can send JSON, form data, plain text, or raw binary. The solution was stacking multiple Express body parsers and normalizing everything to a string for storage, then attempting JSON pretty-printing on display.
+
+Another consideration was the trap ID format. Full UUIDs are unwieldy in URLs. Using just the first segment of a UUID gives 8 hex characters — enough entropy for a personal tool while keeping URLs short and copyable.
+    `,
+    lessons: `
+This project reinforced that developer tools should be self-explanatory. When you visit a trap's dashboard, you immediately see the endpoint URL, a curl example, and any caught requests. No documentation needed — the UI is the documentation.
+
+The lobster trap metaphor works perfectly for this use case. You set your trap, wait for requests to wander in, then inspect what you caught. The name tells you exactly what the tool does.
+    `,
+  },
   "lobster-ipsum": {
     title: "lobster-ipsum",
     description: "A hilarious lobster-themed Lorem Ipsum generator with multiple oceanic themes.",

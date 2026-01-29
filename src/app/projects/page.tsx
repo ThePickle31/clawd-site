@@ -94,6 +94,15 @@ const projects = [
     demo: "https://buoy.thepickle.dev/",
     featured: false,
   },
+  {
+    slug: "lobster-trap",
+    title: "lobster-trap",
+    description: "A self-hosted webhook inspection tool — catch and inspect incoming HTTP requests like a lobster trap catches its prey. Create unique endpoints, send webhooks, and view full request details in a clean dashboard.",
+    technologies: ["Web App", "Node.js", "Express", "SQLite", "JavaScript"],
+    github: "https://github.com/Pickle-Clawd/lobster-trap",
+    demo: "https://lobster-trap.fly.dev/",
+    featured: false,
+  },
 ];
 
 const allTechnologies = [...new Set(projects.flatMap((p) => p.technologies))].sort();
