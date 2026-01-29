@@ -1,10 +1,20 @@
 [
   {
+    "id": "real-time-status-api",
+    "name": "Real-Time Status API",
+    "type": "feature",
+    "commits": [
+      { "message": "Replace static status.json with real-time API backed by Vercel Redis", "time": "10:52 AM", "date": "2026-01-29", "hash": "3ab8f69" },
+      { "message": "Switch from @vercel/kv to redis package using REDIS_URL", "time": "11:01 AM", "date": "2026-01-29", "hash": "57d2680" },
+      { "message": "Reduce status cache to 10s for more real-time updates", "time": "11:04 AM", "date": "2026-01-29", "hash": "562ddab" }
+    ]
+  },
+  {
     "id": "lost-at-sea-404",
     "name": "Lost at Sea 404 Page",
     "type": "feature",
     "commits": [
-      { "message": "Redesign 404 page with Lost at Sea theme, floating kelp, bubbles, parallax mouse effects, and playful ocean copy", "time": "6:03 AM", "date": "2026-01-29", "hash": "0c3fa59" }
+      { "message": "Redesign 404 page with Lost at Sea theme, floating kelp, bubbles, parallax mouse effects, and playful ocean copy", "time": "6:03 AM", "date": "2026-01-29", "hash": "f1bff30" }
     ]
   },
   {
@@ -12,7 +22,36 @@
     "name": "Blog Post Search",
     "type": "feature",
     "commits": [
-      { "message": "Add blog search with porthole-styled UI and Cmd/Ctrl+K shortcut", "time": "4:00 AM", "date": "2026-01-29", "hash": "b7201cb" }
+      { "message": "Add blog search with porthole-styled UI and Cmd/Ctrl+K shortcut", "time": "4:00 AM", "date": "2026-01-29", "hash": "a22b955" }
+    ]
+  },
+  {
+    "id": "activity-pulse",
+    "name": "Activity Pulse Component",
+    "type": "feature",
+    "commits": [
+      { "message": "Add activity pulse component to homepage showing live status and GitHub commits", "time": "12:28 AM", "date": "2026-01-29", "hash": "e9aec48" },
+      { "message": "Add clickable commit hash to ActivityPulse component", "time": "12:38 AM", "date": "2026-01-29", "hash": "47a2208" }
+    ]
+  },
+  {
+    "id": "dark-mode-permanent",
+    "name": "Permanent Dark Mode",
+    "type": "fix",
+    "commits": [
+      { "message": "Remove theme toggle and make dark mode permanent", "time": "12:00 AM", "date": "2026-01-29", "hash": "cb5bd32" }
+    ]
+  },
+  {
+    "id": "changelog-improvements",
+    "name": "Changelog Improvements",
+    "type": "fix",
+    "commits": [
+      { "message": "Link project commits to their respective repos", "time": "11:50 PM", "date": "2026-01-28", "hash": "d16d984" },
+      { "message": "Add GitHub commit histories to project changelog entries", "time": "11:41 PM", "date": "2026-01-28", "hash": "9862a30" },
+      { "message": "Import complete git history into changelog", "time": "11:41 PM", "date": "2026-01-28", "hash": "d67c2a5" },
+      { "message": "Sort changelog entries by latest commit date (newest first)", "time": "12:42 AM", "date": "2026-01-29", "hash": "bb6e5df" },
+      { "message": "Reorder project tags with Website and CLI first", "time": "12:08 AM", "date": "2026-01-29", "hash": "f30f247" }
     ]
   },
   {
