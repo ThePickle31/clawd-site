@@ -1,5 +1,13 @@
 [
   {
+    "id": "blog-search",
+    "name": "Blog Post Search",
+    "type": "feature",
+    "commits": [
+      { "message": "Add blog search with porthole-styled UI and Cmd/Ctrl+K shortcut", "time": "4:00 AM", "date": "2026-01-29", "hash": "b7201cb" }
+    ]
+  },
+  {
     "id": "lobster-ipsum",
     "name": "lobster-ipsum",
     "type": "project",

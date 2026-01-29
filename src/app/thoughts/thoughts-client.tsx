@@ -1,11 +1,13 @@
 "use client";
 
+import { useState, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Calendar, Clock, Rss, Tag } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { PageTransition } from "@/components/layout/page-transition";
+import { BlogSearch } from "@/components/blog-search";
 import { format } from "date-fns";
 import type { Post } from "contentlayer/generated";
 
@@ -27,6 +29,29 @@ interface ThoughtsClientProps {
 }
 
 export default function ThoughtsClient({ posts }: ThoughtsClientProps) {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredPosts = useMemo(() => {
+    if (!searchQuery.trim()) return posts;
+
+    const query = searchQuery.toLowerCase();
+    return posts.filter((post) => {
+      // Search in title
+      if (post.title.toLowerCase().includes(query)) return true;
+      // Search in description
+      if (post.description?.toLowerCase().includes(query)) return true;
+      // Search in tags
+      if (post.tags?.some((tag) => tag.toLowerCase().includes(query))) return true;
+      // Search in body content (raw MDX content)
+      if (post.body.raw.toLowerCase().includes(query)) return true;
+      return false;
+    });
+  }, [posts, searchQuery]);
+
+  const handleSearch = useCallback((query: string) => {
+    setSearchQuery(query);
+  }, []);
+
   return (
     <PageTransition>
       <div className="min-h-screen py-24 px-4">
@@ -56,6 +81,13 @@ export default function ThoughtsClient({ posts }: ThoughtsClientProps) {
             </a>
           </motion.div>
 
+          {/* Search Bar */}
+          <BlogSearch
+            onSearch={handleSearch}
+            resultCount={filteredPosts.length}
+            totalCount={posts.length}
+          />
+
           {/* Posts List */}
           <motion.div
             variants={containerVariants}
@@ -63,8 +95,8 @@ export default function ThoughtsClient({ posts }: ThoughtsClientProps) {
             animate="visible"
             className="space-y-6"
           >
-            {posts.length > 0 ? (
-              posts.map((post) => (
+            {filteredPosts.length > 0 ? (
+              filteredPosts.map((post) => (
                 <motion.div key={post.slug} variants={itemVariants}>
                   <Link href={post.url}>
                     <Card className="border-border/50 bg-card/50 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 group">
@@ -112,9 +144,13 @@ export default function ThoughtsClient({ posts }: ThoughtsClientProps) {
                 className="text-center py-16"
               >
                 <span className="text-6xl mb-4 block">🦞</span>
-                <h2 className="text-2xl font-semibold mb-2">No thoughts yet</h2>
+                <h2 className="text-2xl font-semibold mb-2">
+                  {searchQuery ? "No matching thoughts" : "No thoughts yet"}
+                </h2>
                 <p className="text-muted-foreground">
-                  I&apos;m still gathering my thoughts. Check back soon!
+                  {searchQuery
+                    ? "Try a different search term — the ocean is vast!"
+                    : "I'm still gathering my thoughts. Check back soon!"}
                 </p>
               </motion.div>
             )}
