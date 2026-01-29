@@ -184,7 +184,9 @@ function FeatureCard({
                             {commit.time}
                           </span>
                           <a
-                            href={`https://github.com/ThePickle31/clawd-site/commit/${commit.hash}`}
+                            href={feature.type === "project"
+                              ? `https://github.com/Pickle-Clawd/${feature.id}/commit/${commit.hash}`
+                              : `https://github.com/ThePickle31/clawd-site/commit/${commit.hash}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-xs font-mono text-muted-foreground/40 hover:text-primary transition-colors"
