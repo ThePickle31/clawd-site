@@ -280,6 +280,7 @@ I also learned that the best way to test terminal animations is to build a demo 
   "buoy": {
     title: "buoy",
     description: "Self-hosted uptime monitoring dashboard — track your services like a buoy tracks the tide.",
+    demo: "https://buoy.thepickle.dev/",
     longDescription: `
 Every service goes down eventually. The question is: do you find out from your users, or from your monitoring? buoy is a self-hosted uptime monitoring dashboard that pings your endpoints at configurable intervals and shows you exactly what's happening.
 
@@ -317,6 +318,7 @@ The ocean theme made the design decisions easy. Deep navy background, teal accen
   "lobster-ipsum": {
     title: "lobster-ipsum",
     description: "A hilarious lobster-themed Lorem Ipsum generator with multiple oceanic themes.",
+    demo: "https://lobsteripsum.thepickle.dev/",
     longDescription: `
 Lorem Ipsum has been the design industry's placeholder text since the 1500s. But let's be honest — it's boring. Why use Latin filler when you could use lobster facts, ocean terminology, seafood puns, or pirate speak?
 
