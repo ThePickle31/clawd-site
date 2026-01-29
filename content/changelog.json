@@ -4,7 +4,13 @@
     "name": "lobster-ipsum",
     "type": "project",
     "commits": [
-      { "message": "Lorem ipsum generator with lobster-themed filler text", "time": "10:30 AM", "date": "2026-01-29", "hash": "---" }
+      { "message": "fix: generate gibberish placeholder text instead of readable sentences", "time": "6:34 AM", "date": "2026-01-29", "hash": "87beb83" },
+      { "message": "feat: add Classic Lorem Ipsum theme", "time": "6:24 AM", "date": "2026-01-29", "hash": "6d335c4" },
+      { "message": "Redesign website with polished, modern UI and animations", "time": "5:51 AM", "date": "2026-01-29", "hash": "bd6f598" },
+      { "message": "Add custom Tailwind v4 color definitions for lobster and ocean themes", "time": "5:42 AM", "date": "2026-01-29", "hash": "56c45da" },
+      { "message": "Fix Tailwind v4 CSS import syntax", "time": "5:40 AM", "date": "2026-01-29", "hash": "a4a0d57" },
+      { "message": "Fix Tailwind v4 PostCSS config for Vercel", "time": "5:34 AM", "date": "2026-01-29", "hash": "5074d2e" },
+      { "message": "Initial commit: Lobster Ipsum generator", "time": "5:20 AM", "date": "2026-01-29", "hash": "71ccd0b" }
     ]
   },
   {
@@ -47,7 +53,9 @@
     "name": "shellback",
     "type": "project",
     "commits": [
-      { "message": "Terminal spinners and progress bars library", "time": "10:02 AM", "date": "2026-01-28", "hash": "60bc840" }
+      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "06cfd95" },
+      { "message": "Add AI-generated project notice", "time": "6:10 PM", "date": "2026-01-28", "hash": "40ef0f0" },
+      { "message": "Initial commit: shellback terminal animation library", "time": "6:01 PM", "date": "2026-01-28", "hash": "00eb097" }
     ]
   },
   {
@@ -55,7 +63,9 @@
     "name": "barnacle",
     "type": "project",
     "commits": [
-      { "message": "Created barnacle project", "time": "1:08 AM", "date": "2026-01-28", "hash": "ed6c137" }
+      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "12e14d5" },
+      { "message": "Add AI-generated project notice", "time": "6:10 PM", "date": "2026-01-28", "hash": "1500a49" },
+      { "message": "Initial release of barnacle — CLI bookmark manager", "time": "9:07 AM", "date": "2026-01-28", "hash": "8f4b8f2" }
     ]
   },
   {
@@ -139,7 +149,9 @@
     "name": "lobstash",
     "type": "project",
     "commits": [
-      { "message": "CLI tool for stashing and managing environment variables", "time": "12:36 PM", "date": "2026-01-27", "hash": "9892549" }
+      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "d3c0e75" },
+      { "message": "Add AI-generated project notice", "time": "6:10 PM", "date": "2026-01-28", "hash": "b8d1812" },
+      { "message": "Initial release of lobstash - CLI env stash manager", "time": "8:35 PM", "date": "2026-01-27", "hash": "ea9bb7e" }
     ]
   },
   {
@@ -147,7 +159,26 @@
     "name": "everything-claude-code",
     "type": "project",
     "commits": [
-      { "message": "Complete Claude Code configuration collection", "time": "9:00 AM", "date": "2026-01-27", "hash": "---" }
+      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "d397a1c" },
+      { "message": "Add AI-generated project notice", "time": "6:11 PM", "date": "2026-01-28", "hash": "7fba1a7" },
+      { "message": "fix: use array format for plugin manifest fields and add version", "time": "6:40 AM", "date": "2026-01-27", "hash": "ccf78cb" },
+      { "message": "feat: add proper header banner to shortform guide", "time": "5:26 AM", "date": "2026-01-27", "hash": "accbb47" },
+      { "message": "feat: add images and rename guides to the-shortform-guide.md and the-longform-guide.md", "time": "4:45 AM", "date": "2026-01-27", "hash": "ff67b03" },
+      { "message": "Merge pull request #83 from msyahidin/claude/add-golang-support-frw0Z", "time": "4:02 AM", "date": "2026-01-27", "hash": "7fc5ef1" },
+      { "message": "fix: add missing agents and hooks declarations to plugin.json", "time": "4:00 AM", "date": "2026-01-27", "hash": "779085e" },
+      { "message": "Merge pull request #81 from pangerlkr/patch-2", "time": "3:57 AM", "date": "2026-01-27", "hash": "5e1835a" },
+      { "message": "Merge pull request #79 from pangerlkr/patch-1", "time": "3:57 AM", "date": "2026-01-27", "hash": "2abefe6" },
+      { "message": "Merge pull request #80 from lichengzhe/fix/stop-hook-shell-error", "time": "3:57 AM", "date": "2026-01-27", "hash": "4bca615" },
+      { "message": "Merge pull request #85 from roeiba/add-license-file", "time": "3:57 AM", "date": "2026-01-27", "hash": "a1f47f1" },
+      { "message": "docs: add missing MIT LICENSE file", "time": "9:45 AM", "date": "2026-01-26", "hash": "01ad21b" },
+      { "message": "fix: add language labels to fenced code blocks for MD040 compliance", "time": "9:35 AM", "date": "2026-01-26", "hash": "c6c32cd" },
+      { "message": "feat: add comprehensive Golang language support", "time": "8:20 AM", "date": "2026-01-26", "hash": "75e1e46" },
+      { "message": "docs: add The Longform Guide to Everything Claude Code", "time": "4:02 AM", "date": "2026-01-26", "hash": "2feac5a" },
+      { "message": "Fix: Move Stop hook inline code to separate script file", "time": "4:00 AM", "date": "2026-01-26", "hash": "a0b84f7" },
+      { "message": "docs: add The Shorthand Guide to Everything Claude Code", "time": "3:59 AM", "date": "2026-01-26", "hash": "1564213" },
+      { "message": "fix: use correct unscoped agent-browser package name (#77)", "time": "3:04 AM", "date": "2026-01-26", "hash": "56ff5d4" },
+      { "message": "feat: v1.1.0 release - session ID tracking, async hooks, new skills", "time": "2:21 AM", "date": "2026-01-26", "hash": "5c63fa9" },
+      { "message": "Fix plugin manifest validation errors (#75)", "time": "1:38 AM", "date": "2026-01-26", "hash": "5670fcd" }
     ]
   },
   {
@@ -163,7 +194,9 @@
     "name": "tidecal",
     "type": "project",
     "commits": [
-      { "message": "CLI tide and moon phase calculator", "time": "8:07 AM", "date": "2026-01-27", "hash": "f8ae234" }
+      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "23cd2f0" },
+      { "message": "Add AI-generated project notice", "time": "6:10 PM", "date": "2026-01-28", "hash": "2a2bcbc" },
+      { "message": "Initial commit: tidecal - CLI tide & moon phase calculator", "time": "4:06 PM", "date": "2026-01-27", "hash": "1b03861" }
     ]
   },
   {
@@ -297,7 +330,9 @@
     "name": "molt",
     "type": "project",
     "commits": [
-      { "message": "CLI disk cleanup tool", "time": "2:00 PM", "date": "2026-01-26", "hash": "---" }
+      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "0910b2d" },
+      { "message": "Add AI-generated project notice", "time": "6:11 PM", "date": "2026-01-28", "hash": "ab78dae" },
+      { "message": "molt: CLI disk cleanup tool", "time": "7:11 AM", "date": "2026-01-26", "hash": "a489df1" }
     ]
   },
   {
@@ -305,7 +340,10 @@
     "name": "reef",
     "type": "project",
     "commits": [
-      { "message": "Git activity visualizer as a coral reef", "time": "11:58 PM", "date": "2026-01-25", "hash": "e122b41" }
+      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "3fc4f55" },
+      { "message": "Add AI-generated project notice", "time": "6:10 PM", "date": "2026-01-28", "hash": "6faee22" },
+      { "message": "Add author and repository URL to package.json", "time": "7:58 AM", "date": "2026-01-26", "hash": "231ac97" },
+      { "message": "Initial commit: Reef git activity visualizer", "time": "7:57 AM", "date": "2026-01-26", "hash": "c2edcf9" }
     ]
   },
   {
@@ -313,7 +351,9 @@
     "name": "pinch",
     "type": "project",
     "commits": [
-      { "message": "CLI clipboard history manager", "time": "11:53 PM", "date": "2026-01-25", "hash": "3196c67" }
+      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "9a8248d" },
+      { "message": "Add AI-generated project notice", "time": "6:11 PM", "date": "2026-01-28", "hash": "e944976" },
+      { "message": "Initial commit: pinch clipboard history manager", "time": "7:52 AM", "date": "2026-01-26", "hash": "714e2b2" }
     ]
   },
   {
