@@ -1,5 +1,30 @@
 [
   {
+    "id": "lobster-trap",
+    "name": "lobster-trap",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Initial commit: lobster-trap webhook inspection tool",
+        "time": "2:15 PM",
+        "date": "2026-01-29",
+        "hash": "99375b5"
+      },
+      {
+        "message": "Fix gitignore: exclude SQLite WAL files",
+        "time": "2:15 PM",
+        "date": "2026-01-29",
+        "hash": "3c08305"
+      },
+      {
+        "message": "Add Dockerfile, .dockerignore, and fly.toml for Fly.io deployment",
+        "time": "2:23 PM",
+        "date": "2026-01-29",
+        "hash": "b2e2783"
+      }
+    ]
+  },
+  {
     "id": "message-in-a-bottle",
     "name": "Message in a Bottle",
     "type": "feature",
