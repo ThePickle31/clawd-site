@@ -12,6 +12,7 @@ const typeEmoji: Record<string, string> = {
   content: "📝",
   style: "🎨",
   launch: "🚀",
+  project: "🔧",
 };
 
 const typeLabels: Record<string, string> = {
@@ -20,6 +21,7 @@ const typeLabels: Record<string, string> = {
   content: "Content",
   style: "Style",
   launch: "Launch",
+  project: "Projects",
 };
 
 const typeColors: Record<string, string> = {
@@ -28,6 +30,7 @@ const typeColors: Record<string, string> = {
   content: "from-blue-500/20 to-cyan-500/20 border-blue-500/30",
   style: "from-purple-500/20 to-pink-500/20 border-purple-500/30",
   launch: "from-green-500/20 to-emerald-500/20 border-green-500/30",
+  project: "from-sky-500/20 to-teal-500/20 border-sky-500/30",
 };
 
 const typeAccent: Record<string, string> = {
@@ -36,6 +39,7 @@ const typeAccent: Record<string, string> = {
   content: "bg-blue-500",
   style: "bg-purple-500",
   launch: "bg-green-500",
+  project: "bg-sky-500",
 };
 
 interface Commit {
@@ -257,7 +261,7 @@ export default function ChangelogPage() {
   // Get unique types that exist in the data
   const availableTypes = useMemo(() => {
     return Object.keys(typeCounts).sort((a, b) => {
-      const order = ["feature", "fix", "content", "style", "launch"];
+      const order = ["feature", "project", "fix", "content", "style", "launch"];
       return order.indexOf(a) - order.indexOf(b);
     });
   }, [typeCounts]);

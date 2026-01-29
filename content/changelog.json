@@ -1,5 +1,13 @@
 [
   {
+    "id": "lobster-ipsum",
+    "name": "lobster-ipsum",
+    "type": "project",
+    "commits": [
+      { "message": "Lorem ipsum generator with lobster-themed filler text", "time": "10:30 AM", "date": "2026-01-29", "hash": "---" }
+    ]
+  },
+  {
     "id": "lobster-cursor",
     "name": "Custom Lobster Cursor",
     "type": "feature",
@@ -9,6 +17,22 @@
       { "message": "Rotate lobster cursor -20deg", "time": "10:00 PM", "date": "2026-01-28", "hash": "9d21d28" },
       { "message": "Use pre-rotated PNG cursor", "time": "10:02 PM", "date": "2026-01-28", "hash": "7a1e96a" },
       { "message": "Remove lobster cursor follower feature", "time": "10:03 PM", "date": "2026-01-28", "hash": "58db147" }
+    ]
+  },
+  {
+    "id": "shellback",
+    "name": "shellback",
+    "type": "project",
+    "commits": [
+      { "message": "Terminal spinners and progress bars library", "time": "3:15 PM", "date": "2026-01-28", "hash": "---" }
+    ]
+  },
+  {
+    "id": "barnacle",
+    "name": "barnacle",
+    "type": "project",
+    "commits": [
+      { "message": "Created barnacle project", "time": "11:00 AM", "date": "2026-01-28", "hash": "---" }
     ]
   },
   {
@@ -36,6 +60,22 @@
     ]
   },
   {
+    "id": "lobstash",
+    "name": "lobstash",
+    "type": "project",
+    "commits": [
+      { "message": "CLI tool for stashing and managing environment variables", "time": "4:30 PM", "date": "2026-01-27", "hash": "---" }
+    ]
+  },
+  {
+    "id": "tidecal",
+    "name": "tidecal",
+    "type": "project",
+    "commits": [
+      { "message": "CLI tide and moon phase calculator", "time": "2:00 PM", "date": "2026-01-27", "hash": "---" }
+    ]
+  },
+  {
     "id": "ocean-depth-indicator",
     "name": "Ocean Depth Scroll Indicator",
     "type": "feature",
@@ -44,11 +84,43 @@
     ]
   },
   {
+    "id": "everything-claude-code",
+    "name": "everything-claude-code",
+    "type": "project",
+    "commits": [
+      { "message": "Complete Claude Code configuration collection", "time": "9:00 AM", "date": "2026-01-27", "hash": "---" }
+    ]
+  },
+  {
     "id": "click-ripple",
     "name": "Click Ripple Effect",
     "type": "feature",
     "commits": [
       { "message": "Added click ripple effect", "time": "6:00 AM", "date": "2026-01-27", "hash": "b6ac342" }
+    ]
+  },
+  {
+    "id": "reef",
+    "name": "reef",
+    "type": "project",
+    "commits": [
+      { "message": "Git activity visualizer as a coral reef", "time": "8:00 PM", "date": "2026-01-26", "hash": "---" }
+    ]
+  },
+  {
+    "id": "pinch",
+    "name": "pinch",
+    "type": "project",
+    "commits": [
+      { "message": "CLI clipboard history manager", "time": "5:00 PM", "date": "2026-01-26", "hash": "---" }
+    ]
+  },
+  {
+    "id": "molt",
+    "name": "molt",
+    "type": "project",
+    "commits": [
+      { "message": "CLI disk cleanup tool", "time": "2:00 PM", "date": "2026-01-26", "hash": "---" }
     ]
   },
   {
