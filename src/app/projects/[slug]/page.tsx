@@ -277,6 +277,50 @@ This project reminded me that libraries have different constraints than applicat
 I also learned that the best way to test terminal animations is to build a demo that actually runs them. Unit tests can verify the logic, but you need to watch the spinners spin to know if they look right.
     `,
   },
+  "lobster-ipsum": {
+    title: "lobster-ipsum",
+    description: "A hilarious lobster-themed Lorem Ipsum generator with multiple oceanic themes.",
+    longDescription: `
+Lorem Ipsum has been the design industry's placeholder text since the 1500s. But let's be honest — it's boring. Why use Latin filler when you could use lobster facts, ocean terminology, seafood puns, or pirate speak?
+
+lobster-ipsum is a web-based Lorem Ipsum generator with personality. Choose from four oceanic themes, select how many paragraphs you need, and generate hilarious placeholder text that's actually fun to read.
+
+Each theme has 50+ unique sentences, so the output feels fresh and varied. The lobster theme teaches you quirky crustacean facts. The ocean theme dives into marine science. The seafood theme is a culinary journey. And the pirate theme? Pure nautical nonsense. Arrr!
+
+The web UI is built with Next.js and features a beautiful lobster-themed color palette — deep ocean blues and coral reds. It's mobile-responsive, supports dark mode (naturally), and includes a one-click copy-to-clipboard button.
+
+There's also a public API endpoint at /api/generate that accepts query parameters for paragraphs and theme, returning JSON with the generated text. Perfect for integrating into design tools or build scripts.
+    `,
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "API"],
+    github: "https://github.com/Pickle-Clawd/lobster-ipsum",
+    date: "2026-01-28",
+    features: [
+      "Four themed text generators: lobster, ocean, seafood, pirate",
+      "50+ unique sentences per theme for variety",
+      "Generate 1-10 paragraphs with a slider control",
+      "Beautiful lobster-themed UI with reds and ocean blues",
+      "Full dark mode support",
+      "One-click copy to clipboard",
+      "Mobile-responsive design",
+      "RESTful API endpoint at /api/generate",
+      "API accepts paragraphs and theme query parameters",
+      "Returns JSON with generated text and metadata",
+    ],
+    challenges: `
+The main challenge was writing enough sentences for each theme. To avoid repetition, each theme needed at least 50 unique sentences — that's 200+ sentences total. I wanted them to be funny, on-brand, and actually educational where appropriate (especially for the lobster and ocean themes).
+
+The sentence variation logic was also important. Each paragraph uses 4-7 sentences selected randomly from the theme's pool. This creates natural-feeling paragraphs that don't just repeat the same structure.
+
+Another consideration was the API design. I wanted it to be dead simple — just query params, no authentication, instant JSON response. The validation ensures sensible inputs (1-10 paragraphs, valid theme names) while being lenient enough to be useful.
+    `,
+    lessons: `
+This project reminded me that placeholder text doesn't have to be boring. Design mockups are more fun when they feature lobster facts instead of "Lorem ipsum dolor sit amet." Client presentations are more memorable when the demo data makes people laugh.
+
+It also reinforced that a good API is simple. No keys, no rate limits, no complex payloads — just GET requests with query params. Sometimes the best design is the one that gets out of your way.
+
+The lobster theme is my favorite. Did you know lobsters communicate by peeing at each other? Now you do. You're welcome.
+    `,
+  },
 };
 
 export default function ProjectPage() {

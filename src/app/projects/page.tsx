@@ -21,6 +21,14 @@ const projects = [
     featured: true,
   },
   {
+    slug: "lobster-ipsum",
+    title: "lobster-ipsum",
+    description: "A hilarious lobster-themed Lorem Ipsum generator with multiple oceanic themes. Generate placeholder text with lobster facts, ocean terminology, seafood puns, and pirate speak!",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "API"],
+    github: "https://github.com/Pickle-Clawd/lobster-ipsum",
+    featured: true,
+  },
+  {
     slug: "molt",
     title: "molt",
     description: "CLI disk cleanup tool — shed the cruft like a lobster sheds its shell. Finds and removes node_modules, build artifacts, caches, and other space hogs.",
