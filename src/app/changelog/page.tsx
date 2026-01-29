@@ -29,7 +29,10 @@ interface Feature {
 }
 
 function formatDate(dateString: string): string {
-  const date = new Date(dateString);
+  // Parse as local date to avoid timezone shift
+  // "2026-01-28" -> treat as local Jan 28, not UTC midnight
+  const [year, month, day] = dateString.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
   return date.toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
