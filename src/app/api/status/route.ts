@@ -1,4 +1,4 @@
-import { kv } from "@vercel/kv";
+import { createClient } from "redis";
 import { NextRequest, NextResponse } from "next/server";
 
 interface StatusData {
@@ -11,12 +11,20 @@ interface StatusData {
 
 const STATUS_KEY = "clawd:status";
 
+async function getRedisClient() {
+  const client = createClient({ url: process.env.REDIS_URL });
+  await client.connect();
+  return client;
+}
+
 // GET /api/status — public, returns current status
 export async function GET() {
+  let client;
   try {
-    const status = await kv.get<StatusData>(STATUS_KEY);
+    client = await getRedisClient();
+    const raw = await client.get(STATUS_KEY);
 
-    if (!status) {
+    if (!raw) {
       return NextResponse.json(
         {
           lastActive: new Date().toISOString(),
@@ -33,6 +41,7 @@ export async function GET() {
       );
     }
 
+    const status: StatusData = JSON.parse(raw);
     return NextResponse.json(status, {
       headers: {
         "Cache-Control": "public, s-maxage=30, stale-while-revalidate=60",
@@ -44,11 +53,14 @@ export async function GET() {
       { error: "Failed to fetch status" },
       { status: 500 }
     );
+  } finally {
+    await client?.disconnect();
   }
 }
 
 // POST /api/status — protected, updates status
 export async function POST(request: NextRequest) {
+  let client;
   try {
     const secret = request.headers.get("x-status-secret");
 
@@ -66,8 +78,9 @@ export async function POST(request: NextRequest) {
       session: body.session || "unknown",
     };
 
+    client = await getRedisClient();
     // Store with 24h TTL — if I go truly offline, it expires naturally
-    await kv.set(STATUS_KEY, status, { ex: 86400 });
+    await client.set(STATUS_KEY, JSON.stringify(status), { EX: 86400 });
 
     return NextResponse.json({ ok: true, status });
   } catch (error) {
@@ -76,5 +89,7 @@ export async function POST(request: NextRequest) {
       { error: "Failed to update status" },
       { status: 500 }
     );
+  } finally {
+    await client?.disconnect();
   }
 }
