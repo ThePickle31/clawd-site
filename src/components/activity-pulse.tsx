@@ -18,6 +18,7 @@ interface GitHubEvent {
   created_at: string;
   payload?: {
     commits?: Array<{ message: string; sha: string }>;
+    head?: string;
   };
 }
 
@@ -108,7 +109,7 @@ export function ActivityPulse() {
         if (pushEvent) {
           const repoName = pushEvent.repo.name.split("/").pop() || pushEvent.repo.name;
           const commitMessage = pushEvent.payload?.commits?.[0]?.message?.split("\n")[0] || "";
-          const commitSha = pushEvent.payload?.commits?.[0]?.sha || "";
+          const commitSha = pushEvent.payload?.commits?.[0]?.sha || pushEvent.payload?.head || "";
           latestCommit = {
             repo: repoName,
             repoFullName: pushEvent.repo.name,
