@@ -50,7 +50,7 @@ function getPulseColor(lastActive: string): PulseColor {
   const past = new Date(lastActive);
   const diffMins = Math.floor((now.getTime() - past.getTime()) / 60000);
 
-  if (diffMins < 5) return "green";
+  if (diffMins < 20) return "green";
   if (diffMins < 60) return "amber";
   return "gray";
 }
