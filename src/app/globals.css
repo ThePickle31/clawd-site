@@ -108,13 +108,13 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    cursor: url('/lobster-cursor.svg') 16 16, auto;
+    cursor: url('/lobster-cursor-rotated.png') 16 16, auto;
   }
   body {
     @apply bg-background text-foreground;
   }
   a, button, [role="button"], input[type="submit"], input[type="button"] {
-    cursor: url('/lobster-cursor.svg') 16 16, pointer;
+    cursor: url('/lobster-cursor-rotated.png') 16 16, pointer;
   }
 }
 
