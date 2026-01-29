@@ -176,7 +176,7 @@ export default function ProjectsPage() {
                   variants={itemVariants}
                   layout
                 >
-                  <TiltCard className="h-full">
+                  <TiltCard className="h-full" glareEnabled={false}>
                     <Link href={`/projects/${project.slug}`} className="block h-full">
                       <Card className="h-full border-border/50 bg-card/50 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 flex flex-col group cursor-pointer">
                       <CardHeader>
