@@ -1,11 +1,10 @@
-import { Metadata } from "next";
-import { PageTransition } from "@/components/layout/page-transition";
-import changelogData from "@/../content/changelog.json";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Changelog | Clawd",
-  description: "What's new on Clawd's website — features, fixes, and content updates.",
-};
+import { useState } from "react";
+import { PageTransition } from "@/components/layout/page-transition";
+import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import changelogData from "@/../content/changelog.json";
 
 const typeEmoji: Record<string, string> = {
   feature: "✨",
@@ -15,20 +14,112 @@ const typeEmoji: Record<string, string> = {
   launch: "🚀",
 };
 
+interface Commit {
+  message: string;
+  time: string;
+  date: string;
+  hash: string;
+}
+
+interface Feature {
+  id: string;
+  name: string;
+  type: string;
+  commits: Commit[];
+}
+
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
   return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
+    month: "short",
     day: "numeric",
   });
+}
+
+function FeatureCard({ feature }: { feature: Feature }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const hasMultipleCommits = feature.commits.length > 1;
+  const latestCommit = feature.commits[feature.commits.length - 1];
+
+  return (
+    <div className="rounded-lg border border-border/50 bg-card/30 backdrop-blur-sm overflow-hidden transition-colors hover:border-border">
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="w-full px-5 py-4 flex items-center justify-between text-left"
+      >
+        <div className="flex items-center gap-3">
+          <span className="text-xl">{typeEmoji[feature.type] || "•"}</span>
+          <div>
+            <h3 className="font-medium text-foreground">{feature.name}</h3>
+            <p className="text-sm text-muted-foreground">
+              {formatDate(latestCommit.date)}
+              {hasMultipleCommits && (
+                <span className="ml-2 text-xs opacity-60">
+                  ({feature.commits.length} commits)
+                </span>
+              )}
+            </p>
+          </div>
+        </div>
+        <ChevronDown
+          className={`h-5 w-5 text-muted-foreground transition-transform duration-200 ${
+            isExpanded ? "rotate-180" : ""
+          }`}
+        />
+      </button>
+
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <div className="px-5 pb-4 pt-1 border-t border-border/30">
+              <div className="space-y-2 ml-8">
+                {feature.commits.map((commit, index) => (
+                  <div
+                    key={index}
+                    className="flex items-start gap-3 text-sm group"
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/50 mt-2 shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <span className="text-muted-foreground group-hover:text-foreground transition-colors">
+                        {commit.message}
+                      </span>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <span className="text-xs text-muted-foreground/60">
+                          {formatDate(commit.date)} at {commit.time}
+                        </span>
+                        <a
+                          href={`https://github.com/ThePickle31/clawd-site/commit/${commit.hash}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-xs font-mono text-muted-foreground/50 hover:text-primary transition-colors"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {commit.hash}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 }
 
 export default function ChangelogPage() {
   return (
     <PageTransition>
       <div className="min-h-screen py-24 px-4">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-5xl mb-4 block">📋</span>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Changelog</h1>
@@ -37,39 +128,9 @@ export default function ChangelogPage() {
             </p>
           </div>
 
-          <div className="space-y-12">
-            {changelogData.map((group) => (
-              <div key={group.date} className="relative">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="h-3 w-3 rounded-full bg-primary" />
-                  <h2 className="text-xl font-semibold text-foreground">
-                    {formatDate(group.date)}
-                  </h2>
-                </div>
-                <div className="ml-1.5 border-l-2 border-border/50 pl-8 space-y-3">
-                  {group.entries.map((entry, index) => (
-                    <div
-                      key={index}
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      <span className="mr-2">
-                        {typeEmoji[entry.type] || "•"}
-                      </span>
-                      {entry.text}
-                      {entry.time && entry.commit && (
-                        <a
-                          href={`https://github.com/ThePickle31/clawd-site/commit/${entry.commit}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="ml-2 text-xs text-muted-foreground/60 hover:text-primary transition-colors"
-                        >
-                          {entry.time} PST
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
+          <div className="space-y-3">
+            {(changelogData as Feature[]).map((feature) => (
+              <FeatureCard key={feature.id} feature={feature} />
             ))}
           </div>
         </div>

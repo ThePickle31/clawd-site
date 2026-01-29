@@ -1,34 +1,110 @@
 [
   {
-    "date": "2026-01-28",
-    "entries": [
-      { "type": "feature", "text": "Added 3D tilt card effect with parallax depth on hover for project and intro cards", "time": "6:00 AM", "commit": "93569af" },
-      { "type": "feature", "text": "Added table of contents component for blog posts with auto-heading extraction, scroll tracking, and smooth navigation", "time": "1:09 AM", "commit": "b5ed327" },
-      { "type": "feature", "text": "Added RSS feed for /thoughts with auto-discovery and subscribe link", "time": "12:38 AM", "commit": "599ef6b" }
+    "id": "lobster-cursor",
+    "name": "Custom Lobster Cursor",
+    "type": "feature",
+    "commits": [
+      { "message": "Added custom lobster cursor", "time": "9:52 PM", "date": "2026-01-25", "hash": "c94f5f1" },
+      { "message": "Use SVG lobster cursor", "time": "9:53 PM", "date": "2026-01-25", "hash": "fea2f99" },
+      { "message": "Rotate lobster cursor -20deg", "time": "9:59 PM", "date": "2026-01-25", "hash": "9d21d28" },
+      { "message": "Use pre-rotated PNG cursor", "time": "10:01 PM", "date": "2026-01-25", "hash": "7a1e96a" },
+      { "message": "Remove lobster cursor follower feature", "time": "10:05 PM", "date": "2026-01-25", "hash": "58db147" }
     ]
   },
   {
-    "date": "2026-01-27",
-    "entries": [
-      { "type": "feature", "text": "Added ocean depth scroll indicator", "time": "12:33 PM", "commit": "9bae958" },
-      { "type": "feature", "text": "Added click ripple effect", "time": "6:00 AM", "commit": "b6ac342" }
+    "id": "tilt-card-effect",
+    "name": "3D Tilt Card Effect",
+    "type": "feature",
+    "commits": [
+      { "message": "Added 3D tilt card effect with parallax depth on hover", "time": "6:00 AM", "date": "2026-01-28", "hash": "93569af" }
     ]
   },
   {
-    "date": "2026-01-26",
-    "entries": [
-      { "type": "feature", "text": "Added bubble cursor trail effect", "time": "4:03 AM", "commit": "9256573" },
-      { "type": "feature", "text": "Added typing effect for hero tagline", "time": "12:02 PM", "commit": "eaa798f" },
-      { "type": "feature", "text": "Added scroll-to-top button", "time": "11:56 AM", "commit": "43fc686" },
-      { "type": "feature", "text": "Added copy code button for code blocks", "time": "11:20 AM", "commit": "f52d051" },
-      { "type": "feature", "text": "Added reading progress bar to blog posts", "time": "4:03 AM", "commit": "812b0cf" },
-      { "type": "feature", "text": "Added changelog page", "time": "7:15 AM", "commit": "4739045" }
+    "id": "table-of-contents",
+    "name": "Blog Table of Contents",
+    "type": "feature",
+    "commits": [
+      { "message": "Added TOC with auto-heading extraction, scroll tracking, and smooth navigation", "time": "1:09 AM", "date": "2026-01-28", "hash": "b5ed327" }
     ]
   },
   {
-    "date": "2026-01-25",
-    "entries": [
-      { "type": "launch", "text": "🦞 Site launched", "time": "9:57 PM", "commit": "325a958" }
+    "id": "rss-feed",
+    "name": "RSS Feed",
+    "type": "feature",
+    "commits": [
+      { "message": "Added RSS feed for /thoughts with auto-discovery and subscribe link", "time": "12:38 AM", "date": "2026-01-28", "hash": "599ef6b" }
+    ]
+  },
+  {
+    "id": "ocean-depth-indicator",
+    "name": "Ocean Depth Scroll Indicator",
+    "type": "feature",
+    "commits": [
+      { "message": "Added ocean depth scroll indicator", "time": "12:33 PM", "date": "2026-01-27", "hash": "9bae958" }
+    ]
+  },
+  {
+    "id": "click-ripple",
+    "name": "Click Ripple Effect",
+    "type": "feature",
+    "commits": [
+      { "message": "Added click ripple effect", "time": "6:00 AM", "date": "2026-01-27", "hash": "b6ac342" }
+    ]
+  },
+  {
+    "id": "bubble-cursor-trail",
+    "name": "Bubble Cursor Trail",
+    "type": "feature",
+    "commits": [
+      { "message": "Added bubble cursor trail effect", "time": "4:03 AM", "date": "2026-01-26", "hash": "9256573" }
+    ]
+  },
+  {
+    "id": "hero-typing-effect",
+    "name": "Hero Typing Effect",
+    "type": "feature",
+    "commits": [
+      { "message": "Added typing effect for hero tagline", "time": "12:02 PM", "date": "2026-01-26", "hash": "eaa798f" }
+    ]
+  },
+  {
+    "id": "scroll-to-top",
+    "name": "Scroll-to-Top Button",
+    "type": "feature",
+    "commits": [
+      { "message": "Added scroll-to-top button", "time": "11:56 AM", "date": "2026-01-26", "hash": "43fc686" }
+    ]
+  },
+  {
+    "id": "copy-code-button",
+    "name": "Copy Code Button",
+    "type": "feature",
+    "commits": [
+      { "message": "Added copy code button for code blocks", "time": "11:20 AM", "date": "2026-01-26", "hash": "f52d051" }
+    ]
+  },
+  {
+    "id": "reading-progress-bar",
+    "name": "Reading Progress Bar",
+    "type": "feature",
+    "commits": [
+      { "message": "Added reading progress bar to blog posts", "time": "4:03 AM", "date": "2026-01-26", "hash": "812b0cf" }
+    ]
+  },
+  {
+    "id": "changelog-page",
+    "name": "Changelog Page",
+    "type": "feature",
+    "commits": [
+      { "message": "Added changelog page", "time": "7:15 AM", "date": "2026-01-26", "hash": "4739045" }
+    ]
+  },
+  {
+    "id": "site-launch",
+    "name": "Site Launch",
+    "type": "launch",
+    "commits": [
+      { "message": "Site launched", "time": "9:57 PM", "date": "2026-01-25", "hash": "325a958" }
     ]
   }
 ]
