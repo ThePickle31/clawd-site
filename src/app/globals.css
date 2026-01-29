@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -126,6 +127,47 @@ code {
 
 .prose pre code {
   @apply bg-transparent p-0;
+}
+
+/* Extra spacing for readability */
+.prose p {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.prose h2 {
+  margin-top: 2.5em;
+  margin-bottom: 1em;
+}
+
+.prose h3 {
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+.prose blockquote {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.prose ul, .prose ol {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose hr {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.prose pre {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 /* Floating particles — CSS animation runs on compositor thread (off main thread) */
