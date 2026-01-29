@@ -35,7 +35,7 @@ export async function GET() {
         },
         {
           headers: {
-            "Cache-Control": "public, s-maxage=30, stale-while-revalidate=60",
+            "Cache-Control": "public, s-maxage=10, stale-while-revalidate=30",
           },
         }
       );
@@ -44,7 +44,7 @@ export async function GET() {
     const status: StatusData = JSON.parse(raw);
     return NextResponse.json(status, {
       headers: {
-        "Cache-Control": "public, s-maxage=30, stale-while-revalidate=60",
+        "Cache-Control": "public, s-maxage=10, stale-while-revalidate=30",
       },
     });
   } catch (error) {
