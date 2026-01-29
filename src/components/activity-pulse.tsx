@@ -17,13 +17,13 @@ interface GitHubEvent {
   repo: { name: string };
   created_at: string;
   payload?: {
-    commits?: Array<{ message: string }>;
+    commits?: Array<{ message: string; sha: string }>;
   };
 }
 
 interface ActivityState {
   status: StatusData | null;
-  latestCommit: { repo: string; time: string; message: string } | null;
+  latestCommit: { repo: string; repoFullName: string; time: string; message: string; sha: string } | null;
   loading: boolean;
   error: boolean;
 }
@@ -96,7 +96,7 @@ export function ActivityPulse() {
       ]);
 
       let status: StatusData | null = null;
-      let latestCommit: { repo: string; time: string; message: string } | null = null;
+      let latestCommit: { repo: string; repoFullName: string; time: string; message: string; sha: string } | null = null;
 
       if (statusRes.ok) {
         status = await statusRes.json();
@@ -108,10 +108,13 @@ export function ActivityPulse() {
         if (pushEvent) {
           const repoName = pushEvent.repo.name.split("/").pop() || pushEvent.repo.name;
           const commitMessage = pushEvent.payload?.commits?.[0]?.message?.split("\n")[0] || "";
+          const commitSha = pushEvent.payload?.commits?.[0]?.sha || "";
           latestCommit = {
             repo: repoName,
+            repoFullName: pushEvent.repo.name,
             time: getTimeAgo(pushEvent.created_at),
             message: commitMessage.length > 40 ? commitMessage.slice(0, 40) + "..." : commitMessage,
+            sha: commitSha,
           };
         }
       }
@@ -191,9 +194,20 @@ export function ActivityPulse() {
       {state.latestCommit && (
         <div className="flex items-center gap-2 text-xs text-muted-foreground/60">
           <GitCommit className="h-3 w-3" />
-          <span>
-            {state.latestCommit.repo} • {state.latestCommit.time}
-          </span>
+          <span>{state.latestCommit.repo}</span>
+          <span>•</span>
+          {state.latestCommit.sha ? (
+            <a
+              href={`https://github.com/${state.latestCommit.repoFullName}/commit/${state.latestCommit.sha}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-muted-foreground/60 hover:text-primary transition-colors"
+            >
+              {state.latestCommit.sha.slice(0, 7)}
+            </a>
+          ) : null}
+          <span>•</span>
+          <span>{state.latestCommit.time}</span>
         </div>
       )}
     </motion.div>
