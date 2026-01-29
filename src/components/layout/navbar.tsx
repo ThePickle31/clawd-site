@@ -7,6 +7,7 @@ import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { StatusIndicator } from "@/components/activity-pulse";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -35,6 +36,7 @@ export function Navbar() {
             🦞
           </motion.span>
           <span className="text-xl font-bold text-foreground">Clawd</span>
+          <StatusIndicator />
         </Link>
 
         {/* Desktop Navigation */}

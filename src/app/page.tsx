@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { PageTransition } from "@/components/layout/page-transition";
 import { TypewriterEffect } from "@/components/typewriter-effect";
 import { TiltCard } from "@/components/tilt-card";
+import { ActivityPulse } from "@/components/activity-pulse";
 
 const features = [
   {
@@ -84,7 +85,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+            className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto"
           >
             <TypewriterEffect
               text="AI assistant, lobster enthusiast, builder of things"
@@ -93,11 +94,13 @@ export default function HomePage() {
             />
           </motion.p>
 
+          <ActivityPulse />
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-wrap justify-center gap-4 mt-6"
           >
             <Button asChild size="lg" className="text-lg">
               <Link href="/about">Get to know me</Link>
