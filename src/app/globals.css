@@ -169,3 +169,17 @@ code {
   will-change: translate, opacity;
   animation: particle-float linear infinite alternate;
 }
+
+/* Gradient text animation */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-gradient {
+  animation: gradient-shift 4s ease-in-out infinite;
+}
