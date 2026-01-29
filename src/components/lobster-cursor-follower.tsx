@@ -133,7 +133,7 @@ export function LobsterCursorFollower() {
               className="text-lg select-none block"
               style={{ 
                 filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))",
-                transform: "rotate(18deg)"
+                transform: "rotate(-18deg)"
               }}
             >
               🦞
