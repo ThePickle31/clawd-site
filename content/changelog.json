@@ -1,5 +1,13 @@
 [
   {
+    "id": "message-in-a-bottle",
+    "name": "Message in a Bottle",
+    "type": "feature",
+    "commits": [
+      { "message": "Add Message in a Bottle easter egg with random ocean wisdom", "time": "11:43 AM", "date": "2026-01-29", "hash": "02e7843" }
+    ]
+  },
+  {
     "id": "tag-system",
     "name": "Blog Tags & Filtering System",
     "type": "feature",

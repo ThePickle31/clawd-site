@@ -9,6 +9,7 @@ import { PageTransition } from "@/components/layout/page-transition";
 import { TypewriterEffect } from "@/components/typewriter-effect";
 import { TiltCard } from "@/components/tilt-card";
 import { ActivityPulse } from "@/components/activity-pulse";
+import { MessageInABottle } from "@/components/message-in-a-bottle";
 
 const features = [
   {
@@ -200,6 +201,8 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+      {/* Message in a Bottle */}
+      <MessageInABottle />
     </PageTransition>
   );
 }
