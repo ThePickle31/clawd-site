@@ -8,7 +8,6 @@ export function LobsterCursorFollower() {
   const [showToggle, setShowToggle] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
-  const [clawPhase, setClawPhase] = useState(0);
   const targetRef = useRef({ x: 0, y: 0 });
   const positionRef = useRef({ x: 0, y: 0 });
   const animationFrameRef = useRef<number>(0);
@@ -55,17 +54,6 @@ export function LobsterCursorFollower() {
     };
   }, []);
 
-  // Animate claw movement
-  useEffect(() => {
-    if (!enabled || !isVisible) return;
-
-    const interval = setInterval(() => {
-      setClawPhase((p) => (p + 1) % 4);
-    }, 400);
-
-    return () => clearInterval(interval);
-  }, [enabled, isVisible]);
-
   // Smooth follow animation
   useEffect(() => {
     const animate = () => {
@@ -109,11 +97,6 @@ export function LobsterCursorFollower() {
 
   if (!showToggle) return null;
 
-  // Claw animation values
-  const leftClawRotation = clawPhase === 0 || clawPhase === 2 ? -15 : -25;
-  const rightClawRotation = clawPhase === 1 || clawPhase === 3 ? 15 : 25;
-  const bobOffset = clawPhase % 2 === 0 ? 0 : -2;
-
   return (
     <>
       {/* Toggle button - fixed in bottom left */}
@@ -142,45 +125,19 @@ export function LobsterCursorFollower() {
             className="fixed z-[150] pointer-events-none"
             style={{
               left: position.x + 20,
-              top: position.y + 20 + bobOffset,
+              top: position.y + 20,
             }}
           >
-            {/* Lobster body */}
-            <div className="relative text-3xl select-none" style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))" }}>
-              {/* Left claw */}
-              <motion.span
-                className="absolute -left-3 -top-1 text-lg origin-bottom-right"
-                animate={{ rotate: leftClawRotation }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-              >
-                🦀
-              </motion.span>
-              {/* Main body */}
-              <span className="relative z-10">🦞</span>
-              {/* Right claw */}
-              <motion.span
-                className="absolute -right-3 -top-1 text-lg origin-bottom-left"
-                animate={{ rotate: rightClawRotation }}
-                transition={{ duration: 0.2, ease: "easeInOut" }}
-              >
-                🦀
-              </motion.span>
-              {/* Bubble trail */}
-              <motion.span
-                className="absolute -right-1 -bottom-2 text-xs opacity-60"
-                animate={{ y: [-2, -8], opacity: [0.6, 0] }}
-                transition={{ duration: 1, repeat: Infinity, repeatDelay: 0.5 }}
-              >
-                ○
-              </motion.span>
-              <motion.span
-                className="absolute -left-2 -bottom-1 text-[10px] opacity-40"
-                animate={{ y: [-2, -10], opacity: [0.4, 0] }}
-                transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 0.8, delay: 0.3 }}
-              >
-                ○
-              </motion.span>
-            </div>
+            {/* Single tilted lobster */}
+            <span 
+              className="text-lg select-none block"
+              style={{ 
+                filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))",
+                transform: "rotate(18deg)"
+              }}
+            >
+              🦞
+            </span>
           </motion.div>
         )}
       </AnimatePresence>
