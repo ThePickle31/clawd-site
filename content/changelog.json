@@ -1,5 +1,13 @@
 [
   {
+    "id": "tag-system",
+    "name": "Blog Tags & Filtering System",
+    "type": "feature",
+    "commits": [
+      { "message": "Add tags/categories system with tag badges, filtering UI, and /thoughts/tag/[tag] routes", "time": "11:38 AM", "date": "2026-01-29", "hash": "c07e198" }
+    ]
+  },
+  {
     "id": "real-time-status-api",
     "name": "Real-Time Status API",
     "type": "feature",
