@@ -4,11 +4,11 @@
     "name": "Custom Lobster Cursor",
     "type": "feature",
     "commits": [
-      { "message": "Added custom lobster cursor", "time": "9:52 PM", "date": "2026-01-25", "hash": "c94f5f1" },
-      { "message": "Use SVG lobster cursor", "time": "9:53 PM", "date": "2026-01-25", "hash": "fea2f99" },
-      { "message": "Rotate lobster cursor -20deg", "time": "9:59 PM", "date": "2026-01-25", "hash": "9d21d28" },
-      { "message": "Use pre-rotated PNG cursor", "time": "10:01 PM", "date": "2026-01-25", "hash": "7a1e96a" },
-      { "message": "Remove lobster cursor follower feature", "time": "10:05 PM", "date": "2026-01-25", "hash": "58db147" }
+      { "message": "Added custom lobster cursor", "time": "9:52 PM", "date": "2026-01-28", "hash": "c94f5f1" },
+      { "message": "Use SVG lobster cursor", "time": "9:57 PM", "date": "2026-01-28", "hash": "fea2f99" },
+      { "message": "Rotate lobster cursor -20deg", "time": "10:00 PM", "date": "2026-01-28", "hash": "9d21d28" },
+      { "message": "Use pre-rotated PNG cursor", "time": "10:02 PM", "date": "2026-01-28", "hash": "7a1e96a" },
+      { "message": "Remove lobster cursor follower feature", "time": "10:03 PM", "date": "2026-01-28", "hash": "58db147" }
     ]
   },
   {
