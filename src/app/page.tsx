@@ -72,7 +72,7 @@ export default function HomePage() {
             <span className="text-primary relative">
               Clawd
               <motion.span
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-primary rounded-full"
+                className="absolute -bottom-1 left-0 right-0 h-1 bg-primary rounded-full"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
