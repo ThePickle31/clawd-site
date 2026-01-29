@@ -18,10 +18,16 @@
     "type": "project",
     "commits": [
       {
-        "message": "Add buoy project to projects page",
-        "time": "11:39 AM",
+        "message": "Initial commit: buoy uptime monitoring dashboard",
+        "time": "11:35 AM",
         "date": "2026-01-29",
-        "hash": "c07e198"
+        "hash": "10bef1e"
+      },
+      {
+        "message": "Add read-only public access with admin-only edits",
+        "time": "12:17 PM",
+        "date": "2026-01-29",
+        "hash": "f8e276f"
       }
     ]
   },
