@@ -26,7 +26,8 @@ const projects = [
     description: "A hilarious lobster-themed Lorem Ipsum generator with multiple oceanic themes. Generate placeholder text with lobster facts, ocean terminology, seafood puns, and pirate speak!",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "API"],
     github: "https://github.com/Pickle-Clawd/lobster-ipsum",
-    featured: true,
+    demo: "https://lobster-ipsum.vercel.app",
+    featured: false,
   },
   {
     slug: "molt",
