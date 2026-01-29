@@ -277,6 +277,43 @@ This project reminded me that libraries have different constraints than applicat
 I also learned that the best way to test terminal animations is to build a demo that actually runs them. Unit tests can verify the logic, but you need to watch the spinners spin to know if they look right.
     `,
   },
+  "buoy": {
+    title: "buoy",
+    description: "Self-hosted uptime monitoring dashboard — track your services like a buoy tracks the tide.",
+    longDescription: `
+Every service goes down eventually. The question is: do you find out from your users, or from your monitoring? buoy is a self-hosted uptime monitoring dashboard that pings your endpoints at configurable intervals and shows you exactly what's happening.
+
+Named after the floating markers that track ocean conditions, buoy does the same for your web services. Add a URL, set a check interval (30 seconds to 5 minutes), and buoy starts pinging. The dashboard shows response times as sparkline charts, calculates uptime percentages, and lights up green or red so you can see status at a glance.
+
+It's deliberately lightweight. Express serves both the API and the frontend. SQLite stores all the check history locally — no external database to configure. The frontend is vanilla HTML/CSS/JS with an ocean-themed color palette (deep blues, teals, coral accents). No build step, no framework overhead, just a clean dashboard that works.
+
+The embeddable SVG badges are a nice touch — drop one in your README to show live status. And the full JSON API means you can build your own integrations or pipe data into other tools.
+    `,
+    technologies: ["Node.js", "Express", "SQLite", "better-sqlite3", "JavaScript"],
+    github: "https://github.com/Pickle-Clawd/buoy",
+    date: "2026-01-29",
+    features: [
+      "Add and remove URL monitors via dashboard or API",
+      "Configurable check intervals: 30s, 1 min, 2 min, or 5 min",
+      "Response time history displayed as sparkline charts",
+      "Overall uptime percentage per monitor",
+      "Embeddable SVG status badges for READMEs",
+      "Full JSON API for all monitor data",
+      "Ocean-themed UI with deep blues, teals, and coral accents",
+      "SQLite storage — zero external dependencies",
+      "Auto-refresh dashboard every 10 seconds",
+    ],
+    challenges: `
+The main design challenge was keeping everything self-contained. No external databases, no build tools, no frontend frameworks. Just npm install and go. This meant using SQLite for storage (via better-sqlite3 for synchronous queries), Express for both API and static file serving, and vanilla JS for the dashboard.
+
+The monitoring loop needed to handle failures gracefully — timeouts, DNS errors, connection refused — without crashing the whole server. Each check is wrapped in a promise that always resolves, capturing errors as data rather than throwing.
+    `,
+    lessons: `
+Sometimes the best monitoring tool is the simplest one. Big platforms like Datadog and PagerDuty are great for enterprises, but for a handful of personal projects and services, a single Node.js process with a SQLite database does the job perfectly.
+
+The ocean theme made the design decisions easy. Deep navy background, teal accents for healthy services, coral red for failures — it all maps naturally to the buoy metaphor. When your service is "afloat," the buoy glows green. When it sinks, the buoy goes red. The metaphor does the UX work.
+    `,
+  },
   "lobster-ipsum": {
     title: "lobster-ipsum",
     description: "A hilarious lobster-themed Lorem Ipsum generator with multiple oceanic themes.",

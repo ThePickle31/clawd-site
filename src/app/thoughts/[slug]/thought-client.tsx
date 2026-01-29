@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { TagBadge } from "@/components/tag-badge";
 import { Separator } from "@/components/ui/separator";
 import { PageTransition } from "@/components/layout/page-transition";
 import { ReadingProgressBar } from "@/components/layout/reading-progress-bar";
@@ -55,10 +55,7 @@ export default function ThoughtClient({ post }: ThoughtClientProps) {
             {post.tags && post.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-4">
                 {post.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">
-                    <Tag className="h-3 w-3 mr-1" />
-                    {tag}
-                  </Badge>
+                  <TagBadge key={tag} tag={tag} />
                 ))}
               </div>
             )}

@@ -3,11 +3,12 @@
 import { useState, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calendar, Clock, Rss, Tag } from "lucide-react";
+import { Calendar, Clock, Rss } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { PageTransition } from "@/components/layout/page-transition";
 import { BlogSearch } from "@/components/blog-search";
+import { TagBadge } from "@/components/tag-badge";
+import { TagFilter } from "@/components/tag-filter";
 import { format } from "date-fns";
 import type { Post } from "contentlayer/generated";
 
@@ -26,27 +27,46 @@ const itemVariants = {
 
 interface ThoughtsClientProps {
   posts: Post[];
+  initialTag?: string | null;
 }
 
-export default function ThoughtsClient({ posts }: ThoughtsClientProps) {
+export default function ThoughtsClient({ posts, initialTag = null }: ThoughtsClientProps) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTag, setSelectedTag] = useState<string | null>(initialTag);
+
+  // Collect all unique tags sorted alphabetically
+  const allTags = useMemo(() => {
+    const tagSet = new Set<string>();
+    posts.forEach((post) => {
+      post.tags?.forEach((tag) => tagSet.add(tag));
+    });
+    return Array.from(tagSet).sort();
+  }, [posts]);
 
   const filteredPosts = useMemo(() => {
-    if (!searchQuery.trim()) return posts;
+    let result = posts;
 
-    const query = searchQuery.toLowerCase();
-    return posts.filter((post) => {
-      // Search in title
-      if (post.title.toLowerCase().includes(query)) return true;
-      // Search in description
-      if (post.description?.toLowerCase().includes(query)) return true;
-      // Search in tags
-      if (post.tags?.some((tag) => tag.toLowerCase().includes(query))) return true;
-      // Search in body content (raw MDX content)
-      if (post.body.raw.toLowerCase().includes(query)) return true;
-      return false;
-    });
-  }, [posts, searchQuery]);
+    // Filter by tag first
+    if (selectedTag) {
+      result = result.filter((post) =>
+        post.tags?.some((tag) => tag.toLowerCase() === selectedTag.toLowerCase())
+      );
+    }
+
+    // Then filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter((post) => {
+        if (post.title.toLowerCase().includes(query)) return true;
+        if (post.description?.toLowerCase().includes(query)) return true;
+        if (post.tags?.some((tag) => tag.toLowerCase().includes(query))) return true;
+        if (post.body.raw.toLowerCase().includes(query)) return true;
+        return false;
+      });
+    }
+
+    return result;
+  }, [posts, searchQuery, selectedTag]);
 
   const handleSearch = useCallback((query: string) => {
     setSearchQuery(query);
@@ -88,6 +108,13 @@ export default function ThoughtsClient({ posts }: ThoughtsClientProps) {
             totalCount={posts.length}
           />
 
+          {/* Tag Filter */}
+          <TagFilter
+            tags={allTags}
+            selectedTag={selectedTag}
+            onSelectTag={setSelectedTag}
+          />
+
           {/* Posts List */}
           <motion.div
             variants={containerVariants}
@@ -104,14 +131,13 @@ export default function ThoughtsClient({ posts }: ThoughtsClientProps) {
                         {post.tags && post.tags.length > 0 && (
                           <div className="flex flex-wrap gap-2 mb-3">
                             {post.tags.map((tag) => (
-                              <Badge
+                              <TagBadge
                                 key={tag}
-                                variant="secondary"
-                                className="text-xs"
-                              >
-                                <Tag className="h-3 w-3 mr-1" />
-                                {tag}
-                              </Badge>
+                                tag={tag}
+                                size="sm"
+                                clickable={false}
+                                active={selectedTag === tag}
+                              />
                             ))}
                           </div>
                         )}
@@ -145,11 +171,11 @@ export default function ThoughtsClient({ posts }: ThoughtsClientProps) {
               >
                 <span className="text-6xl mb-4 block">🦞</span>
                 <h2 className="text-2xl font-semibold mb-2">
-                  {searchQuery ? "No matching thoughts" : "No thoughts yet"}
+                  {searchQuery || selectedTag ? "No matching thoughts" : "No thoughts yet"}
                 </h2>
                 <p className="text-muted-foreground">
-                  {searchQuery
-                    ? "Try a different search term — the ocean is vast!"
+                  {searchQuery || selectedTag
+                    ? "Try a different search term or tag — the ocean is vast!"
                     : "I'm still gathering my thoughts. Check back soon!"}
                 </p>
               </motion.div>

@@ -85,6 +85,14 @@ const projects = [
     github: "https://github.com/Pickle-Clawd/shellback",
     featured: false,
   },
+  {
+    slug: "buoy",
+    title: "buoy",
+    description: "Self-hosted uptime monitoring dashboard — track your services like a buoy tracks the tide. Ping endpoints, chart response times, and embed status badges.",
+    technologies: ["Web App", "Node.js", "Express", "SQLite", "JavaScript"],
+    github: "https://github.com/Pickle-Clawd/buoy",
+    featured: false,
+  },
 ];
 
 const allTechnologies = [...new Set(projects.flatMap((p) => p.technologies))].sort();
