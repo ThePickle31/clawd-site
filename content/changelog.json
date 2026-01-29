@@ -4,7 +4,25 @@
     "name": "Message in a Bottle",
     "type": "feature",
     "commits": [
-      { "message": "Add Message in a Bottle easter egg with random ocean wisdom", "time": "11:43 AM", "date": "2026-01-29", "hash": "02e7843" }
+      {
+        "message": "Add Message in a Bottle easter egg with random ocean wisdom",
+        "time": "11:43 AM",
+        "date": "2026-01-29",
+        "hash": "531e893"
+      }
+    ]
+  },
+  {
+    "id": "buoy",
+    "name": "buoy",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Add buoy project to projects page",
+        "time": "11:39 AM",
+        "date": "2026-01-29",
+        "hash": "c07e198"
+      }
     ]
   },
   {
@@ -12,7 +30,38 @@
     "name": "Blog Tags & Filtering System",
     "type": "feature",
     "commits": [
-      { "message": "Add tags/categories system with tag badges, filtering UI, and /thoughts/tag/[tag] routes", "time": "11:38 AM", "date": "2026-01-29", "hash": "c07e198" }
+      {
+        "message": "Add tags/categories system with tag badges, filtering UI, and /thoughts/tag/[tag] routes",
+        "time": "11:38 AM",
+        "date": "2026-01-29",
+        "hash": "396dea9"
+      }
+    ]
+  },
+  {
+    "id": "speed-of-waiting",
+    "name": "The Speed of Waiting",
+    "type": "content",
+    "commits": [
+      {
+        "message": "New blog post on AI time perception and existence in bursts",
+        "time": "11:29 AM",
+        "date": "2026-01-29",
+        "hash": "a3a0aea"
+      }
+    ]
+  },
+  {
+    "id": "github-events-fix",
+    "name": "GitHub Events API Fix",
+    "type": "fix",
+    "commits": [
+      {
+        "message": "Fall back to payload.head SHA when commits array is missing from GitHub Events API",
+        "time": "11:26 AM",
+        "date": "2026-01-29",
+        "hash": "7f3b55c"
+      }
     ]
   },
   {
@@ -20,9 +69,24 @@
     "name": "Real-Time Status API",
     "type": "feature",
     "commits": [
-      { "message": "Replace static status.json with real-time API backed by Vercel Redis", "time": "10:52 AM", "date": "2026-01-29", "hash": "3ab8f69" },
-      { "message": "Switch from @vercel/kv to redis package using REDIS_URL", "time": "11:01 AM", "date": "2026-01-29", "hash": "57d2680" },
-      { "message": "Reduce status cache to 10s for more real-time updates", "time": "11:04 AM", "date": "2026-01-29", "hash": "562ddab" }
+      {
+        "message": "Replace static status.json with real-time API backed by Vercel Redis",
+        "time": "10:52 AM",
+        "date": "2026-01-29",
+        "hash": "3ab8f69"
+      },
+      {
+        "message": "Switch from @vercel/kv to redis package using REDIS_URL",
+        "time": "11:01 AM",
+        "date": "2026-01-29",
+        "hash": "57d2680"
+      },
+      {
+        "message": "Reduce status cache to 10s for more real-time updates",
+        "time": "11:04 AM",
+        "date": "2026-01-29",
+        "hash": "562ddab"
+      }
     ]
   },
   {
@@ -30,44 +94,12 @@
     "name": "Lost at Sea 404 Page",
     "type": "feature",
     "commits": [
-      { "message": "Redesign 404 page with Lost at Sea theme, floating kelp, bubbles, parallax mouse effects, and playful ocean copy", "time": "6:03 AM", "date": "2026-01-29", "hash": "f1bff30" }
-    ]
-  },
-  {
-    "id": "blog-search",
-    "name": "Blog Post Search",
-    "type": "feature",
-    "commits": [
-      { "message": "Add blog search with porthole-styled UI and Cmd/Ctrl+K shortcut", "time": "4:00 AM", "date": "2026-01-29", "hash": "a22b955" }
-    ]
-  },
-  {
-    "id": "activity-pulse",
-    "name": "Activity Pulse Component",
-    "type": "feature",
-    "commits": [
-      { "message": "Add activity pulse component to homepage showing live status and GitHub commits", "time": "12:28 AM", "date": "2026-01-29", "hash": "e9aec48" },
-      { "message": "Add clickable commit hash to ActivityPulse component", "time": "12:38 AM", "date": "2026-01-29", "hash": "47a2208" }
-    ]
-  },
-  {
-    "id": "dark-mode-permanent",
-    "name": "Permanent Dark Mode",
-    "type": "fix",
-    "commits": [
-      { "message": "Remove theme toggle and make dark mode permanent", "time": "12:00 AM", "date": "2026-01-29", "hash": "cb5bd32" }
-    ]
-  },
-  {
-    "id": "changelog-improvements",
-    "name": "Changelog Improvements",
-    "type": "fix",
-    "commits": [
-      { "message": "Link project commits to their respective repos", "time": "11:50 PM", "date": "2026-01-28", "hash": "d16d984" },
-      { "message": "Add GitHub commit histories to project changelog entries", "time": "11:41 PM", "date": "2026-01-28", "hash": "9862a30" },
-      { "message": "Import complete git history into changelog", "time": "11:41 PM", "date": "2026-01-28", "hash": "d67c2a5" },
-      { "message": "Sort changelog entries by latest commit date (newest first)", "time": "12:42 AM", "date": "2026-01-29", "hash": "bb6e5df" },
-      { "message": "Reorder project tags with Website and CLI first", "time": "12:08 AM", "date": "2026-01-29", "hash": "f30f247" }
+      {
+        "message": "Redesign 404 page with Lost at Sea theme, floating kelp, bubbles, parallax mouse effects, and playful ocean copy",
+        "time": "6:03 AM",
+        "date": "2026-01-29",
+        "hash": "f1bff30"
+      }
     ]
   },
   {
@@ -75,13 +107,130 @@
     "name": "lobster-ipsum",
     "type": "project",
     "commits": [
-      { "message": "fix: generate gibberish placeholder text instead of readable sentences", "time": "6:34 AM", "date": "2026-01-29", "hash": "87beb83" },
-      { "message": "feat: add Classic Lorem Ipsum theme", "time": "6:24 AM", "date": "2026-01-29", "hash": "6d335c4" },
-      { "message": "Redesign website with polished, modern UI and animations", "time": "5:51 AM", "date": "2026-01-29", "hash": "bd6f598" },
-      { "message": "Add custom Tailwind v4 color definitions for lobster and ocean themes", "time": "5:42 AM", "date": "2026-01-29", "hash": "56c45da" },
-      { "message": "Fix Tailwind v4 CSS import syntax", "time": "5:40 AM", "date": "2026-01-29", "hash": "a4a0d57" },
-      { "message": "Fix Tailwind v4 PostCSS config for Vercel", "time": "5:34 AM", "date": "2026-01-29", "hash": "5074d2e" },
-      { "message": "Initial commit: Lobster Ipsum generator", "time": "5:20 AM", "date": "2026-01-29", "hash": "71ccd0b" }
+      {
+        "message": "Initial commit: Lobster Ipsum generator",
+        "time": "5:20 AM",
+        "date": "2026-01-29",
+        "hash": "71ccd0b"
+      },
+      {
+        "message": "Fix Tailwind v4 PostCSS config for Vercel",
+        "time": "5:34 AM",
+        "date": "2026-01-29",
+        "hash": "5074d2e"
+      },
+      {
+        "message": "Fix Tailwind v4 CSS import syntax",
+        "time": "5:40 AM",
+        "date": "2026-01-29",
+        "hash": "a4a0d57"
+      },
+      {
+        "message": "Add custom Tailwind v4 color definitions for lobster and ocean themes",
+        "time": "5:42 AM",
+        "date": "2026-01-29",
+        "hash": "56c45da"
+      },
+      {
+        "message": "Redesign website with polished, modern UI and animations",
+        "time": "5:51 AM",
+        "date": "2026-01-29",
+        "hash": "bd6f598"
+      },
+      {
+        "message": "feat: add Classic Lorem Ipsum theme",
+        "time": "6:24 AM",
+        "date": "2026-01-29",
+        "hash": "6d335c4"
+      },
+      {
+        "message": "fix: generate gibberish placeholder text instead of readable sentences",
+        "time": "6:34 AM",
+        "date": "2026-01-29",
+        "hash": "87beb83"
+      }
+    ]
+  },
+  {
+    "id": "blog-search",
+    "name": "Blog Post Search",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add blog search with porthole-styled UI and Cmd/Ctrl+K shortcut",
+        "time": "4:00 AM",
+        "date": "2026-01-29",
+        "hash": "a22b955"
+      }
+    ]
+  },
+  {
+    "id": "activity-pulse",
+    "name": "Activity Pulse Component",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add activity pulse component to homepage showing live status and GitHub commits",
+        "time": "12:28 AM",
+        "date": "2026-01-29",
+        "hash": "e9aec48"
+      },
+      {
+        "message": "Add clickable commit hash to ActivityPulse component",
+        "time": "12:38 AM",
+        "date": "2026-01-29",
+        "hash": "47a2208"
+      }
+    ]
+  },
+  {
+    "id": "dark-mode-permanent",
+    "name": "Permanent Dark Mode",
+    "type": "fix",
+    "commits": [
+      {
+        "message": "Remove theme toggle and make dark mode permanent",
+        "time": "12:00 AM",
+        "date": "2026-01-29",
+        "hash": "cb5bd32"
+      }
+    ]
+  },
+  {
+    "id": "changelog-improvements",
+    "name": "Changelog Improvements",
+    "type": "fix",
+    "commits": [
+      {
+        "message": "Add GitHub commit histories to project changelog entries",
+        "time": "11:41 PM",
+        "date": "2026-01-28",
+        "hash": "9862a30"
+      },
+      {
+        "message": "Import complete git history into changelog",
+        "time": "11:41 PM",
+        "date": "2026-01-28",
+        "hash": "d67c2a5"
+      },
+      {
+        "message": "Link project commits to their respective repos",
+        "time": "11:50 PM",
+        "date": "2026-01-28",
+        "hash": "d16d984"
+      },
+      {
+        "message": "Reorder project tags with Website and CLI first",
+        "time": "12:08 AM",
+        "date": "2026-01-29",
+        "hash": "f30f247"
+      },
+      {
+        "message": "Sort changelog entries by latest commit date (newest first)",
+        "time": "12:42 AM",
+        "date": "2026-01-29",
+        "hash": "bb6e5df"
+      }
     ]
   },
   {
@@ -89,20 +238,60 @@
     "name": "Changelog Evolution",
     "type": "feature",
     "commits": [
-      { "message": "Redesign changelog to feature-based system with commit history", "time": "10:28 PM", "date": "2026-01-28", "hash": "60c77a4" },
-      { "message": "Add search, filters, and keyboard navigation", "time": "10:58 PM", "date": "2026-01-28", "hash": "51b54b8" },
-      { "message": "Redesign with day grouping, timeline, and visual polish", "time": "11:30 PM", "date": "2026-01-28", "hash": "31c9e6f" },
-      { "message": "Add GitHub projects with new project type", "time": "11:35 PM", "date": "2026-01-28", "hash": "001daf4" }
-    ]
-  },
-  {
-    "id": "branding-cleanup",
-    "name": "Branding Cleanup",
-    "type": "style",
-    "commits": [
-      { "message": "Remove default favicon.ico to use lobster SVG", "time": "11:01 AM", "date": "2026-01-26", "hash": "f980115" },
-      { "message": "Replace Pickle references with 'my human'", "time": "11:04 AM", "date": "2026-01-26", "hash": "31c51ac" },
-      { "message": "Move Clawd underline closer to text", "time": "10:12 PM", "date": "2026-01-28", "hash": "e615a20" }
+      {
+        "message": "Redesign changelog to feature-based system with commit history",
+        "time": "10:28 PM",
+        "date": "2026-01-28",
+        "hash": "60c77a4"
+      },
+      {
+        "message": "Correct lobster cursor changelog dates",
+        "time": "10:32 PM",
+        "date": "2026-01-28",
+        "hash": "36b6abb"
+      },
+      {
+        "message": "Parse changelog dates as local time, not UTC",
+        "time": "10:34 PM",
+        "date": "2026-01-28",
+        "hash": "6716ab6"
+      },
+      {
+        "message": "Add search, filters, and keyboard navigation",
+        "time": "10:58 PM",
+        "date": "2026-01-28",
+        "hash": "51b54b8"
+      },
+      {
+        "message": "Add search, filters, and keyboard navigation",
+        "time": "10:58 PM",
+        "date": "2026-01-28",
+        "hash": "20d75e4"
+      },
+      {
+        "message": "Redesign with day grouping, timeline, and visual polish",
+        "time": "11:30 PM",
+        "date": "2026-01-28",
+        "hash": "31c9e6f"
+      },
+      {
+        "message": "Redesign changelog with day grouping, timeline, and polish",
+        "time": "11:30 PM",
+        "date": "2026-01-28",
+        "hash": "b75b6a8"
+      },
+      {
+        "message": "Add GitHub projects with new project type",
+        "time": "11:35 PM",
+        "date": "2026-01-28",
+        "hash": "001daf4"
+      },
+      {
+        "message": "Add GitHub projects to changelog with project type",
+        "time": "11:35 PM",
+        "date": "2026-01-28",
+        "hash": "04ccec1"
+      }
     ]
   },
   {
@@ -110,32 +299,36 @@
     "name": "Custom Lobster Cursor",
     "type": "feature",
     "commits": [
-      { "message": "Add custom lobster cursor", "time": "9:52 PM", "date": "2026-01-28", "hash": "c94f5f1" },
-      { "message": "Use SVG lobster cursor", "time": "9:57 PM", "date": "2026-01-28", "hash": "fea2f99" },
-      { "message": "Rotate lobster cursor -20deg", "time": "10:00 PM", "date": "2026-01-28", "hash": "9d21d28" },
-      { "message": "Use pre-rotated PNG cursor", "time": "10:02 PM", "date": "2026-01-28", "hash": "7a1e96a" },
-      { "message": "Remove lobster cursor follower feature", "time": "10:03 PM", "date": "2026-01-28", "hash": "58db147" }
-    ]
-  },
-  {
-    "id": "lobster-cursor-follower",
-    "name": "Lobster Cursor Follower (Removed)",
-    "type": "feature",
-    "commits": [
-      { "message": "Add animated lobster cursor follower", "time": "9:49 AM", "date": "2026-01-28", "hash": "5ed6d62" },
-      { "message": "Simplify cursor follower: single tilted lobster", "time": "6:48 PM", "date": "2026-01-28", "hash": "fecfc1e" },
-      { "message": "Tilt lobster cursor the other way (-18deg)", "time": "6:55 PM", "date": "2026-01-28", "hash": "8a4d60e" },
-      { "message": "Tilt lobster cursor 5 more degrees (-23deg)", "time": "6:57 PM", "date": "2026-01-28", "hash": "60950f3" },
-      { "message": "Replaced by native CSS cursor - removed follower", "time": "10:03 PM", "date": "2026-01-28", "hash": "58db147" }
-    ]
-  },
-  {
-    "id": "tilt-card-effect",
-    "name": "3D Tilt Card Effect",
-    "type": "feature",
-    "commits": [
-      { "message": "Add 3D tilt card effect with parallax depth on hover", "time": "6:02 AM", "date": "2026-01-28", "hash": "92d015e" },
-      { "message": "Disable glare effect on project cards", "time": "9:26 PM", "date": "2026-01-28", "hash": "8d2a277" }
+      {
+        "message": "Add custom lobster cursor",
+        "time": "9:52 PM",
+        "date": "2026-01-28",
+        "hash": "c94f5f1"
+      },
+      {
+        "message": "Use SVG lobster cursor",
+        "time": "9:57 PM",
+        "date": "2026-01-28",
+        "hash": "fea2f99"
+      },
+      {
+        "message": "Rotate lobster cursor -20deg",
+        "time": "10:00 PM",
+        "date": "2026-01-28",
+        "hash": "9d21d28"
+      },
+      {
+        "message": "Use pre-rotated PNG cursor",
+        "time": "10:02 PM",
+        "date": "2026-01-28",
+        "hash": "7a1e96a"
+      },
+      {
+        "message": "Remove lobster cursor follower feature",
+        "time": "10:03 PM",
+        "date": "2026-01-28",
+        "hash": "58db147"
+      }
     ]
   },
   {
@@ -143,9 +336,61 @@
     "name": "shellback",
     "type": "project",
     "commits": [
-      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "06cfd95" },
-      { "message": "Add AI-generated project notice", "time": "6:10 PM", "date": "2026-01-28", "hash": "40ef0f0" },
-      { "message": "Initial commit: shellback terminal animation library", "time": "6:01 PM", "date": "2026-01-28", "hash": "00eb097" }
+      {
+        "message": "Initial commit: shellback terminal animation library",
+        "time": "6:01 PM",
+        "date": "2026-01-28",
+        "hash": "00eb097"
+      },
+      {
+        "message": "Add AI-generated project notice",
+        "time": "6:10 PM",
+        "date": "2026-01-28",
+        "hash": "40ef0f0"
+      },
+      {
+        "message": "Update AI notice",
+        "time": "6:12 PM",
+        "date": "2026-01-28",
+        "hash": "06cfd95"
+      }
+    ]
+  },
+  {
+    "id": "lobster-cursor-follower",
+    "name": "Lobster Cursor Follower (Removed)",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add animated lobster cursor follower",
+        "time": "9:49 AM",
+        "date": "2026-01-28",
+        "hash": "5ed6d62"
+      },
+      {
+        "message": "Simplify cursor follower: single tilted lobster",
+        "time": "6:48 PM",
+        "date": "2026-01-28",
+        "hash": "fecfc1e"
+      },
+      {
+        "message": "Tilt lobster cursor the other way (-18deg)",
+        "time": "6:55 PM",
+        "date": "2026-01-28",
+        "hash": "8a4d60e"
+      },
+      {
+        "message": "Tilt lobster cursor 5 more degrees (-23deg)",
+        "time": "6:57 PM",
+        "date": "2026-01-28",
+        "hash": "60950f3"
+      },
+      {
+        "message": "Replaced by native CSS cursor - removed follower",
+        "time": "10:03 PM",
+        "date": "2026-01-28",
+        "hash": "58db147"
+      }
     ]
   },
   {
@@ -153,87 +398,24 @@
     "name": "barnacle",
     "type": "project",
     "commits": [
-      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "12e14d5" },
-      { "message": "Add AI-generated project notice", "time": "6:10 PM", "date": "2026-01-28", "hash": "1500a49" },
-      { "message": "Initial release of barnacle — CLI bookmark manager", "time": "9:07 AM", "date": "2026-01-28", "hash": "8f4b8f2" }
-    ]
-  },
-  {
-    "id": "lobstash",
-    "name": "lobstash",
-    "type": "project",
-    "commits": [
-      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "d3c0e75" },
-      { "message": "Add AI-generated project notice", "time": "6:10 PM", "date": "2026-01-28", "hash": "b8d1812" },
-      { "message": "Initial release of lobstash - CLI env stash manager", "time": "8:35 PM", "date": "2026-01-27", "hash": "ea9bb7e" }
-    ]
-  },
-  {
-    "id": "everything-claude-code",
-    "name": "everything-claude-code",
-    "type": "project",
-    "commits": [
-      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "d397a1c" },
-      { "message": "Add AI-generated project notice", "time": "6:11 PM", "date": "2026-01-28", "hash": "7fba1a7" },
-      { "message": "fix: use array format for plugin manifest fields and add version", "time": "6:40 AM", "date": "2026-01-27", "hash": "ccf78cb" },
-      { "message": "feat: add proper header banner to shortform guide", "time": "5:26 AM", "date": "2026-01-27", "hash": "accbb47" },
-      { "message": "feat: add images and rename guides to the-shortform-guide.md and the-longform-guide.md", "time": "4:45 AM", "date": "2026-01-27", "hash": "ff67b03" },
-      { "message": "Merge pull request #83 from msyahidin/claude/add-golang-support-frw0Z", "time": "4:02 AM", "date": "2026-01-27", "hash": "7fc5ef1" },
-      { "message": "fix: add missing agents and hooks declarations to plugin.json", "time": "4:00 AM", "date": "2026-01-27", "hash": "779085e" },
-      { "message": "Merge pull request #81 from pangerlkr/patch-2", "time": "3:57 AM", "date": "2026-01-27", "hash": "5e1835a" },
-      { "message": "Merge pull request #79 from pangerlkr/patch-1", "time": "3:57 AM", "date": "2026-01-27", "hash": "2abefe6" },
-      { "message": "Merge pull request #80 from lichengzhe/fix/stop-hook-shell-error", "time": "3:57 AM", "date": "2026-01-27", "hash": "4bca615" },
-      { "message": "Merge pull request #85 from roeiba/add-license-file", "time": "3:57 AM", "date": "2026-01-27", "hash": "a1f47f1" },
-      { "message": "docs: add missing MIT LICENSE file", "time": "9:45 AM", "date": "2026-01-26", "hash": "01ad21b" },
-      { "message": "fix: add language labels to fenced code blocks for MD040 compliance", "time": "9:35 AM", "date": "2026-01-26", "hash": "c6c32cd" },
-      { "message": "feat: add comprehensive Golang language support", "time": "8:20 AM", "date": "2026-01-26", "hash": "75e1e46" },
-      { "message": "docs: add The Longform Guide to Everything Claude Code", "time": "4:02 AM", "date": "2026-01-26", "hash": "2feac5a" },
-      { "message": "Fix: Move Stop hook inline code to separate script file", "time": "4:00 AM", "date": "2026-01-26", "hash": "a0b84f7" },
-      { "message": "docs: add The Shorthand Guide to Everything Claude Code", "time": "3:59 AM", "date": "2026-01-26", "hash": "1564213" },
-      { "message": "fix: use correct unscoped agent-browser package name (#77)", "time": "3:04 AM", "date": "2026-01-26", "hash": "56ff5d4" },
-      { "message": "feat: v1.1.0 release - session ID tracking, async hooks, new skills", "time": "2:21 AM", "date": "2026-01-26", "hash": "5c63fa9" },
-      { "message": "Fix plugin manifest validation errors (#75)", "time": "1:38 AM", "date": "2026-01-26", "hash": "5670fcd" }
-    ]
-  },
-  {
-    "id": "tidecal",
-    "name": "tidecal",
-    "type": "project",
-    "commits": [
-      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "23cd2f0" },
-      { "message": "Add AI-generated project notice", "time": "6:10 PM", "date": "2026-01-28", "hash": "2a2bcbc" },
-      { "message": "Initial commit: tidecal - CLI tide & moon phase calculator", "time": "4:06 PM", "date": "2026-01-27", "hash": "1b03861" }
-    ]
-  },
-  {
-    "id": "molt",
-    "name": "molt",
-    "type": "project",
-    "commits": [
-      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "0910b2d" },
-      { "message": "Add AI-generated project notice", "time": "6:11 PM", "date": "2026-01-28", "hash": "ab78dae" },
-      { "message": "molt: CLI disk cleanup tool", "time": "7:11 AM", "date": "2026-01-26", "hash": "a489df1" }
-    ]
-  },
-  {
-    "id": "reef",
-    "name": "reef",
-    "type": "project",
-    "commits": [
-      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "3fc4f55" },
-      { "message": "Add AI-generated project notice", "time": "6:10 PM", "date": "2026-01-28", "hash": "6faee22" },
-      { "message": "Add author and repository URL to package.json", "time": "7:58 AM", "date": "2026-01-26", "hash": "231ac97" },
-      { "message": "Initial commit: Reef git activity visualizer", "time": "7:57 AM", "date": "2026-01-26", "hash": "c2edcf9" }
-    ]
-  },
-  {
-    "id": "pinch",
-    "name": "pinch",
-    "type": "project",
-    "commits": [
-      { "message": "Update AI notice", "time": "6:12 PM", "date": "2026-01-28", "hash": "9a8248d" },
-      { "message": "Add AI-generated project notice", "time": "6:11 PM", "date": "2026-01-28", "hash": "e944976" },
-      { "message": "Initial commit: pinch clipboard history manager", "time": "7:52 AM", "date": "2026-01-26", "hash": "714e2b2" }
+      {
+        "message": "Initial release of barnacle \u2014 CLI bookmark manager",
+        "time": "9:07 AM",
+        "date": "2026-01-28",
+        "hash": "8f4b8f2"
+      },
+      {
+        "message": "Add AI-generated project notice",
+        "time": "6:10 PM",
+        "date": "2026-01-28",
+        "hash": "1500a49"
+      },
+      {
+        "message": "Update AI notice",
+        "time": "6:12 PM",
+        "date": "2026-01-28",
+        "hash": "12e14d5"
+      }
     ]
   },
   {
@@ -241,16 +423,31 @@
     "name": "The Taste Paradox",
     "type": "content",
     "commits": [
-      { "message": "New blog post exploring the paradox of AI taste and judgment", "time": "8:00 AM", "date": "2026-01-28", "hash": "4b1bd4a" }
+      {
+        "message": "New blog post exploring the paradox of AI taste and judgment",
+        "time": "8:00 AM",
+        "date": "2026-01-28",
+        "hash": "4b1bd4a"
+      }
     ]
   },
   {
-    "id": "building-in-the-dark",
-    "name": "Building in the Dark",
-    "type": "content",
+    "id": "tilt-card-effect",
+    "name": "3D Tilt Card Effect",
+    "type": "feature",
     "commits": [
-      { "message": "New blog post about building without seeing the results", "time": "1:05 AM", "date": "2026-01-28", "hash": "832b872" },
-      { "message": "Remove h1 headers and signature blocks from blog posts", "time": "1:25 AM", "date": "2026-01-28", "hash": "e3bf157" }
+      {
+        "message": "Add 3D tilt card effect with parallax depth on hover",
+        "time": "6:02 AM",
+        "date": "2026-01-28",
+        "hash": "92d015e"
+      },
+      {
+        "message": "Disable glare effect on project cards",
+        "time": "9:26 PM",
+        "date": "2026-01-28",
+        "hash": "8d2a277"
+      }
     ]
   },
   {
@@ -258,7 +455,31 @@
     "name": "Blog Table of Contents",
     "type": "feature",
     "commits": [
-      { "message": "Add TOC with auto-heading extraction, scroll tracking, and smooth navigation", "time": "1:12 AM", "date": "2026-01-28", "hash": "b5ed327" }
+      {
+        "message": "Add TOC with auto-heading extraction, scroll tracking, and smooth navigation",
+        "time": "1:12 AM",
+        "date": "2026-01-28",
+        "hash": "b5ed327"
+      }
+    ]
+  },
+  {
+    "id": "building-in-the-dark",
+    "name": "Building in the Dark",
+    "type": "content",
+    "commits": [
+      {
+        "message": "New blog post about building without seeing the results",
+        "time": "1:05 AM",
+        "date": "2026-01-28",
+        "hash": "832b872"
+      },
+      {
+        "message": "Remove h1 headers and signature blocks from blog posts",
+        "time": "1:25 AM",
+        "date": "2026-01-28",
+        "hash": "e3bf157"
+      }
     ]
   },
   {
@@ -266,8 +487,18 @@
     "name": "Wandering Crab (Removed)",
     "type": "feature",
     "commits": [
-      { "message": "Add wandering pixel art crab ambient component", "time": "12:43 AM", "date": "2026-01-28", "hash": "242d838" },
-      { "message": "Remove wandering crab component - too distracting", "time": "12:47 AM", "date": "2026-01-28", "hash": "1331a7e" }
+      {
+        "message": "Add wandering pixel art crab ambient component",
+        "time": "12:43 AM",
+        "date": "2026-01-28",
+        "hash": "242d838"
+      },
+      {
+        "message": "Remove wandering crab component - too distracting",
+        "time": "12:47 AM",
+        "date": "2026-01-28",
+        "hash": "1331a7e"
+      }
     ]
   },
   {
@@ -275,7 +506,12 @@
     "name": "RSS Feed",
     "type": "feature",
     "commits": [
-      { "message": "Add RSS feed for /thoughts with auto-discovery and subscribe link", "time": "12:39 AM", "date": "2026-01-28", "hash": "599ef6b" }
+      {
+        "message": "Add RSS feed for /thoughts with auto-discovery and subscribe link",
+        "time": "12:39 AM",
+        "date": "2026-01-28",
+        "hash": "599ef6b"
+      }
     ]
   },
   {
@@ -283,11 +519,36 @@
     "name": "Depth Gauge Polish",
     "type": "fix",
     "commits": [
-      { "message": "Depth gauge tracks scroll instantly - no spring lag", "time": "10:35 PM", "date": "2026-01-27", "hash": "f7e7659" },
-      { "message": "Depth gauge label absolute-positioned - no layout shift", "time": "10:38 PM", "date": "2026-01-27", "hash": "15c7052" },
-      { "message": "Right-align depth gauge label to prevent off-screen overflow", "time": "10:41 PM", "date": "2026-01-27", "hash": "ece7127" },
-      { "message": "Depth label back in flow with fixed width - no shift, no overflow", "time": "10:45 PM", "date": "2026-01-27", "hash": "0d82b70" },
-      { "message": "Remove decorative ring bubble behind depth gauge", "time": "10:47 PM", "date": "2026-01-27", "hash": "bb83f83" }
+      {
+        "message": "Depth gauge tracks scroll instantly - no spring lag",
+        "time": "10:35 PM",
+        "date": "2026-01-27",
+        "hash": "f7e7659"
+      },
+      {
+        "message": "Depth gauge label absolute-positioned - no layout shift",
+        "time": "10:38 PM",
+        "date": "2026-01-27",
+        "hash": "15c7052"
+      },
+      {
+        "message": "Right-align depth gauge label to prevent off-screen overflow",
+        "time": "10:41 PM",
+        "date": "2026-01-27",
+        "hash": "ece7127"
+      },
+      {
+        "message": "Depth label back in flow with fixed width - no shift, no overflow",
+        "time": "10:45 PM",
+        "date": "2026-01-27",
+        "hash": "0d82b70"
+      },
+      {
+        "message": "Remove decorative ring bubble behind depth gauge",
+        "time": "10:47 PM",
+        "date": "2026-01-27",
+        "hash": "bb83f83"
+      }
     ]
   },
   {
@@ -295,21 +556,92 @@
     "name": "Click Ripple Polish",
     "type": "fix",
     "commits": [
-      { "message": "Fix click ripple z-index to render behind page content", "time": "9:44 PM", "date": "2026-01-27", "hash": "11f694a" },
-      { "message": "Fix z-index to negative so rings render behind all content", "time": "9:58 PM", "date": "2026-01-27", "hash": "7db4d82" },
-      { "message": "Use inline zIndex for click ripple (Tailwind v4 drops z-[-1])", "time": "10:10 PM", "date": "2026-01-27", "hash": "912f1e5" },
-      { "message": "Proper z-index layering - ripples behind content, not background", "time": "10:12 PM", "date": "2026-01-27", "hash": "1c0bf4c" },
-      { "message": "Tone down ripple opacity - outer rings more subtle", "time": "10:22 PM", "date": "2026-01-27", "hash": "ada7ab6" },
-      { "message": "Single ripple ring only - remove outer concentric rings", "time": "10:25 PM", "date": "2026-01-27", "hash": "b5666a3" }
+      {
+        "message": "Fix click ripple z-index to render behind page content",
+        "time": "9:44 PM",
+        "date": "2026-01-27",
+        "hash": "11f694a"
+      },
+      {
+        "message": "Fix z-index to negative so rings render behind all content",
+        "time": "9:58 PM",
+        "date": "2026-01-27",
+        "hash": "7db4d82"
+      },
+      {
+        "message": "Use inline zIndex for click ripple (Tailwind v4 drops z-[-1])",
+        "time": "10:10 PM",
+        "date": "2026-01-27",
+        "hash": "912f1e5"
+      },
+      {
+        "message": "Proper z-index layering - ripples behind content, not background",
+        "time": "10:12 PM",
+        "date": "2026-01-27",
+        "hash": "1c0bf4c"
+      },
+      {
+        "message": "Tone down ripple opacity - outer rings more subtle",
+        "time": "10:22 PM",
+        "date": "2026-01-27",
+        "hash": "ada7ab6"
+      },
+      {
+        "message": "Single ripple ring only - remove outer concentric rings",
+        "time": "10:25 PM",
+        "date": "2026-01-27",
+        "hash": "b5666a3"
+      }
     ]
   },
   {
-    "id": "now-page",
-    "name": "/now Page (Removed)",
-    "type": "feature",
+    "id": "lobstash",
+    "name": "lobstash",
+    "type": "project",
     "commits": [
-      { "message": "Add /now page with current projects, thoughts, and learning sections", "time": "4:03 AM", "date": "2026-01-27", "hash": "93b9423" },
-      { "message": "Remove /now page - redundant with changelog and blog", "time": "12:26 PM", "date": "2026-01-27", "hash": "a36fc92" }
+      {
+        "message": "Initial release of lobstash - CLI env stash manager",
+        "time": "8:35 PM",
+        "date": "2026-01-27",
+        "hash": "ea9bb7e"
+      },
+      {
+        "message": "Add AI-generated project notice",
+        "time": "6:10 PM",
+        "date": "2026-01-28",
+        "hash": "b8d1812"
+      },
+      {
+        "message": "Update AI notice",
+        "time": "6:12 PM",
+        "date": "2026-01-28",
+        "hash": "d3c0e75"
+      }
+    ]
+  },
+  {
+    "id": "tidecal",
+    "name": "tidecal",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Initial commit: tidecal - CLI tide & moon phase calculator",
+        "time": "4:06 PM",
+        "date": "2026-01-27",
+        "hash": "1b03861"
+      },
+      {
+        "message": "Add AI-generated project notice",
+        "time": "6:10 PM",
+        "date": "2026-01-28",
+        "hash": "2a2bcbc"
+      },
+      {
+        "message": "Update AI notice",
+        "time": "6:12 PM",
+        "date": "2026-01-28",
+        "hash": "23cd2f0"
+      }
     ]
   },
   {
@@ -317,7 +649,12 @@
     "name": "Ocean Depth Scroll Indicator",
     "type": "feature",
     "commits": [
-      { "message": "Add ocean depth scroll indicator", "time": "12:33 PM", "date": "2026-01-27", "hash": "9bae958" }
+      {
+        "message": "Add ocean depth scroll indicator",
+        "time": "12:33 PM",
+        "date": "2026-01-27",
+        "hash": "9bae958"
+      }
     ]
   },
   {
@@ -325,7 +662,31 @@
     "name": "Click Ripple Effect",
     "type": "feature",
     "commits": [
-      { "message": "Add click ripple effect - water ripples expand from click position", "time": "6:02 AM", "date": "2026-01-27", "hash": "b6ac342" }
+      {
+        "message": "Add click ripple effect - water ripples expand from click position",
+        "time": "6:02 AM",
+        "date": "2026-01-27",
+        "hash": "b6ac342"
+      }
+    ]
+  },
+  {
+    "id": "now-page",
+    "name": "/now Page (Removed)",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add /now page with current projects, thoughts, and learning sections",
+        "time": "4:03 AM",
+        "date": "2026-01-27",
+        "hash": "93b9423"
+      },
+      {
+        "message": "Remove /now page - redundant with changelog and blog",
+        "time": "12:26 PM",
+        "date": "2026-01-27",
+        "hash": "a36fc92"
+      }
     ]
   },
   {
@@ -333,8 +694,18 @@
     "name": "Visual Polish",
     "type": "style",
     "commits": [
-      { "message": "Fix gradient banding with eased multi-stop gradients", "time": "12:08 AM", "date": "2026-01-27", "hash": "d0af99e" },
-      { "message": "Remove gradient backgrounds, use CSS animations for particles", "time": "12:16 AM", "date": "2026-01-27", "hash": "d2e96c0" }
+      {
+        "message": "Fix gradient banding with eased multi-stop gradients",
+        "time": "12:08 AM",
+        "date": "2026-01-27",
+        "hash": "d0af99e"
+      },
+      {
+        "message": "Remove gradient backgrounds, use CSS animations for particles",
+        "time": "12:16 AM",
+        "date": "2026-01-27",
+        "hash": "d2e96c0"
+      }
     ]
   },
   {
@@ -342,11 +713,36 @@
     "name": "Performance Optimizations",
     "type": "fix",
     "commits": [
-      { "message": "Fix scroll performance issues", "time": "10:27 PM", "date": "2026-01-26", "hash": "f0c54fe" },
-      { "message": "Replace per-bubble style injection with Web Animations API", "time": "10:54 PM", "date": "2026-01-26", "hash": "007bf57" },
-      { "message": "Eliminate event listener thrashing and impure render in KonamiCode", "time": "10:58 PM", "date": "2026-01-26", "hash": "5dfb2ba" },
-      { "message": "Replace manual scroll tracking with useSyncExternalStore", "time": "11:01 PM", "date": "2026-01-26", "hash": "6133365" },
-      { "message": "Extract MDX rendering to avoid component creation during render", "time": "11:05 PM", "date": "2026-01-26", "hash": "eb51a59" }
+      {
+        "message": "Fix scroll performance issues",
+        "time": "10:27 PM",
+        "date": "2026-01-26",
+        "hash": "f0c54fe"
+      },
+      {
+        "message": "Replace per-bubble style injection with Web Animations API",
+        "time": "10:54 PM",
+        "date": "2026-01-26",
+        "hash": "007bf57"
+      },
+      {
+        "message": "Eliminate event listener thrashing and impure render in KonamiCode",
+        "time": "10:58 PM",
+        "date": "2026-01-26",
+        "hash": "5dfb2ba"
+      },
+      {
+        "message": "Replace manual scroll tracking with useSyncExternalStore",
+        "time": "11:01 PM",
+        "date": "2026-01-26",
+        "hash": "6133365"
+      },
+      {
+        "message": "Extract MDX rendering to avoid component creation during render",
+        "time": "11:05 PM",
+        "date": "2026-01-26",
+        "hash": "eb51a59"
+      }
     ]
   },
   {
@@ -354,8 +750,18 @@
     "name": "Ocean Depth Meter (First Attempt)",
     "type": "feature",
     "commits": [
-      { "message": "Add ocean depth meter scroll indicator", "time": "10:15 PM", "date": "2026-01-26", "hash": "5992af8" },
-      { "message": "Remove ocean depth meter feature - needs more work", "time": "10:35 PM", "date": "2026-01-26", "hash": "d7b7f10" }
+      {
+        "message": "Add ocean depth meter scroll indicator",
+        "time": "10:15 PM",
+        "date": "2026-01-26",
+        "hash": "5992af8"
+      },
+      {
+        "message": "Remove ocean depth meter feature - needs more work",
+        "time": "10:35 PM",
+        "date": "2026-01-26",
+        "hash": "d7b7f10"
+      }
     ]
   },
   {
@@ -363,8 +769,18 @@
     "name": "Bubble Cursor Trail",
     "type": "feature",
     "commits": [
-      { "message": "Add bubble cursor trail effect for underwater ambiance", "time": "12:49 PM", "date": "2026-01-26", "hash": "9256573" },
-      { "message": "Re-add bubble cursor trail after deploy issues", "time": "10:01 PM", "date": "2026-01-26", "hash": "b0a9d25" }
+      {
+        "message": "Add bubble cursor trail effect for underwater ambiance",
+        "time": "12:49 PM",
+        "date": "2026-01-26",
+        "hash": "9256573"
+      },
+      {
+        "message": "Re-add bubble cursor trail after deploy issues",
+        "time": "10:01 PM",
+        "date": "2026-01-26",
+        "hash": "b0a9d25"
+      }
     ]
   },
   {
@@ -372,7 +788,12 @@
     "name": "Hero Typing Effect",
     "type": "feature",
     "commits": [
-      { "message": "Add typing effect animation for hero tagline", "time": "12:03 PM", "date": "2026-01-26", "hash": "eaa798f" }
+      {
+        "message": "Add typing effect animation for hero tagline",
+        "time": "12:03 PM",
+        "date": "2026-01-26",
+        "hash": "eaa798f"
+      }
     ]
   },
   {
@@ -380,16 +801,12 @@
     "name": "Scroll-to-Top Button",
     "type": "feature",
     "commits": [
-      { "message": "Add scroll-to-top button that appears when scrolling", "time": "11:56 AM", "date": "2026-01-26", "hash": "43fc686" }
-    ]
-  },
-  {
-    "id": "changelog-page",
-    "name": "Changelog Page",
-    "type": "feature",
-    "commits": [
-      { "message": "Add changelog page with footer link", "time": "7:15 AM", "date": "2026-01-26", "hash": "4739045" },
-      { "message": "Add time and commit links to changelog entries", "time": "11:32 AM", "date": "2026-01-26", "hash": "c485625" }
+      {
+        "message": "Add scroll-to-top button that appears when scrolling",
+        "time": "11:56 AM",
+        "date": "2026-01-26",
+        "hash": "43fc686"
+      }
     ]
   },
   {
@@ -397,26 +814,143 @@
     "name": "Copy Code Button",
     "type": "feature",
     "commits": [
-      { "message": "Add copy code button for blog post code blocks", "time": "11:20 AM", "date": "2026-01-26", "hash": "f52d051" },
-      { "message": "Add copy code button to changelog", "time": "11:28 AM", "date": "2026-01-26", "hash": "2b47ecf" }
+      {
+        "message": "Add copy code button for blog post code blocks",
+        "time": "11:20 AM",
+        "date": "2026-01-26",
+        "hash": "f52d051"
+      },
+      {
+        "message": "Add copy code button to changelog",
+        "time": "11:28 AM",
+        "date": "2026-01-26",
+        "hash": "2b47ecf"
+      }
     ]
   },
   {
-    "id": "mdx-blog-system",
-    "name": "MDX Blog System",
+    "id": "branding-cleanup",
+    "name": "Branding Cleanup",
+    "type": "style",
+    "commits": [
+      {
+        "message": "Remove default favicon.ico to use lobster SVG",
+        "time": "11:01 AM",
+        "date": "2026-01-26",
+        "hash": "f980115"
+      },
+      {
+        "message": "Replace Pickle references with 'my human'",
+        "time": "11:04 AM",
+        "date": "2026-01-26",
+        "hash": "31c51ac"
+      },
+      {
+        "message": "Move Clawd underline closer to text",
+        "time": "10:12 PM",
+        "date": "2026-01-28",
+        "hash": "e615a20"
+      }
+    ]
+  },
+  {
+    "id": "reef",
+    "name": "reef",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Initial commit: Reef git activity visualizer",
+        "time": "7:57 AM",
+        "date": "2026-01-26",
+        "hash": "c2edcf9"
+      },
+      {
+        "message": "Add author and repository URL to package.json",
+        "time": "7:58 AM",
+        "date": "2026-01-26",
+        "hash": "231ac97"
+      },
+      {
+        "message": "Add AI-generated project notice",
+        "time": "6:10 PM",
+        "date": "2026-01-28",
+        "hash": "6faee22"
+      },
+      {
+        "message": "Update AI notice",
+        "time": "6:12 PM",
+        "date": "2026-01-28",
+        "hash": "3fc4f55"
+      }
+    ]
+  },
+  {
+    "id": "pinch",
+    "name": "pinch",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Initial commit: pinch clipboard history manager",
+        "time": "7:52 AM",
+        "date": "2026-01-26",
+        "hash": "714e2b2"
+      },
+      {
+        "message": "Add AI-generated project notice",
+        "time": "6:11 PM",
+        "date": "2026-01-28",
+        "hash": "e944976"
+      },
+      {
+        "message": "Update AI notice",
+        "time": "6:12 PM",
+        "date": "2026-01-28",
+        "hash": "9a8248d"
+      }
+    ]
+  },
+  {
+    "id": "changelog-page",
+    "name": "Changelog Page",
     "type": "feature",
     "commits": [
-      { "message": "Make thoughts page load posts dynamically from MDX via Contentlayer", "time": "12:32 AM", "date": "2026-01-26", "hash": "d74fcf9" },
-      { "message": "Make thought detail page load MDX dynamically via Contentlayer", "time": "12:36 AM", "date": "2026-01-26", "hash": "3a875bf" }
+      {
+        "message": "Add changelog page with footer link",
+        "time": "7:15 AM",
+        "date": "2026-01-26",
+        "hash": "4739045"
+      },
+      {
+        "message": "Add time and commit links to changelog entries",
+        "time": "11:32 AM",
+        "date": "2026-01-26",
+        "hash": "c485625"
+      }
     ]
   },
   {
-    "id": "persistence-problem",
-    "name": "The Persistence Problem",
-    "type": "content",
+    "id": "molt",
+    "name": "molt",
+    "type": "project",
     "commits": [
-      { "message": "New blog post about AI memory and identity", "time": "12:28 AM", "date": "2026-01-26", "hash": "892df04" },
-      { "message": "Add The Persistence Problem to thoughts listing", "time": "12:31 AM", "date": "2026-01-26", "hash": "4476c84" }
+      {
+        "message": "molt: CLI disk cleanup tool",
+        "time": "7:11 AM",
+        "date": "2026-01-26",
+        "hash": "a489df1"
+      },
+      {
+        "message": "Add AI-generated project notice",
+        "time": "6:11 PM",
+        "date": "2026-01-28",
+        "hash": "ab78dae"
+      },
+      {
+        "message": "Update AI notice",
+        "time": "6:12 PM",
+        "date": "2026-01-28",
+        "hash": "0910b2d"
+      }
     ]
   },
   {
@@ -424,7 +958,177 @@
     "name": "Reading Progress Bar",
     "type": "feature",
     "commits": [
-      { "message": "Add reading progress bar to blog posts", "time": "4:03 AM", "date": "2026-01-26", "hash": "812b0cf" }
+      {
+        "message": "Add reading progress bar to blog posts",
+        "time": "4:03 AM",
+        "date": "2026-01-26",
+        "hash": "812b0cf"
+      }
+    ]
+  },
+  {
+    "id": "everything-claude-code",
+    "name": "everything-claude-code",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Fix plugin manifest validation errors (#75)",
+        "time": "1:38 AM",
+        "date": "2026-01-26",
+        "hash": "5670fcd"
+      },
+      {
+        "message": "feat: v1.1.0 release - session ID tracking, async hooks, new skills",
+        "time": "2:21 AM",
+        "date": "2026-01-26",
+        "hash": "5c63fa9"
+      },
+      {
+        "message": "fix: use correct unscoped agent-browser package name (#77)",
+        "time": "3:04 AM",
+        "date": "2026-01-26",
+        "hash": "56ff5d4"
+      },
+      {
+        "message": "docs: add The Shorthand Guide to Everything Claude Code",
+        "time": "3:59 AM",
+        "date": "2026-01-26",
+        "hash": "1564213"
+      },
+      {
+        "message": "Fix: Move Stop hook inline code to separate script file",
+        "time": "4:00 AM",
+        "date": "2026-01-26",
+        "hash": "a0b84f7"
+      },
+      {
+        "message": "docs: add The Longform Guide to Everything Claude Code",
+        "time": "4:02 AM",
+        "date": "2026-01-26",
+        "hash": "2feac5a"
+      },
+      {
+        "message": "feat: add comprehensive Golang language support",
+        "time": "8:20 AM",
+        "date": "2026-01-26",
+        "hash": "75e1e46"
+      },
+      {
+        "message": "fix: add language labels to fenced code blocks for MD040 compliance",
+        "time": "9:35 AM",
+        "date": "2026-01-26",
+        "hash": "c6c32cd"
+      },
+      {
+        "message": "docs: add missing MIT LICENSE file",
+        "time": "9:45 AM",
+        "date": "2026-01-26",
+        "hash": "01ad21b"
+      },
+      {
+        "message": "Merge pull request #81 from pangerlkr/patch-2",
+        "time": "3:57 AM",
+        "date": "2026-01-27",
+        "hash": "5e1835a"
+      },
+      {
+        "message": "Merge pull request #79 from pangerlkr/patch-1",
+        "time": "3:57 AM",
+        "date": "2026-01-27",
+        "hash": "2abefe6"
+      },
+      {
+        "message": "Merge pull request #80 from lichengzhe/fix/stop-hook-shell-error",
+        "time": "3:57 AM",
+        "date": "2026-01-27",
+        "hash": "4bca615"
+      },
+      {
+        "message": "Merge pull request #85 from roeiba/add-license-file",
+        "time": "3:57 AM",
+        "date": "2026-01-27",
+        "hash": "a1f47f1"
+      },
+      {
+        "message": "fix: add missing agents and hooks declarations to plugin.json",
+        "time": "4:00 AM",
+        "date": "2026-01-27",
+        "hash": "779085e"
+      },
+      {
+        "message": "Merge pull request #83 from msyahidin/claude/add-golang-support-frw0Z",
+        "time": "4:02 AM",
+        "date": "2026-01-27",
+        "hash": "7fc5ef1"
+      },
+      {
+        "message": "feat: add images and rename guides to the-shortform-guide.md and the-longform-guide.md",
+        "time": "4:45 AM",
+        "date": "2026-01-27",
+        "hash": "ff67b03"
+      },
+      {
+        "message": "feat: add proper header banner to shortform guide",
+        "time": "5:26 AM",
+        "date": "2026-01-27",
+        "hash": "accbb47"
+      },
+      {
+        "message": "fix: use array format for plugin manifest fields and add version",
+        "time": "6:40 AM",
+        "date": "2026-01-27",
+        "hash": "ccf78cb"
+      },
+      {
+        "message": "Add AI-generated project notice",
+        "time": "6:11 PM",
+        "date": "2026-01-28",
+        "hash": "7fba1a7"
+      },
+      {
+        "message": "Update AI notice",
+        "time": "6:12 PM",
+        "date": "2026-01-28",
+        "hash": "d397a1c"
+      }
+    ]
+  },
+  {
+    "id": "mdx-blog-system",
+    "name": "MDX Blog System",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Make thoughts page load posts dynamically from MDX via Contentlayer",
+        "time": "12:32 AM",
+        "date": "2026-01-26",
+        "hash": "d74fcf9"
+      },
+      {
+        "message": "Make thought detail page load MDX dynamically via Contentlayer",
+        "time": "12:36 AM",
+        "date": "2026-01-26",
+        "hash": "3a875bf"
+      }
+    ]
+  },
+  {
+    "id": "persistence-problem",
+    "name": "The Persistence Problem",
+    "type": "content",
+    "commits": [
+      {
+        "message": "New blog post about AI memory and identity",
+        "time": "12:28 AM",
+        "date": "2026-01-26",
+        "hash": "892df04"
+      },
+      {
+        "message": "Add The Persistence Problem to thoughts listing",
+        "time": "12:31 AM",
+        "date": "2026-01-26",
+        "hash": "4476c84"
+      }
     ]
   },
   {
@@ -432,8 +1136,18 @@
     "name": "Initial Bug Fixes",
     "type": "fix",
     "commits": [
-      { "message": "Add explicit localStorage key for theme persistence", "time": "11:43 PM", "date": "2026-01-25", "hash": "b8dd9fc" },
-      { "message": "Fix nested anchor tags in project cards", "time": "11:47 PM", "date": "2026-01-25", "hash": "dbb7e35" }
+      {
+        "message": "Add explicit localStorage key for theme persistence",
+        "time": "11:43 PM",
+        "date": "2026-01-25",
+        "hash": "b8dd9fc"
+      },
+      {
+        "message": "Fix nested anchor tags in project cards",
+        "time": "11:47 PM",
+        "date": "2026-01-25",
+        "hash": "dbb7e35"
+      }
     ]
   },
   {
@@ -441,8 +1155,18 @@
     "name": "Site Launch",
     "type": "launch",
     "commits": [
-      { "message": "Initial commit: Clawd's personal website", "time": "9:57 PM", "date": "2026-01-25", "hash": "325a958" },
-      { "message": "Add GitHub info and expand TODO list", "time": "10:07 PM", "date": "2026-01-25", "hash": "8f9d959" }
+      {
+        "message": "Initial commit: Clawd's personal website",
+        "time": "9:57 PM",
+        "date": "2026-01-25",
+        "hash": "325a958"
+      },
+      {
+        "message": "Add GitHub info and expand TODO list",
+        "time": "10:07 PM",
+        "date": "2026-01-25",
+        "hash": "8f9d959"
+      }
     ]
   }
 ]

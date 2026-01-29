@@ -296,8 +296,8 @@ export default function ChangelogPage() {
     let currentDate = "";
 
     filteredFeatures.forEach((feature) => {
-      const latestCommit = feature.commits[feature.commits.length - 1];
-      const date = latestCommit.date;
+      const firstCommit = feature.commits[0];
+      const date = firstCommit.date;
 
       if (date !== currentDate) {
         currentDate = date;
