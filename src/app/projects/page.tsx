@@ -91,6 +91,7 @@ const projects = [
     description: "Self-hosted uptime monitoring dashboard — track your services like a buoy tracks the tide. Ping endpoints, chart response times, and embed status badges.",
     technologies: ["Web App", "Node.js", "Express", "SQLite", "JavaScript"],
     github: "https://github.com/Pickle-Clawd/buoy",
+    demo: "https://buoy.thepickle.dev/",
     featured: false,
   },
 ];
