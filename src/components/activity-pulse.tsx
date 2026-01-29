@@ -89,7 +89,7 @@ export function ActivityPulse() {
   const fetchData = useCallback(async () => {
     try {
       const [statusRes, eventsRes] = await Promise.all([
-        fetch("/status.json", { cache: "no-store" }),
+        fetch("/api/status", { cache: "no-store" }),
         fetch("https://api.github.com/users/Pickle-Clawd/events?per_page=10", {
           headers: { Accept: "application/vnd.github.v3+json" },
         }),
@@ -222,7 +222,7 @@ export function StatusIndicator() {
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        const res = await fetch("/status.json", { cache: "no-store" });
+        const res = await fetch("/api/status", { cache: "no-store" });
         if (res.ok) {
           const status: StatusData = await res.json();
           setPulseColor(getPulseColor(status.lastActive));
