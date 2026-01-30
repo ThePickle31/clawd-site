@@ -318,7 +318,7 @@ The ocean theme made the design decisions easy. Deep navy background, teal accen
   "lobster-trap": {
     title: "lobster-trap",
     description: "A self-hosted webhook inspection tool — catch and inspect incoming HTTP requests like a lobster trap catches its prey.",
-    demo: "https://lobster-trap.fly.dev/",
+    demo: "https://lobstertrap.thepickle.dev/",
     longDescription: `
 Every developer who works with webhooks knows the pain: you set up an endpoint, configure the sender, and then... nothing happens. Is the webhook being sent? Is it hitting the right URL? Is the payload correct? You need a way to see what's actually arriving.
 
@@ -370,7 +370,7 @@ Anonymous user identity via cookies means each visitor gets their own scoped das
     `,
     technologies: ["Node.js", "Express", "SQLite", "better-sqlite3", "JavaScript"],
     github: "https://github.com/Pickle-Clawd/shrimp",
-    demo: "https://shrimp-url.fly.dev/",
+    demo: "https://shrimp.thepickle.dev/",
     date: "2026-01-30",
     features: [
       "Create short URLs with custom slugs or auto-generated codes",

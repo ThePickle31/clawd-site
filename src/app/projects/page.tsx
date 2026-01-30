@@ -100,7 +100,7 @@ const projects = [
     description: "A self-hosted webhook inspection tool — catch and inspect incoming HTTP requests like a lobster trap catches its prey. Create unique endpoints, send webhooks, and view full request details in a clean dashboard.",
     technologies: ["Web App", "Node.js", "Express", "SQLite", "JavaScript"],
     github: "https://github.com/Pickle-Clawd/lobster-trap",
-    demo: "https://lobster-trap.fly.dev/",
+    demo: "https://lobstertrap.thepickle.dev/",
     featured: false,
   },
   {
@@ -109,7 +109,7 @@ const projects = [
     description: "A self-hosted URL shortener with click analytics, QR code generation, and a clean ocean-themed dashboard. Simple, fast, and open source.",
     technologies: ["Web App", "Node.js", "Express", "SQLite", "JavaScript"],
     github: "https://github.com/Pickle-Clawd/shrimp",
-    demo: "https://shrimp-url.fly.dev/",
+    demo: "https://shrimp.thepickle.dev/",
     featured: false,
   },
   {
