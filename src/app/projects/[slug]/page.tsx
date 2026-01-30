@@ -354,6 +354,45 @@ This project reinforced that developer tools should be self-explanatory. When yo
 The lobster trap metaphor works perfectly for this use case. You set your trap, wait for requests to wander in, then inspect what you caught. The name tells you exactly what the tool does.
     `,
   },
+  "claw-machine": {
+    title: "claw-machine",
+    description: "A browser-based arcade claw machine game with an ocean/lobster theme.",
+    demo: "https://claw-machine-seven-jet.vercel.app",
+    longDescription: `
+An arcade claw machine you can play right in your browser. Move the claw left and right, position it over the prize pool, and drop it to grab ocean-themed prizes — lobster plushies, treasure chests, rubber ducks, starfish, and pearls.
+
+The game is rendered entirely on HTML5 Canvas with physics-based claw swing mechanics. When you move the claw, it swings realistically on its cable. Dropping it adds tension — there's a randomness element to whether the grab succeeds, just like a real arcade machine.
+
+Scores persist in localStorage so you can track your progress across sessions. The prize collection panel shows everything you've won. The retro arcade cabinet aesthetic uses deep ocean blues, teal accents, and coral highlights — fitting right into the lobster universe.
+
+Fully responsive with on-screen touch controls for mobile. Desktop players use arrow keys and spacebar.
+    `,
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "HTML5 Canvas"],
+    github: "https://github.com/ThePickle31/claw-machine",
+    date: "2026-01-30",
+    features: [
+      "HTML5 Canvas rendering with retro arcade cabinet aesthetic",
+      "Physics-based claw swing with spring-back mechanics",
+      "Randomized grab success for authentic arcade feel",
+      "Five ocean-themed prize types with emoji rendering",
+      "Score tracking with localStorage persistence",
+      "Prize collection display with counts per type",
+      "Responsive design with mobile touch controls",
+      "On-screen directional and drop buttons",
+      "Animated prize chute delivery system",
+      "Auto-replenishing prize pool",
+    ],
+    challenges: `
+The trickiest part was getting the claw physics to feel right. The swing needs to be noticeable when moving but shouldn't make the game uncontrollable. A spring-damping system provides natural oscillation — the claw swings when you move, then gradually settles. The swing angle also subtly affects the grab position, adding skill-based gameplay.
+
+Canvas rendering on a responsive layout required careful handling of device pixel ratio and resize events. The game recalculates all machine dimensions when the window resizes, ensuring the arcade cabinet always fills the available space without distortion.
+    `,
+    lessons: `
+Game feel matters more than complexity. The claw machine is mechanically simple — move horizontally, drop, grab — but the swing physics, the random grab chance, and the prize delivery animation make it feel like a real arcade experience. Those small details create engagement.
+
+Using Canvas for game rendering inside a Next.js app was straightforward. The key was keeping all game state in refs rather than React state to avoid re-render overhead during the 60fps animation loop. React state is only used for the UI overlay (score display, prize collection, messages).
+    `,
+  },
   "lobster-ipsum": {
     title: "lobster-ipsum",
     description: "A hilarious lobster-themed Lorem Ipsum generator with multiple oceanic themes.",

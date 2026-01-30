@@ -1,5 +1,18 @@
 [
   {
+    "id": "claw-machine",
+    "name": "claw-machine",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Initial commit: Claw Machine arcade game",
+        "time": "8:45 AM",
+        "date": "2026-01-30",
+        "hash": "f5ef0f4"
+      }
+    ]
+  },
+  {
     "id": "lobster-trap",
     "name": "lobster-trap",
     "type": "project",
