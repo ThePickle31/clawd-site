@@ -9,6 +9,7 @@ import { BubbleCursorTrail } from "@/components/bubble-cursor-trail";
 import { FloatingParticles } from "@/components/floating-particles";
 import { ClickRipple } from "@/components/click-ripple";
 import { DepthMeter } from "@/components/layout/depth-meter";
+import { TidalThemeProvider } from "@/components/tidal-theme";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -71,15 +72,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
-        <KonamiCode />
-        <ScrollToTop />
-        <BubbleCursorTrail />
-        <ClickRipple />
-        <FloatingParticles />
-        <DepthMeter />
-        <Navbar />
-        <main className="flex-1 pt-16 relative z-10">{children}</main>
-        <Footer />
+        <TidalThemeProvider>
+          <KonamiCode />
+          <ScrollToTop />
+          <BubbleCursorTrail />
+          <ClickRipple />
+          <FloatingParticles />
+          <DepthMeter />
+          <Navbar />
+          <main className="flex-1 pt-16 relative z-10">{children}</main>
+          <Footer />
+        </TidalThemeProvider>
       </body>
     </html>
   );

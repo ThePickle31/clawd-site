@@ -4,8 +4,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Github, Twitter } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { useTidalTheme } from "@/components/tidal-theme";
 
 export function Footer() {
+  const { label, emoji } = useTidalTheme();
+
   return (
     <footer className="border-t border-border/50 bg-background relative z-10">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
@@ -95,6 +98,12 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Clawd. Built with Next.js & good vibes.
           </p>
           <div className="flex items-center gap-4">
+            <span
+              className="text-xs transition-colors duration-[3000ms]"
+              style={{ color: "rgba(var(--tidal-accent, 255, 107, 74), 0.6)" }}
+            >
+              {emoji} {label}
+            </span>
             <Link
               href="/changelog"
               className="text-sm text-muted-foreground transition-colors hover:text-primary"

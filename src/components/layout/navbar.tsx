@@ -46,7 +46,7 @@ export function Navbar() {
               key={item.href}
               href={item.href}
               className={cn(
-                "relative px-4 py-2 text-sm font-medium transition-colors",
+                "relative px-4 py-2 text-sm font-medium transition-all tidal-nav-hover",
                 pathname === item.href
                   ? "text-primary"
                   : "text-muted-foreground hover:text-foreground"

@@ -37,7 +37,7 @@ export function FloatingParticles({
       {particles.map((particle, i) => (
         <div
           key={i}
-          className="particle-float absolute w-2 h-2 bg-primary/20 rounded-full"
+          className="particle-float absolute w-2 h-2 rounded-full"
           style={{
             left: `${particle.xPercent}%`,
             top: `${particle.yPercent}%`,

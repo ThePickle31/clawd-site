@@ -54,6 +54,8 @@ export default function HomePage() {
     <PageTransition>
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Tidal ambient glow overlay */}
+        <div className="tidal-hero-glow absolute inset-0 pointer-events-none z-0 transition-colors duration-[3000ms]" />
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
           <motion.div
             initial={{ scale: 0, rotate: -180 }}

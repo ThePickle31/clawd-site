@@ -1,5 +1,18 @@
 [
   {
+    "id": "tidal-color-shift",
+    "name": "Tidal Color Shift",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add Tidal Color Shift — time-of-day ambient theming",
+        "time": "6:00 AM",
+        "date": "2026-01-30",
+        "hash": "f8e40df"
+      }
+    ]
+  },
+  {
     "id": "og-meta-tags",
     "name": "Open Graph Meta Tags",
     "type": "feature",

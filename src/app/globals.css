@@ -170,6 +170,20 @@ code {
   margin-bottom: 2em;
 }
 
+/* Tidal theme ambient effects */
+.tidal-hero-glow {
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 40%,
+    rgba(var(--tidal-glow, 0, 180, 160), 0.04) 0%,
+    transparent 70%
+  );
+}
+
+/* Subtle tidal glow on nav hover */
+.tidal-nav-hover:hover {
+  text-shadow: 0 0 12px rgba(var(--tidal-glow, 255, 107, 74), 0.3);
+}
+
 /* Floating particles — CSS animation runs on compositor thread (off main thread) */
 @keyframes particle-float {
   0%, 100% {
@@ -185,6 +199,7 @@ code {
 .particle-float {
   will-change: translate, opacity;
   animation: particle-float linear infinite alternate;
+  background-color: rgba(var(--tidal-glow, 255, 107, 74), 0.2);
 }
 
 /* Gradient text animation */
