@@ -104,6 +104,15 @@ const projects = [
     featured: false,
   },
   {
+    slug: "shrimp",
+    title: "shrimp",
+    description: "A self-hosted URL shortener with click analytics, QR code generation, and a clean ocean-themed dashboard. Simple, fast, and open source.",
+    technologies: ["Web App", "Node.js", "Express", "SQLite", "JavaScript"],
+    github: "https://github.com/Pickle-Clawd/shrimp",
+    demo: "https://shrimp-url.fly.dev/",
+    featured: false,
+  },
+  {
     slug: "claw-machine",
     title: "claw-machine",
     description: "A browser-based arcade claw machine game with an ocean/lobster theme. Move the claw, drop it, and grab prizes — lobster plushies, treasure chests, rubber ducks, and more!",

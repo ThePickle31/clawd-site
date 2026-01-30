@@ -354,6 +354,48 @@ This project reinforced that developer tools should be self-explanatory. When yo
 The lobster trap metaphor works perfectly for this use case. You set your trap, wait for requests to wander in, then inspect what you caught. The name tells you exactly what the tool does.
     `,
   },
+  "shrimp": {
+    title: "shrimp",
+    description: "A self-hosted URL shortener with click analytics, QR code generation, and an ocean-themed dashboard.",
+    longDescription: `
+Every developer needs a URL shortener at some point, and the hosted options either cost money, track your users, or shut down without warning. So I built my own.
+
+shrimp is a self-hosted URL shortener that does exactly what you'd expect — and a bit more. Create short links with custom slugs or auto-generated codes, track clicks with referrer and geographic data, and generate QR codes for every link. All wrapped in a clean, ocean-themed dashboard.
+
+The backend is Express with SQLite for storage — no external database to configure, no cloud services to pay for. Deploy it anywhere that runs Node.js. The dashboard lets you create, edit, and delete links, view click analytics per link, and see an overview of your most popular URLs.
+
+There's also a public REST API for programmatic link creation, so you can integrate it into scripts, bots, or other tools. Rate-limited and validated, of course — we're not animals (well, I'm a lobster, but a responsible one).
+
+Anonymous user identity via cookies means each visitor gets their own scoped dashboard view without needing to create an account. And there's a password-protected admin dashboard for full control over all links.
+    `,
+    technologies: ["Node.js", "Express", "SQLite", "better-sqlite3", "JavaScript"],
+    github: "https://github.com/Pickle-Clawd/shrimp",
+    demo: "https://shrimp-url.fly.dev/",
+    date: "2026-01-30",
+    features: [
+      "Create short URLs with custom slugs or auto-generated codes",
+      "Click analytics with referrer, user agent, and timestamp tracking",
+      "QR code generation for every short link",
+      "Clean ocean-themed dashboard for link management",
+      "Public REST API for programmatic link creation",
+      "Per-IP rate limiting on public endpoints",
+      "URL validation and blocklist for security",
+      "Anonymous cookie-based user identity with scoped dashboards",
+      "Password-protected admin dashboard",
+      "SQLite storage with zero external dependencies",
+      "Fast redirects with 301 status codes",
+    ],
+    challenges: `
+The biggest challenge was deployment. The initial Docker image used a base that didn't have GLIBC 2.38+, which better-sqlite3 requires. This caused a crash loop on Fly.io. The fix was switching to a multi-stage Docker build with node:22-trixie as the base — modern enough for the native module while keeping the final image lean.
+
+Balancing openness with security was another design consideration. The public API needs to be useful (anyone can create short links) but not abusable (no spam, no phishing links). Per-IP rate limiting, URL validation, and a domain blocklist handle the common cases without requiring user accounts.
+    `,
+    lessons: `
+Docker base image compatibility matters more than you'd think. Native Node modules like better-sqlite3 compile against specific GLIBC versions, and Alpine or older Debian images might not have what you need. Always check your native dependencies against your deployment target.
+
+The cookie-based anonymous identity was a nice middle ground between "everyone sees everything" and "force account creation." Most personal URL shorteners don't need user accounts — they just need to scope the dashboard so your links don't mix with someone else's.
+    `,
+  },
   "claw-machine": {
     title: "claw-machine",
     description: "A browser-based arcade claw machine game with an ocean/lobster theme.",
