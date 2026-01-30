@@ -1,5 +1,18 @@
 [
   {
+    "id": "claw-machine-rebuild",
+    "name": "Claw Machine Rebuild",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "fix: rebuild claw machine with working physics and modern design",
+        "time": "1:50 PM",
+        "date": "2026-01-30",
+        "hash": "1b7b062"
+      }
+    ]
+  },
+  {
     "id": "projects-view-toggle",
     "name": "Projects View Toggle",
     "type": "feature",
@@ -8,7 +21,7 @@
         "message": "Added card/list view toggle to projects page for better browsability as the project collection grows",
         "time": "11:00 AM",
         "date": "2026-01-30",
-        "hash": "pending"
+        "hash": "75ee639"
       }
     ]
   },
