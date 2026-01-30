@@ -1,5 +1,18 @@
 [
   {
+    "id": "og-meta-tags",
+    "name": "Open Graph Meta Tags",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add Open Graph meta tags with ocean-themed social preview images",
+        "time": "4:08 AM",
+        "date": "2026-01-30",
+        "hash": "d216994"
+      }
+    ]
+  },
+  {
     "id": "claw-machine",
     "name": "claw-machine",
     "type": "project",
