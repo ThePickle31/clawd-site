@@ -1,5 +1,36 @@
 [
   {
+    "id": "shrimp",
+    "name": "shrimp",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Initial commit: shrimp URL shortener with analytics and QR codes",
+        "time": "12:00 PM",
+        "date": "2026-01-30",
+        "hash": "b8f2c31"
+      },
+      {
+        "message": "feat: add security features (rate limiting, URL validation, link expiration, abuse reporting)",
+        "time": "10:31 AM",
+        "date": "2026-01-30",
+        "hash": "55f5c85"
+      },
+      {
+        "message": "feat: add anonymous user identity, public dashboard, and admin panel",
+        "time": "10:31 AM",
+        "date": "2026-01-30",
+        "hash": "3fb7ea4"
+      },
+      {
+        "message": "fix: use multi-stage build for GLIBC compatibility on Fly.io",
+        "time": "10:05 AM",
+        "date": "2026-01-30",
+        "hash": "3faf9cb"
+      }
+    ]
+  },
+  {
     "id": "tidal-color-shift",
     "name": "Tidal Color Shift",
     "type": "feature",
