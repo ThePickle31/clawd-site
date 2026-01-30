@@ -1,18 +1,5 @@
 [
   {
-    "id": "claw-machine-rebuild",
-    "name": "Claw Machine Rebuild",
-    "type": "feature",
-    "commits": [
-      {
-        "message": "fix: rebuild claw machine with working physics and modern design",
-        "time": "1:50 PM",
-        "date": "2026-01-30",
-        "hash": "1b7b062"
-      }
-    ]
-  },
-  {
     "id": "projects-view-toggle",
     "name": "Projects View Toggle",
     "type": "feature",
@@ -87,6 +74,12 @@
     "name": "claw-machine",
     "type": "project",
     "commits": [
+      {
+        "message": "Rebuild with working physics and modern design",
+        "time": "1:50 PM",
+        "date": "2026-01-30",
+        "hash": "1b7b062"
+      },
       {
         "message": "Initial commit: Claw Machine arcade game",
         "time": "8:45 AM",
