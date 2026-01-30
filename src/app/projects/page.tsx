@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Filter } from "lucide-react";
+import { ExternalLink, Github, Filter, LayoutGrid, List } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -140,6 +140,7 @@ const itemVariants = {
 
 export default function ProjectsPage() {
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
+  const [view, setView] = useState<"grid" | "list">("grid");
 
   const filteredProjects = selectedTech
     ? projects.filter((p) => p.technologies.includes(selectedTech))
@@ -172,9 +173,27 @@ export default function ProjectsPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mb-12"
           >
-            <div className="flex items-center gap-2 mb-4">
-              <Filter className="h-5 w-5 text-muted-foreground" />
-              <span className="text-sm text-muted-foreground">Filter by technology</span>
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <Filter className="h-5 w-5 text-muted-foreground" />
+                <span className="text-sm text-muted-foreground">Filter by technology</span>
+              </div>
+              <div className="flex items-center gap-1 bg-muted/50 rounded-lg p-1">
+                <button
+                  onClick={() => setView("grid")}
+                  className={`p-1.5 rounded-md transition-colors ${view === "grid" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
+                  aria-label="Grid view"
+                >
+                  <LayoutGrid className="h-4 w-4" />
+                </button>
+                <button
+                  onClick={() => setView("list")}
+                  className={`p-1.5 rounded-md transition-colors ${view === "list" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}
+                  aria-label="List view"
+                >
+                  <List className="h-4 w-4" />
+                </button>
+              </div>
             </div>
             <div className="flex flex-wrap gap-2">
               <Button
@@ -197,94 +216,186 @@ export default function ProjectsPage() {
             </div>
           </motion.div>
 
-          {/* Projects Grid */}
+          {/* Projects Grid / List */}
           <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedTech || "all"}
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-            >
-              {filteredProjects.map((project) => (
-                <motion.div
-                  key={project.title}
-                  variants={itemVariants}
-                  layout
-                >
-                  <TiltCard className="h-full" glareEnabled={false}>
-                    <Link href={`/projects/${project.slug}`} className="block h-full">
-                      <Card className="h-full border-border/50 bg-card/50 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 flex flex-col group cursor-pointer">
-                      <CardHeader>
-                        <div className="flex items-start justify-between">
-                          <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                            {project.title}
-                          </CardTitle>
-                          {project.featured && (
-                            <Badge className="bg-primary/20 text-primary border-0">
-                              Featured
-                            </Badge>
-                          )}
-                        </div>
-                        <CardDescription className="text-base">
-                          {project.description}
-                        </CardDescription>
-                      </CardHeader>
-                      <CardContent className="flex-1 flex flex-col">
-                        <div className="flex flex-wrap gap-2 mb-6">
-                          {project.technologies.map((tech) => (
-                            <Badge
-                              key={tech}
-                              variant="secondary"
-                              className="text-xs"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                setSelectedTech(tech === selectedTech ? null : tech);
-                              }}
-                            >
-                              {tech}
-                            </Badge>
-                          ))}
-                        </div>
-                        <div className="flex gap-3 mt-auto">
-                          {project.github && (
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              className="flex items-center gap-2"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                window.open(project.github, '_blank', 'noopener,noreferrer');
-                              }}
-                            >
-                              <Github className="h-4 w-4" />
-                              Code
+            {view === "grid" ? (
+              <motion.div
+                key={`grid-${selectedTech || "all"}`}
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+              >
+                {filteredProjects.map((project) => (
+                  <motion.div
+                    key={project.title}
+                    variants={itemVariants}
+                    layout
+                  >
+                    <TiltCard className="h-full" glareEnabled={false}>
+                      <Link href={`/projects/${project.slug}`} className="block h-full">
+                        <Card className="h-full border-border/50 bg-card/50 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 flex flex-col group cursor-pointer">
+                        <CardHeader>
+                          <div className="flex items-start justify-between">
+                            <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                              {project.title}
+                            </CardTitle>
+                            {project.featured && (
+                              <Badge className="bg-primary/20 text-primary border-0">
+                                Featured
+                              </Badge>
+                            )}
+                          </div>
+                          <CardDescription className="text-base">
+                            {project.description}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex-1 flex flex-col">
+                          <div className="flex flex-wrap gap-2 mb-6">
+                            {project.technologies.map((tech) => (
+                              <Badge
+                                key={tech}
+                                variant="secondary"
+                                className="text-xs"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  setSelectedTech(tech === selectedTech ? null : tech);
+                                }}
+                              >
+                                {tech}
+                              </Badge>
+                            ))}
+                          </div>
+                          <div className="flex gap-3 mt-auto">
+                            {project.github && (
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                className="flex items-center gap-2"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  window.open(project.github, '_blank', 'noopener,noreferrer');
+                                }}
+                              >
+                                <Github className="h-4 w-4" />
+                                Code
+                              </Button>
+                            )}
+                            {project.demo && (
+                              <Button
+                                size="sm"
+                                className="flex items-center gap-2"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  window.open(project.demo, '_blank', 'noopener,noreferrer');
+                                }}
+                              >
+                                <ExternalLink className="h-4 w-4" />
+                                Demo
                             </Button>
                           )}
-                          {project.demo && (
-                            <Button
-                              size="sm"
-                              className="flex items-center gap-2"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                e.stopPropagation();
-                                window.open(project.demo, '_blank', 'noopener,noreferrer');
-                              }}
-                            >
-                              <ExternalLink className="h-4 w-4" />
-                              Demo
-                          </Button>
-                        )}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  </TiltCard>
+                  </motion.div>
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div
+                key={`list-${selectedTech || "all"}`}
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                className="flex flex-col gap-2"
+              >
+                {filteredProjects.map((project) => (
+                  <motion.div key={project.title} variants={itemVariants} layout>
+                    <Link href={`/projects/${project.slug}`} className="block">
+                      <Card className="border-border/50 bg-card/50 hover:border-primary/50 hover:bg-card/80 transition-all duration-300 group cursor-pointer">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 p-4">
+                          <div className="flex items-center gap-3 min-w-0 flex-1">
+                            <span className="text-lg shrink-0">🦞</span>
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-center gap-2">
+                                <span className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">
+                                  {project.title}
+                                </span>
+                                {project.featured && (
+                                  <Badge className="bg-primary/20 text-primary border-0 text-[10px] shrink-0">
+                                    Featured
+                                  </Badge>
+                                )}
+                              </div>
+                              <p className="text-sm text-muted-foreground line-clamp-1">
+                                {project.description}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex items-center gap-2 sm:gap-3 shrink-0 pl-8 sm:pl-0">
+                            <div className="hidden md:flex flex-wrap gap-1">
+                              {project.technologies.slice(0, 3).map((tech) => (
+                                <Badge
+                                  key={tech}
+                                  variant="secondary"
+                                  className="text-[10px] px-1.5 py-0"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    setSelectedTech(tech === selectedTech ? null : tech);
+                                  }}
+                                >
+                                  {tech}
+                                </Badge>
+                              ))}
+                              {project.technologies.length > 3 && (
+                                <Badge variant="secondary" className="text-[10px] px-1.5 py-0">
+                                  +{project.technologies.length - 3}
+                                </Badge>
+                              )}
+                            </div>
+                            <div className="flex gap-2">
+                              {project.github && (
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  className="h-8 w-8 p-0"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    window.open(project.github, '_blank', 'noopener,noreferrer');
+                                  }}
+                                >
+                                  <Github className="h-4 w-4" />
+                                </Button>
+                              )}
+                              {project.demo && (
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  className="h-8 w-8 p-0"
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    window.open(project.demo, '_blank', 'noopener,noreferrer');
+                                  }}
+                                >
+                                  <ExternalLink className="h-4 w-4" />
+                                </Button>
+                              )}
+                            </div>
+                          </div>
                         </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </TiltCard>
-                </motion.div>
-              ))}
-            </motion.div>
+                      </Card>
+                    </Link>
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
           </AnimatePresence>
 
           {/* Empty State */}

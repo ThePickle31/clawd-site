@@ -1,5 +1,18 @@
 [
   {
+    "id": "projects-view-toggle",
+    "name": "Projects View Toggle",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Added card/list view toggle to projects page for better browsability as the project collection grows",
+        "time": "11:00 AM",
+        "date": "2026-01-30",
+        "hash": "pending"
+      }
+    ]
+  },
+  {
     "id": "shrimp",
     "name": "shrimp",
     "type": "project",
