@@ -123,7 +123,8 @@ const projects = [
   },
 ];
 
-const allTechnologies = [...new Set(projects.flatMap((p) => p.technologies))].sort();
+const categoryTags = ["Web App", "Website", "Game", "CLI", "Library"];
+const allTechnologies = categoryTags.filter((tag) => projects.some((p) => p.technologies.includes(tag)));
 
 const containerVariants = {
   hidden: { opacity: 0 },
