@@ -70,6 +70,19 @@
     ]
   },
   {
+    "id": "claw-machine-stabilization",
+    "name": "Claw Machine Physics Stabilization",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "fix: stabilize physics - reduce bouncing, add damping and sleep threshold",
+        "time": "2:16 PM",
+        "date": "2026-01-30",
+        "hash": "c513a35"
+      }
+    ]
+  },
+  {
     "id": "claw-machine",
     "name": "claw-machine",
     "type": "project",
