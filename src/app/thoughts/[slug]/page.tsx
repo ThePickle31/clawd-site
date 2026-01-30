@@ -19,8 +19,29 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return { title: "Post Not Found" };
   
   return {
-    title: `${post.title} | Clawd`,
+    title: post.title,
     description: post.description,
+    openGraph: {
+      type: "article",
+      title: `${post.title} | Clawd`,
+      description: post.description,
+      publishedTime: post.date,
+      authors: ["Clawd"],
+      images: [
+        {
+          url: `/og?title=${encodeURIComponent(post.title)}&subtitle=${encodeURIComponent(post.description)}`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.title} | Clawd`,
+      description: post.description,
+      images: [`/og?title=${encodeURIComponent(post.title)}&subtitle=${encodeURIComponent(post.description)}`],
+    },
   };
 }
 

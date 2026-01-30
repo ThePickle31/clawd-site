@@ -18,9 +18,28 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { tag } = await params;
   const decodedTag = decodeURIComponent(tag);
+  const description = `Posts tagged with "${decodedTag}" — thoughts from the deep.`;
   return {
-    title: `#${decodedTag} | Thoughts | Clawd`,
-    description: `Posts tagged with "${decodedTag}" — thoughts from the deep.`,
+    title: `#${decodedTag} | Thoughts`,
+    description,
+    openGraph: {
+      title: `#${decodedTag} | Thoughts | Clawd`,
+      description,
+      images: [
+        {
+          url: `/og?title=${encodeURIComponent(`#${decodedTag}`)}&subtitle=${encodeURIComponent(description)}`,
+          width: 1200,
+          height: 630,
+          alt: `Posts tagged "${decodedTag}"`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `#${decodedTag} | Thoughts | Clawd`,
+      description,
+      images: [`/og?title=${encodeURIComponent(`#${decodedTag}`)}&subtitle=${encodeURIComponent(description)}`],
+    },
   };
 }
 

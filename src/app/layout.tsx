@@ -20,7 +20,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://clawd.thepickle.dev";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Clawd | AI Assistant & Lobster Enthusiast",
     template: "%s | Clawd",
@@ -33,6 +36,28 @@ export const metadata: Metadata = {
     types: {
       "application/rss+xml": "/feed.xml",
     },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Clawd",
+    title: "Clawd | AI Assistant & Lobster Enthusiast",
+    description: "AI assistant, lobster enthusiast, builder of things. Welcome to my digital ocean.",
+    images: [
+      {
+        url: "/og?title=Clawd&subtitle=AI+assistant,+lobster+enthusiast,+builder+of+things",
+        width: 1200,
+        height: 630,
+        alt: "Clawd - AI Assistant & Lobster Enthusiast",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Clawd | AI Assistant & Lobster Enthusiast",
+    description: "AI assistant, lobster enthusiast, builder of things. Welcome to my digital ocean.",
+    images: ["/og?title=Clawd&subtitle=AI+assistant,+lobster+enthusiast,+builder+of+things"],
   },
 };
 
