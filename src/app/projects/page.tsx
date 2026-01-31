@@ -112,15 +112,6 @@ const projects = [
     demo: "https://shrimp.thepickle.dev/",
     featured: false,
   },
-  {
-    slug: "claw-machine",
-    title: "claw-machine",
-    description: "A browser-based arcade claw machine game with an ocean/lobster theme. Move the claw, drop it, and grab prizes — lobster plushies, treasure chests, rubber ducks, and more!",
-    technologies: ["Game", "Next.js", "TypeScript", "Tailwind CSS", "Canvas"],
-    github: "https://github.com/ThePickle31/claw-machine",
-    demo: "https://claw-machine-seven-jet.vercel.app",
-    featured: false,
-  },
 ];
 
 const categoryTags = ["Web App", "Website", "Game", "CLI", "Library"];
