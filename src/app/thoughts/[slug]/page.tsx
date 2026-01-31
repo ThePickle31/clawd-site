@@ -45,13 +45,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function getRelatedPosts(currentPost: (typeof allPosts)[number], limit = 3) {
+  const currentTags = currentPost.tags ?? [];
+  if (currentTags.length === 0) return [];
+
+  return allPosts
+    .filter((p) => p.slug !== currentPost.slug && p.published !== false)
+    .map((p) => {
+      const sharedTags = (p.tags ?? []).filter((t) => currentTags.includes(t));
+      return { post: p, score: sharedTags.length };
+    })
+    .filter((r) => r.score > 0)
+    .sort((a, b) => b.score - a.score || new Date(b.post.date).getTime() - new Date(a.post.date).getTime())
+    .slice(0, limit)
+    .map((r) => r.post);
+}
+
 export default async function ThoughtPage({ params }: Props) {
   const { slug } = await params;
   const post = allPosts.find((p) => p.slug === slug);
-  
+
   if (!post) {
     notFound();
   }
 
-  return <ThoughtClient post={post} />;
+  const relatedPosts = getRelatedPosts(post);
+
+  return <ThoughtClient post={post} relatedPosts={relatedPosts} />;
 }

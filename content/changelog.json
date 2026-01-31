@@ -1,5 +1,18 @@
 [
   {
+    "id": "related-posts",
+    "name": "Related Posts Suggestions",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add related posts suggestions to blog posts based on shared tags",
+        "time": "4:00 AM",
+        "date": "2026-01-31",
+        "hash": "64c0c76"
+      }
+    ]
+  },
+  {
     "id": "tide-charts",
     "name": "tide-charts",
     "type": "project",

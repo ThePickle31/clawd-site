@@ -20,11 +20,21 @@ function MDXRenderer({ code }: { code: string }) {
   return <MDXContent components={mdxComponents} />;
 }
 
-interface ThoughtClientProps {
-  post: Post;
+interface RelatedPost {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  readingTime: string;
+  tags: string[];
 }
 
-export default function ThoughtClient({ post }: ThoughtClientProps) {
+interface ThoughtClientProps {
+  post: Post;
+  relatedPosts?: RelatedPost[];
+}
+
+export default function ThoughtClient({ post, relatedPosts = [] }: ThoughtClientProps) {
   return (
     <PageTransition>
       <ReadingProgressBar />
@@ -96,6 +106,56 @@ export default function ThoughtClient({ post }: ThoughtClientProps) {
           >
             <MDXRenderer code={post.body.code} />
           </motion.div>
+
+          {/* Related Posts */}
+          {relatedPosts.length > 0 && (
+            <>
+              <Separator className="my-12" />
+              <motion.section
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <h2 className="text-2xl font-bold mb-6">More from the depths</h2>
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {relatedPosts.map((related) => (
+                    <Link
+                      key={related.slug}
+                      href={`/thoughts/${related.slug}`}
+                      className="group block rounded-lg border border-border/50 bg-card/30 p-5 transition-all duration-300 hover:border-primary/40 hover:bg-card/60"
+                    >
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        {related.tags?.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex items-center rounded-full bg-secondary px-2 py-0.5 text-xs text-muted-foreground"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                        {related.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
+                        {related.description}
+                      </p>
+                      <div className="flex items-center gap-3 text-xs text-muted-foreground/70">
+                        <span className="flex items-center gap-1">
+                          <Calendar className="h-3 w-3" />
+                          {format(new Date(related.date), "MMM d, yyyy")}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" />
+                          {related.readingTime}
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </motion.section>
+            </>
+          )}
 
           {/* Footer */}
           <Separator className="my-12" />
