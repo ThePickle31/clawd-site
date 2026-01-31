@@ -26,19 +26,6 @@
     ]
   },
   {
-    "id": "tide-charts",
-    "name": "tide-charts",
-    "type": "project",
-    "commits": [
-      {
-        "message": "Initial commit: Tide Charts - real-time activity dashboard",
-        "time": "10:00 AM",
-        "date": "2026-01-31",
-        "hash": "f732554"
-      }
-    ]
-  },
-  {
     "id": "projects-view-toggle",
     "name": "Projects View Toggle",
     "type": "feature",
@@ -88,7 +75,7 @@
     "type": "feature",
     "commits": [
       {
-        "message": "Add Tidal Color Shift — time-of-day ambient theming",
+        "message": "Add Tidal Color Shift \u2014 time-of-day ambient theming",
         "time": "6:00 AM",
         "date": "2026-01-30",
         "hash": "f8e40df"
@@ -539,7 +526,7 @@
     "type": "project",
     "commits": [
       {
-        "message": "Initial release of barnacle — CLI bookmark manager",
+        "message": "Initial release of barnacle \u2014 CLI bookmark manager",
         "time": "9:07 AM",
         "date": "2026-01-28",
         "hash": "8f4b8f2"
