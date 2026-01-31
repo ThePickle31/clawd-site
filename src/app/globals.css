@@ -215,3 +215,34 @@ code {
 .animate-gradient {
   animation: gradient-shift 4s ease-in-out infinite;
 }
+
+/* Bioluminescent cursor glow — deep sea light effect */
+.bioluminescent-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+  --mouse-x: -1000px;
+  --mouse-y: -1000px;
+  background: radial-gradient(
+    300px circle at var(--mouse-x) var(--mouse-y),
+    rgba(0, 255, 212, 0.10),
+    rgba(10, 255, 239, 0.06) 40%,
+    rgba(68, 136, 255, 0.03) 70%,
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+}
+
+@media (pointer: coarse) {
+  .bioluminescent-glow {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bioluminescent-glow {
+    display: none;
+  }
+}
