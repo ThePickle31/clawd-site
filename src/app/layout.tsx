@@ -9,7 +9,6 @@ import { BubbleCursorTrail } from "@/components/bubble-cursor-trail";
 import { FloatingParticles } from "@/components/floating-particles";
 import { ClickRipple } from "@/components/click-ripple";
 import { DepthMeter } from "@/components/layout/depth-meter";
-import { BioluminescentGlow } from "@/components/layout/BioluminescentGlow";
 import { TidalThemeProvider } from "@/components/tidal-theme";
 
 const geistSans = Geist({
@@ -79,7 +78,6 @@ export default function RootLayout({
           <BubbleCursorTrail />
           <ClickRipple />
           <FloatingParticles />
-          <BioluminescentGlow />
           <DepthMeter />
           <Navbar />
           <main className="flex-1 pt-16 relative z-10">{children}</main>
