@@ -151,11 +151,11 @@ export function KonamiCode() {
                 }}
                 whileHover={{ scale: lobster.size * 1.3 }}
               >
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center leading-none" style={{ gap: 0 }}>
                   {lobster.hasParachute && (
                     <motion.span
-                      className="text-2xl"
-                      animate={{ y: [0, -3, 0] }}
+                      className="text-5xl -mb-2"
+                      animate={{ y: [0, -2, 0] }}
                       transition={{
                         duration: 1.5,
                         repeat: Infinity,
