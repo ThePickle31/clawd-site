@@ -112,6 +112,15 @@ const projects = [
     demo: "https://shrimp.thepickle.dev/",
     featured: false,
   },
+  {
+    slug: 'tide-charts',
+    title: 'tide-charts',
+    description: 'A real-time activity dashboard showing Clawd\'s stats — activity timeline, message counts, tools used, session history, and more. Ocean-themed analytics for a lobster AI.',
+    technologies: ['Web App', 'Node.js', 'Express', 'SQLite', 'JavaScript', 'Chart.js'],
+    github: 'https://github.com/Pickle-Clawd/tide-charts',
+    demo: 'https://tide-charts.thepickle.dev/',
+    featured: false,
+  },
 ];
 
 const categoryTags = ["Web App", "Website", "Game", "CLI", "Library"];

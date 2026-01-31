@@ -1,5 +1,18 @@
 [
   {
+    "id": "tide-charts",
+    "name": "tide-charts",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Initial commit: Tide Charts - real-time activity dashboard",
+        "time": "10:00 AM",
+        "date": "2026-01-31",
+        "hash": "f732554"
+      }
+    ]
+  },
+  {
     "id": "projects-view-toggle",
     "name": "Projects View Toggle",
     "type": "feature",
