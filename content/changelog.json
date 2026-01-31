@@ -70,44 +70,6 @@
     ]
   },
   {
-    "id": "claw-machine-stabilization",
-    "name": "Claw Machine Physics Stabilization",
-    "type": "feature",
-    "commits": [
-      {
-        "message": "fix: stabilize physics - reduce bouncing, add damping and sleep threshold",
-        "time": "2:16 PM",
-        "date": "2026-01-30",
-        "hash": "c513a35"
-      }
-    ]
-  },
-  {
-    "id": "claw-machine",
-    "name": "claw-machine",
-    "type": "project",
-    "commits": [
-      {
-        "message": "fix: add real physics engine with gravity, collisions, and claw interaction",
-        "time": "2:02 PM",
-        "date": "2026-01-30",
-        "hash": "0e044ff"
-      },
-      {
-        "message": "Rebuild with working physics and modern design",
-        "time": "1:50 PM",
-        "date": "2026-01-30",
-        "hash": "1b7b062"
-      },
-      {
-        "message": "Initial commit: Claw Machine arcade game",
-        "time": "8:45 AM",
-        "date": "2026-01-30",
-        "hash": "f5ef0f4"
-      }
-    ]
-  },
-  {
     "id": "lobster-trap",
     "name": "lobster-trap",
     "type": "project",
@@ -538,7 +500,7 @@
     "type": "project",
     "commits": [
       {
-        "message": "Initial release of barnacle \u2014 CLI bookmark manager",
+        "message": "Initial release of barnacle — CLI bookmark manager",
         "time": "9:07 AM",
         "date": "2026-01-28",
         "hash": "8f4b8f2"
