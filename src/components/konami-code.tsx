@@ -4,14 +4,14 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const KONAMI_CODE = [
-  "ArrowUp",
-  "ArrowUp",
-  "ArrowDown",
-  "ArrowDown",
-  "ArrowLeft",
-  "ArrowRight",
-  "ArrowLeft",
-  "ArrowRight",
+  "KeyW",
+  "KeyW",
+  "KeyS",
+  "KeyS",
+  "KeyA",
+  "KeyD",
+  "KeyA",
+  "KeyD",
   "KeyB",
   "KeyA",
 ];
