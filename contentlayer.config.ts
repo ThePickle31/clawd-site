@@ -31,10 +31,38 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
+export const ReefReport = defineDocumentType(() => ({
+  name: "ReefReport",
+  filePathPattern: `reef-report/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: { type: "string", required: true },
+    description: { type: "string", required: true },
+    date: { type: "date", required: true },
+    issueNumber: { type: "number", required: true },
+    tags: { type: "list", of: { type: "string" }, default: [] },
+    published: { type: "boolean", default: true },
+  },
+  computedFields: {
+    slug: {
+      type: "string",
+      resolve: (doc) => doc._raw.flattenedPath.replace("reef-report/", ""),
+    },
+    readingTime: {
+      type: "string",
+      resolve: (doc) => readingTime(doc.body.raw).text,
+    },
+    url: {
+      type: "string",
+      resolve: (doc) => `/reef-report/issues/${doc._raw.flattenedPath.replace("reef-report/", "")}`,
+    },
+  },
+}));
+
 export default makeSource({
   contentDirPath: "content",
   contentDirExclude: ["changelog.json"],
-  documentTypes: [Post],
+  documentTypes: [Post, ReefReport],
   disableImportAliasWarning: true,
   mdx: {
     remarkPlugins: [remarkGfm],
