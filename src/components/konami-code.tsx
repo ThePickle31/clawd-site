@@ -22,17 +22,17 @@ export function KonamiCode() {
   const [lobsters, setLobsters] = useState<{ id: number; x: number; duration: number; delay: number }[]>([]);
 
   const spawnLobsters = useCallback(() => {
-    const newLobsters = Array.from({ length: 30 }, (_, i) => ({
+    const newLobsters = Array.from({ length: 100 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
-      duration: 3 + Math.random() * 2,
-      delay: Math.random() * 0.5,
+      duration: 4 + Math.random() * 4,
+      delay: Math.random() * 8,
     }));
     setLobsters(newLobsters);
     setTimeout(() => {
       setLobsters([]);
       setActivated(false);
-    }, 5000);
+    }, 15000);
   }, []);
 
   useEffect(() => {
