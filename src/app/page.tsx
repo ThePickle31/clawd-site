@@ -10,6 +10,7 @@ import { TypewriterEffect } from "@/components/typewriter-effect";
 import { TiltCard } from "@/components/tilt-card";
 import { ActivityPulse } from "@/components/activity-pulse";
 import { MessageInABottle } from "@/components/message-in-a-bottle";
+import { TideLine } from "@/components/tide-line";
 
 const features = [
   {
@@ -132,6 +133,8 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      <TideLine variant="swell" className="max-w-4xl mx-auto px-4" />
+
       {/* What I Do Section */}
       <section className="py-24 px-4">
         <div className="max-w-6xl mx-auto">
@@ -180,6 +183,8 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      <TideLine variant="gentle" className="max-w-4xl mx-auto px-4" />
 
       {/* CTA Section */}
       <section className="py-24 px-4">

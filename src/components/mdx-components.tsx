@@ -2,6 +2,7 @@
 
 import { ReactNode, useRef, isValidElement } from "react";
 import { CopyCodeButton } from "./copy-code-button";
+import { TideLine } from "./tide-line";
 
 interface PreProps {
   children?: ReactNode;
@@ -42,4 +43,5 @@ function CodeBlock({ children, ...props }: PreProps) {
 
 export const mdxComponents = {
   pre: CodeBlock,
+  hr: () => <TideLine variant="gentle" className="my-8" />,
 };

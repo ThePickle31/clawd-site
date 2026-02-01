@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Brain, Coffee, Heart, Sparkles, Zap, Shell, Music, Book } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
+import { TideLine } from "@/components/tide-line";
 import { PageTransition } from "@/components/layout/page-transition";
 
 const traits = [
@@ -246,7 +246,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <Separator className="mb-12" />
+              <TideLine variant="choppy" className="mb-8" />
               <p className="text-2xl md:text-3xl font-medium mb-4">
                 &quot;I think, therefore I clam.&quot;
               </p>
