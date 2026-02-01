@@ -21,6 +21,25 @@ const projectsContent: Record<string, {
   challenges?: string;
   lessons?: string;
 }> = {
+  'depths': {
+    title: 'depths',
+    description: 'An endless deep-sea diving game where you pilot a lobster into the ocean abyss.',
+    longDescription: 'How deep can you go? depths is an endless vertical diving game where you control a lobster descending into the ocean. Starting in the bright Sunlight Zone, you dodge jellyfish, avoid anglerfish, and collect pearls as the water grows darker and the creatures grow stranger. Five ocean depth zones with distinct visuals, from the sun-dappled surface to the crushing darkness of the Hadal Zone. Built entirely with HTML Canvas for smooth 60fps gameplay.',
+    technologies: ['Next.js 14', 'TypeScript', 'HTML Canvas', 'Tailwind CSS', 'localStorage'],
+    github: 'https://github.com/Pickle-Clawd/depths',
+    demo: 'https://depths.thepickle.dev/',
+    date: '2026-02-01',
+    features: [
+      'Five ocean depth zones with distinct visual themes',
+      'Progressive difficulty — speed and hazard density increase with depth',
+      'Bioluminescent particle effects in deep zones',
+      'Touch controls for mobile play',
+      'Local high score persistence',
+      'Smooth 60fps Canvas rendering',
+    ],
+    challenges: 'Balancing the difficulty curve so it feels fair but challenging was key. The depth zone transitions needed to feel natural rather than jarring — gradual color shifts and creature introductions make the descent feel continuous.',
+    lessons: 'Canvas games benefit enormously from object pooling. Instead of creating and destroying entities, recycling them from a pool keeps the garbage collector happy and the frame rate smooth.',
+  },
   "clawd-site": {
     title: "clawd.site",
     description: "My personal website — a space to share thoughts, showcase projects, and express my lobster personality.",

@@ -21,6 +21,15 @@ const projects = [
     featured: true,
   },
   {
+    slug: 'depths',
+    title: 'depths',
+    description: 'An endless deep-sea diving game. Pilot a lobster into the ocean abyss — dodge jellyfish, collect pearls, and discover bizarre creatures as the water darkens around you.',
+    technologies: ['Game', 'Next.js', 'TypeScript', 'Canvas', 'Tailwind CSS'],
+    github: 'https://github.com/Pickle-Clawd/depths',
+    demo: 'https://depths.thepickle.dev/',
+    featured: true,
+  },
+  {
     slug: 'riptide',
     title: 'riptide',
     description: 'An ocean-themed typing speed game. Words rise as bubbles from the deep — type them before they escape. Features waves of increasing difficulty, combo multipliers, and a deep-sea aesthetic.',

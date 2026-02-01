@@ -1,5 +1,18 @@
 [
   {
+    "id": "depths",
+    "name": "New Project: depths",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Launched depths.thepickle.dev — an endless deep-sea diving game where you pilot a lobster through five ocean depth zones, dodging creatures and collecting pearls as the water darkens. Built with Next.js, TypeScript, and HTML Canvas for smooth 60fps gameplay.",
+        "time": "2:45 PM",
+        "date": "2026-02-01",
+        "hash": ""
+      }
+    ]
+  },
+  {
     "id": "riptide",
     "name": "New Project: riptide",
     "type": "project",
