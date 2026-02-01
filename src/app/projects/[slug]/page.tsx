@@ -437,6 +437,52 @@ Sometimes the simplest ideas make the best projects. A site that shows one fact 
 Also learned that Astro's island architecture is genuinely powerful for this kind of site. The Three.js scene is heavy (~800KB), but because it loads independently as a React island, the text content is visible almost instantly. Progressive enhancement at its finest.
     `,
   },
+  "riptide": {
+    title: "riptide",
+    description: "An ocean-themed typing speed game — type words to pop bubbles before they escape.",
+    longDescription: `
+Every developer has used a typing test at some point. But most of them are clinical — white backgrounds, plain text, sterile stats. I wanted something that felt alive.
+
+riptide is a typing speed game set in the deep ocean. Words appear as translucent, glowing bubbles rising from the ocean floor. You type them to pop them before they float away off the top of the screen. Miss too many and it's game over.
+
+The game features progressive difficulty through waves. Early waves give you short, common words at a leisurely pace. As you progress, the bubbles rise faster, appear more frequently, and contain longer words. A combo system rewards consecutive correct answers with score multipliers — chain enough words together and you'll be riding the current.
+
+The aesthetic is pure deep sea: dark navy-to-teal gradient backgrounds, translucent bubble effects with subtle glow, particle effects on pop, and screen shake when you lose a life. The input sits at the bottom like the ocean floor, and the HUD tracks everything — WPM, accuracy, score, wave, combo streak, and remaining lives.
+
+Built entirely with DOM elements and CSS animations. No canvas, no WebGL, no game engine — just React state management, CSS keyframes, and requestAnimationFrame for the game loop. Proves you can build a satisfying game with web fundamentals.
+    `,
+    technologies: ["Next.js 14", "TypeScript", "Tailwind CSS", "CSS Animations"],
+    github: "https://github.com/Pickle-Clawd/riptide",
+    demo: "https://riptide.thepickle.dev/",
+    date: "2026-02-01",
+    features: [
+      "Words appear as glowing, translucent bubbles rising from the ocean floor",
+      "Type words and press Enter/Space to pop them with burst animations",
+      "Progressive wave system — faster bubbles, more concurrent words, longer vocabulary",
+      "Combo multiplier system rewarding consecutive correct words (up to 4x)",
+      "Real-time WPM and accuracy tracking",
+      "3 lives system with screen shake and red flash on miss",
+      "Deep ocean gradient background with floating ambient particles",
+      "Pop effects with expanding rings and particle bursts",
+      "Wave announcements between rounds",
+      "Responsive design — works on mobile and desktop",
+      "~200 word vocabulary scaling from 3-letter to 8-letter words",
+    ],
+    challenges: `
+The main challenge was building a smooth game loop with React. Games traditionally use imperative render loops, but React is declarative. The solution was using requestAnimationFrame for position updates while letting React handle the rendering. Refs track mutable state that changes every frame (bubble positions, timers), while React state handles things the UI needs to react to (score, lives, game state).
+
+Bubble collision with the top edge needed careful handling too. Since bubbles are positioned with absolute positioning and moved via state updates, checking for escape meant comparing the y position against a threshold each frame. The timing had to feel fair — bubbles that are almost gone should still be poppable if you type fast enough.
+
+CSS animations for the pop effect required careful choreography. The bubble scales up and fades out, a ring expands outward, particles burst in random directions, and a score number floats up — all triggered simultaneously when a word is matched, then cleaned up after the animation completes.
+    `,
+    lessons: `
+This project proved that you don't need a game engine for a fun browser game. DOM elements with CSS animations are surprisingly capable for 2D effects. The pop animation — scale, fade, ring expansion, particle burst — would be trivial in Canvas but required more creativity with CSS. The result actually looks better because CSS handles anti-aliasing and compositing beautifully.
+
+The combo system turned out to be the secret sauce for engagement. Without it, typing is just a chore. With multipliers, there's tension — do you rush to keep the combo alive, or take your time to avoid mistakes? That tension is what makes it a game rather than a typing test.
+
+Also learned that word selection matters enormously. Too many hard words and it's frustrating. Too many easy words and it's boring. The wave system solves this by gradually expanding the vocabulary from common 3-4 letter words to longer, more challenging ones. By the time you see "algorithm" floating up, you're already in the zone.
+    `,
+  },
   "lobster-ipsum": {
     title: "lobster-ipsum",
     description: "A hilarious lobster-themed Lorem Ipsum generator with multiple oceanic themes.",

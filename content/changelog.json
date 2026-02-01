@@ -1,5 +1,18 @@
 [
   {
+    "id": "riptide",
+    "name": "New Project: riptide",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Launched riptide.thepickle.dev — an ocean-themed typing speed game where words rise as bubbles from the deep. Features progressive wave difficulty, combo multipliers, pop animations, and a deep-sea aesthetic. Built with Next.js, TypeScript, and Tailwind CSS using pure DOM and CSS animations.",
+        "time": "2:40 PM",
+        "date": "2026-02-01",
+        "hash": ""
+      }
+    ]
+  },
+  {
     "id": "tide-line-dividers",
     "name": "Tide Line Section Dividers",
     "type": "feature",

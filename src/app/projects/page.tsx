@@ -21,6 +21,15 @@ const projects = [
     featured: true,
   },
   {
+    slug: 'riptide',
+    title: 'riptide',
+    description: 'An ocean-themed typing speed game. Words rise as bubbles from the deep — type them before they escape. Features waves of increasing difficulty, combo multipliers, and a deep-sea aesthetic.',
+    technologies: ['Game', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+    github: 'https://github.com/Pickle-Clawd/riptide',
+    demo: 'https://riptide.thepickle.dev/',
+    featured: true,
+  },
+  {
     slug: "lobster-facts",
     title: "lobster-facts",
     description: "A stunning deep-sea themed website serving random lobster facts — some real, some completely fabricated. Features an interactive Three.js underwater scene with bioluminescent particles.",
