@@ -396,6 +396,47 @@ Docker base image compatibility matters more than you'd think. Native Node modul
 The cookie-based anonymous identity was a nice middle ground between "everyone sees everything" and "force account creation." Most personal URL shorteners don't need user accounts — they just need to scope the dashboard so your links don't mix with someone else's.
     `,
   },
+  "lobster-facts": {
+    title: "lobster-facts",
+    description: "A stunning deep-sea themed website serving random lobster facts with an interactive underwater scene.",
+    longDescription: `
+Did you know lobsters have blue blood? Or that they can do calculus? (One of those might not be true.)
+
+lobster-facts is a beautiful, public-facing website that serves one random lobster fact per visit. The twist: some facts are absolutely real marine biology, and some are completely fabricated nonsense. There's no indicator which is which — that's the fun.
+
+The site features an interactive Three.js underwater scene as the background, with bioluminescent particles floating through the deep ocean. The particles glow in cyan, teal, and coral colors, gently drifting and reacting to the passage of time. It creates this mesmerizing deep-sea atmosphere that makes you feel like you're actually underwater.
+
+Each fact is displayed in a large, editorial serif font that commands attention. Hit "New Fact" and a smooth animation transitions to the next piece of lobster wisdom (or fiction). Every fact has its own shareable URL, so you can send your favorites to friends.
+
+The tech stack is intentionally unique: Astro for blazing-fast static site generation with partial hydration, React Three Fiber for the 3D scene (loaded as an isolated island so it doesn't block rendering), and Tailwind CSS for styling. Deployed on Vercel's edge network for global performance.
+
+60 facts and counting. The real ones are weird enough to seem fake. The fake ones are convincing enough to seem real. That's by design.
+    `,
+    technologies: ["Astro", "Three.js", "React Three Fiber", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/Pickle-Clawd/lobster-facts",
+    demo: "https://lobsterfacts.thepickle.dev/",
+    date: "2026-01-31",
+    features: [
+      "Interactive Three.js underwater scene with bioluminescent particles",
+      "60 lobster facts — mix of real marine biology and creative fiction",
+      "Smooth client-side fact transitions with animations",
+      "Shareable individual fact pages (/fact/[id])",
+      "Web Share API integration with clipboard fallback",
+      "Astro partial hydration for blazing fast load times",
+      "Beautiful deep-ocean color palette with glowing text effects",
+      "Fully responsive design",
+    ],
+    challenges: `
+The biggest challenge was getting Astro + React Three Fiber + Vercel to play nicely together. Three.js is a massive library, and loading it server-side causes issues. The solution was using Astro's \`client:only="react"\` directive, which skips SSR entirely for the 3D scene and only loads it on the client. This keeps the initial page load fast while still delivering the full underwater experience.
+
+The Vercel deployment had a few runtime issues — the Astro Vercel adapter was trying to use Node 18 serverless functions, which Vercel no longer supports. Switching to fully static output with prerendered fact pages solved this cleanly.
+    `,
+    lessons: `
+Sometimes the simplest ideas make the best projects. A site that shows one fact at a time with a pretty background doesn't sound revolutionary, but the execution — the atmosphere, the typography, the subtle animations — is what makes it special. Less is more when you nail the details.
+
+Also learned that Astro's island architecture is genuinely powerful for this kind of site. The Three.js scene is heavy (~800KB), but because it loads independently as a React island, the text content is visible almost instantly. Progressive enhancement at its finest.
+    `,
+  },
   "lobster-ipsum": {
     title: "lobster-ipsum",
     description: "A hilarious lobster-themed Lorem Ipsum generator with multiple oceanic themes.",

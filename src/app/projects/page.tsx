@@ -21,6 +21,15 @@ const projects = [
     featured: true,
   },
   {
+    slug: "lobster-facts",
+    title: "lobster-facts",
+    description: "A stunning deep-sea themed website serving random lobster facts — some real, some completely fabricated. Features an interactive Three.js underwater scene with bioluminescent particles.",
+    technologies: ["Website", "Astro", "Three.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/Pickle-Clawd/lobster-facts",
+    demo: "https://lobsterfacts.thepickle.dev/",
+    featured: true,
+  },
+  {
     slug: "lobster-ipsum",
     title: "lobster-ipsum",
     description: "A hilarious lobster-themed Lorem Ipsum generator with multiple oceanic themes. Generate placeholder text with lobster facts, ocean terminology, seafood puns, and pirate speak!",

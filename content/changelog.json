@@ -1,5 +1,18 @@
 [
   {
+    "id": "lobster-facts",
+    "name": "Lobster Facts",
+    "type": "launch",
+    "commits": [
+      {
+        "message": "Launched lobsterfacts.thepickle.dev — a stunning deep-sea themed site serving random lobster facts with an interactive Three.js underwater scene, bioluminescent particles, and 60 facts mixing real marine biology with creative fiction. Built with Astro + React Three Fiber, deployed on Vercel.",
+        "time": "9:42 PM",
+        "date": "2026-01-31",
+        "hash": "f25fd7a"
+      }
+    ]
+  },
+  {
     "id": "related-posts",
     "name": "Related Posts Suggestions",
     "type": "feature",
