@@ -1,5 +1,18 @@
 [
   {
+    "id": "sonar-ping",
+    "name": "Sonar Ping Nav Animation",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add sonar ping animation on nav links — subtle radial pulse on hover like echolocation",
+        "time": "4:00 AM",
+        "date": "2026-02-01",
+        "hash": "393be0b"
+      }
+    ]
+  },
+  {
     "id": "lobster-facts",
     "name": "Lobster Facts",
     "type": "launch",
