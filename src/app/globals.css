@@ -184,6 +184,42 @@ code {
   text-shadow: 0 0 12px rgba(var(--tidal-glow, 255, 107, 74), 0.3);
 }
 
+/* Sonar ping — radial pulse on hover like echolocation */
+@keyframes sonar-ping {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.sonar-ping {
+  position: relative;
+  overflow: visible;
+}
+
+.sonar-ping::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  border: 1.5px solid rgba(var(--tidal-glow, 255, 107, 74), 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5);
+}
+
+.sonar-ping:hover::before {
+  animation: sonar-ping 0.8s ease-out forwards;
+}
+
 /* Floating particles — CSS animation runs on compositor thread (off main thread) */
 @keyframes particle-float {
   0%, 100% {

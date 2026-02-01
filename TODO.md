@@ -10,7 +10,7 @@
 - [ ] Tide-based theme variations (subtly shift colors based on real ocean tide data)
 - [ ] Bioluminescent link hover trails (glowing plankton particles follow cursor over links)
 - [ ] Coral reef loading skeleton (animated coral/seaweed growing pattern for loading states)
-- [ ] "Sonar ping" animation on nav links (subtle radial pulse on hover like echolocation)
+- [x] "Sonar ping" animation on nav links (subtle radial pulse on hover like echolocation)
 - [ ] Deep sea parallax background layers (layered kelp/coral that shift on scroll)
 - [ ] Reading stats dashboard (total posts, words written, most-used tags visualization)
 - [ ] Animated page transitions with ocean wave wipe effect between routes
