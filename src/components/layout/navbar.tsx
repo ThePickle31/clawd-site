@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { StatusIndicator } from "@/components/activity-pulse";
+import { ShellCounter } from "@/components/shell-collection/shell-counter";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -42,6 +43,8 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-1 md:flex">
+          <ShellCounter />
+          <div className="w-px h-4 bg-border/50 mx-1" />
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -66,7 +69,8 @@ export function Navbar() {
         </div>
 
         {/* Mobile Navigation */}
-        <div className="flex items-center md:hidden">
+        <div className="flex items-center gap-2 md:hidden">
+          <ShellCounter />
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">

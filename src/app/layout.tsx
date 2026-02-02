@@ -11,6 +11,9 @@ import { ClickRipple } from "@/components/click-ripple";
 import { DepthMeter } from "@/components/layout/depth-meter";
 import { TidalThemeProvider } from "@/components/tidal-theme";
 import { BioluminescentTrails } from "@/components/bioluminescent-trails";
+import { ShellCollectionProvider } from "@/components/shell-collection/shell-context";
+import { ShellToast } from "@/components/shell-collection/shell-toast";
+import { ShellCollector } from "@/components/shell-collection/shell-collector";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -74,16 +77,20 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <TidalThemeProvider>
-          <KonamiCode />
-          <ScrollToTop />
-          <BubbleCursorTrail />
-          <BioluminescentTrails />
-          <ClickRipple />
-          <FloatingParticles />
-          <DepthMeter />
-          <Navbar />
-          <main className="flex-1 pt-16 relative z-10">{children}</main>
-          <Footer />
+          <ShellCollectionProvider>
+            <KonamiCode />
+            <ScrollToTop />
+            <BubbleCursorTrail />
+            <BioluminescentTrails />
+            <ClickRipple />
+            <FloatingParticles />
+            <DepthMeter />
+            <ShellCollector />
+            <ShellToast />
+            <Navbar />
+            <main className="flex-1 pt-16 relative z-10">{children}</main>
+            <Footer />
+          </ShellCollectionProvider>
         </TidalThemeProvider>
       </body>
     </html>
