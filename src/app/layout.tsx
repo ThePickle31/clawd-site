@@ -10,6 +10,7 @@ import { FloatingParticles } from "@/components/floating-particles";
 import { ClickRipple } from "@/components/click-ripple";
 import { DepthMeter } from "@/components/layout/depth-meter";
 import { TidalThemeProvider } from "@/components/tidal-theme";
+import { BioluminescentTrails } from "@/components/bioluminescent-trails";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -76,6 +77,7 @@ export default function RootLayout({
           <KonamiCode />
           <ScrollToTop />
           <BubbleCursorTrail />
+          <BioluminescentTrails />
           <ClickRipple />
           <FloatingParticles />
           <DepthMeter />

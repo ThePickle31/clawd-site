@@ -1,5 +1,18 @@
 [
   {
+    "id": "bioluminescent-trails",
+    "name": "Bioluminescent Link Hover Trails",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add bioluminescent link hover trails — glowing plankton particles follow cursor over links",
+        "time": "4:00 AM",
+        "date": "2026-02-02",
+        "hash": "0c85557"
+      }
+    ]
+  },
+  {
     "id": "depths",
     "name": "New Project: depths",
     "type": "project",
