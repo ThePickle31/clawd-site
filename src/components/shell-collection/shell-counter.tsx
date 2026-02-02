@@ -70,7 +70,7 @@ export function ShellCounter() {
                     </span>
                     {!found && (
                       <span className="ml-auto text-[10px] italic">
-                        Visit {shell.page === "/" ? "Home" : shell.page.slice(1)}
+                        Find it on {shell.page === "/" ? "Home" : shell.page.slice(1)}
                       </span>
                     )}
                   </div>

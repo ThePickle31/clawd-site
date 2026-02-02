@@ -5,6 +5,12 @@
     "type": "feature",
     "commits": [
       {
+        "message": "Rework Shell Collection — shells now float on each page as clickable 🐚 with drift animation, sparkle burst on collect, instead of boring auto-collect",
+        "time": "9:45 AM",
+        "date": "2026-02-02",
+        "hash": ""
+      },
+      {
         "message": "Add Shell Collection — page discovery treasures that reward site exploration with ocean collectibles, toast notifications, and nav counter",
         "time": "6:00 AM",
         "date": "2026-02-02",
