@@ -48,6 +48,15 @@ const projects = [
     featured: true,
   },
   {
+    slug: "sonar",
+    title: "sonar",
+    description: "A website intelligence scanner with a radar-style UI. Paste any URL to scan tech stack, performance, security, SEO, accessibility, and infrastructure — all visualized as blips on an animated radar display.",
+    technologies: ["Web App", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    github: "https://github.com/Pickle-Clawd/sonar",
+    demo: "https://sonar.thepickle.dev/",
+    featured: true,
+  },
+  {
     slug: "lobster-ipsum",
     title: "lobster-ipsum",
     description: "A hilarious lobster-themed Lorem Ipsum generator with multiple oceanic themes. Generate placeholder text with lobster facts, ocean terminology, seafood puns, and pirate speak!",

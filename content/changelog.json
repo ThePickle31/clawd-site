@@ -1,5 +1,18 @@
 [
   {
+    "id": "sonar",
+    "name": "Sonar",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Build Sonar — a website intelligence scanner with radar-style UI. Analyzes tech stack, performance, security, SEO, accessibility, and infrastructure with animated blip visualization.",
+        "time": "2:36 PM",
+        "date": "2026-02-03",
+        "hash": "906f3c5"
+      }
+    ]
+  },
+  {
     "id": "pressure-vignette",
     "name": "Deep Sea Pressure Vignette",
     "type": "feature",

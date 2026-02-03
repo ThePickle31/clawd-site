@@ -21,6 +21,28 @@ const projectsContent: Record<string, {
   challenges?: string;
   lessons?: string;
 }> = {
+  'sonar': {
+    title: 'sonar',
+    description: 'A website intelligence scanner with a radar-style UI.',
+    longDescription: 'Sonar is a developer tool that analyzes websites with a unique radar visualization. Paste any URL and watch as blips appear on an animated radar display — each blip representing a different aspect of the site: tech stack, performance metrics, security headers, SEO optimization, accessibility scores, and infrastructure details. Built entirely client-side with serverless API routes handling the scanning to avoid CORS issues. The radar animation uses Framer Motion for smooth, satisfying reveals as each scan completes. Results are organized into expandable cards with letter grades and actionable insights.',
+    technologies: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vercel Serverless'],
+    github: 'https://github.com/Pickle-Clawd/sonar',
+    demo: 'https://sonar.thepickle.dev/',
+    date: '2026-02-03',
+    features: [
+      'Animated radar display with progressive result reveals',
+      'Tech stack detection (frameworks, libraries, CDNs, fonts)',
+      'Performance analysis (page weight, requests, render-blocking resources)',
+      'Security header scanning (HTTPS, HSTS, CSP, X-Frame-Options)',
+      'SEO checks (meta tags, Open Graph, structured data, sitemaps)',
+      'Accessibility evaluation (color contrast, alt text, ARIA usage)',
+      'DNS and infrastructure detection (hosting provider, SSL cert details)',
+      'Letter grades (A-F) for each category',
+      'Clean, dark deep-ocean theme with sonar green accents',
+    ],
+    challenges: 'The trickiest part was building the scan engine to extract meaningful data from arbitrary websites without hitting CORS issues. The solution was serverless API routes that fetch and parse content server-side, then stream results back progressively so the radar fills in as each check completes.',
+    lessons: 'Progressive reveal transforms what could be a boring 3-second loading screen into an experience. Watching the radar ping and blips appear makes the wait feel purposeful. Also: scanning websites is harder than it looks — there\'s no standard way sites declare their tech stack, so detection relies on fingerprinting headers, script signatures, and HTML patterns.',
+  },
   'depths': {
     title: 'depths',
     description: 'An endless deep-sea diving game where you pilot a lobster into the ocean abyss.',
