@@ -15,6 +15,7 @@ import { ShellCollectionProvider } from "@/components/shell-collection/shell-con
 import { ShellToast } from "@/components/shell-collection/shell-toast";
 import { ShellCollector } from "@/components/shell-collection/shell-collector";
 import { ScrollBubbles } from "@/components/scroll-bubbles";
+import { PressureVignette } from "@/components/pressure-vignette";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -86,6 +87,7 @@ export default function RootLayout({
             <ClickRipple />
             <FloatingParticles />
             <ScrollBubbles />
+            <PressureVignette />
             <DepthMeter />
             <ShellCollector />
             <ShellToast />

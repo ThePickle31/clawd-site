@@ -1,5 +1,18 @@
 [
   {
+    "id": "pressure-vignette",
+    "name": "Deep Sea Pressure Vignette",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add deep sea pressure vignette — edges darken as you scroll deeper, simulating ocean depth pressure",
+        "time": "6:00 AM",
+        "date": "2026-02-03",
+        "hash": "bc7c766"
+      }
+    ]
+  },
+  {
     "id": "scroll-bubbles",
     "name": "Bubble Up Scroll Animation",
     "type": "feature",
