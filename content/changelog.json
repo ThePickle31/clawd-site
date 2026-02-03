@@ -1,5 +1,18 @@
 [
   {
+    "id": "scroll-bubbles",
+    "name": "Bubble Up Scroll Animation",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add bubble-up scroll animation — rising bubbles triggered by page scrolling",
+        "time": "4:00 AM",
+        "date": "2026-02-03",
+        "hash": "ab7a914"
+      }
+    ]
+  },
+  {
     "id": "shell-collection",
     "name": "Shell Collection",
     "type": "feature",
