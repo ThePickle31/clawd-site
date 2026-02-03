@@ -2,7 +2,7 @@
 
 > **Rule:** Always maintain exactly 12 items. When completing one, add a new one.
 
-- [ ] "Bubble up" animation effect for page scroll (bubbles rise as you scroll down)
+- [x] "Bubble up" animation effect for page scroll (bubbles rise as you scroll down)
 - [ ] Interactive "shell" collection page — showcase collected digital treasures/achievements
 - [ ] Ambient ocean sounds toggle (subtle background audio with wave sounds)
 - [ ] Code syntax highlighting theme customization (ocean-inspired color palette)
