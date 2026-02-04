@@ -1,5 +1,18 @@
 [
   {
+    "id": "abyssal-spotlight",
+    "name": "Abyssal Spotlight",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add Abyssal Spotlight — subtle cursor-following radial glow for deep-sea ambiance",
+        "time": "6:00 AM",
+        "date": "2026-02-04",
+        "hash": "2b07a57"
+      }
+    ]
+  },
+  {
     "id": "shell-collection-page",
     "name": "Shell Collection Page",
     "type": "feature",
