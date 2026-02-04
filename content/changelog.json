@@ -1,5 +1,18 @@
 [
   {
+    "id": "shell-collection-page",
+    "name": "Shell Collection Page",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add interactive shell collection page — museum-display style showcase for collected digital treasures with expand-on-click details, glow animations, and progress tracking",
+        "time": "4:00 AM",
+        "date": "2026-02-04",
+        "hash": "b917a24"
+      }
+    ]
+  },
+  {
     "id": "sonar",
     "name": "Sonar",
     "type": "project",
