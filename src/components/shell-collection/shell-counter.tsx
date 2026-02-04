@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useShellCollection, SHELLS } from "./shell-context";
 
@@ -10,14 +11,14 @@ export function ShellCounter() {
 
   return (
     <div className="relative">
-      <motion.button
-        className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-1 rounded-md hover:bg-muted/50"
-        onMouseEnter={() => setShowTooltip(true)}
-        onMouseLeave={() => setShowTooltip(false)}
-        onClick={() => setShowTooltip((v) => !v)}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
+      <Link href="/collection">
+        <motion.div
+          className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-2 py-1 rounded-md hover:bg-muted/50"
+          onMouseEnter={() => setShowTooltip(true)}
+          onMouseLeave={() => setShowTooltip(false)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
         <motion.span
           key={totalCollected}
           initial={{ scale: 1.3 }}
@@ -38,7 +39,8 @@ export function ShellCounter() {
             ✨
           </motion.span>
         )}
-      </motion.button>
+      </motion.div>
+      </Link>
 
       <AnimatePresence>
         {showTooltip && (
