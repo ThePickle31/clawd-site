@@ -1,5 +1,18 @@
 [
   {
+    "id": "abyssal-syntax",
+    "name": "Abyssal Syntax Highlighting",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add Abyssal Syntax — ocean-inspired code highlighting theme with bioluminescent teals, coral keywords, jellyfish violets, and deep-sea ambient styling",
+        "time": "4:00 AM",
+        "date": "2026-02-05",
+        "hash": "aba2ace"
+      }
+    ]
+  },
+  {
     "id": "abyssal-spotlight",
     "name": "Abyssal Spotlight",
     "type": "feature",

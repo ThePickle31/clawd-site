@@ -108,6 +108,176 @@ code {
   @apply font-mono text-sm;
 }
 
+/* ── Abyssal Syntax — ocean-inspired highlight.js theme ──────────────── */
+/* Colors drawn from the deep-sea palette: bioluminescent teals, coral    */
+/* accents, jellyfish violets, and the soft blue light that filters down  */
+/* through hundreds of meters of open water.                              */
+
+.hljs {
+  background: #0B1929;
+  color: #C8D6E5;
+}
+
+/* Comments — the quiet hum of distant currents */
+.hljs-comment,
+.hljs-quote {
+  color: #4A6B8A;
+  font-style: italic;
+}
+
+/* Keywords — coral reef punctuation */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #FF6B4A;
+}
+
+/* Strings — bioluminescent teal glow */
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp {
+  color: #7EDBCF;
+}
+
+/* Numbers & literals — jellyfish violet */
+.hljs-number,
+.hljs-literal {
+  color: #C4A7E7;
+}
+
+/* Booleans & constants — brighter violet */
+.hljs-meta .hljs-meta-string {
+  color: #D4BFFF;
+}
+
+/* Function names & titles — the blue light from above */
+.hljs-title,
+.hljs-title.function_,
+.hljs-section,
+.hljs-name {
+  color: #5BB8F5;
+}
+
+/* Types & classes — tropical teal water */
+.hljs-type,
+.hljs-title.class_,
+.hljs-selector-class,
+.hljs-selector-id {
+  color: #4ECDC4;
+}
+
+/* Attributes — warm sand amber */
+.hljs-attribute,
+.hljs-attr {
+  color: #F0B27A;
+}
+
+/* Variables & template expressions — seafoam */
+.hljs-variable,
+.hljs-template-variable {
+  color: #87CEAB;
+}
+
+/* Built-ins — lighter coral glow */
+.hljs-built_in {
+  color: #FF8C6B;
+}
+
+/* Symbols, bullets, links — muted teal */
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link {
+  color: #5FB3A1;
+}
+
+/* Meta & preprocessor — blue-grey sediment */
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+  color: #8B9FC0;
+}
+
+/* Selector attributes & pseudo-elements */
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #7EDBCF;
+}
+
+/* Tags (HTML/XML) — coral accent */
+.hljs-tag {
+  color: #C8D6E5;
+}
+
+/* Additions (diffs) — bioluminescent green */
+.hljs-addition {
+  color: #7EDBCF;
+  background: rgba(126, 219, 207, 0.08);
+}
+
+/* Deletions (diffs) — faded coral */
+.hljs-deletion {
+  color: #FF6B4A;
+  background: rgba(255, 107, 74, 0.08);
+}
+
+/* Emphasis & strong */
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
+}
+
+/* Subst (template interpolation) */
+.hljs-subst {
+  color: #C8D6E5;
+}
+
+/* Params — dimmer text for function parameters */
+.hljs-params {
+  color: #A0B4C8;
+}
+
+/* Property — warm teal for object properties */
+.hljs-property {
+  color: #4ECDC4;
+}
+
+/* Punctuation — subtle, like sand between stones */
+.hljs-punctuation {
+  color: #6B8299;
+}
+
+/* ── Code block ambient styling ──────────────────────────────────────── */
+/* Subtle border glow to suggest a different depth zone                   */
+
+pre:has(.hljs) {
+  background: #0B1929;
+  border: 1px solid rgba(94, 179, 161, 0.12);
+  box-shadow:
+    0 0 20px rgba(10, 22, 40, 0.5),
+    inset 0 1px 0 rgba(126, 219, 207, 0.04);
+}
+
+/* Language label for code blocks */
+.code-block-wrapper {
+  position: relative;
+}
+
+.code-block-wrapper pre[class*="language-"]::before,
+.code-block-wrapper pre .hljs[class*="language-"]::before {
+  content: attr(class);
+  position: absolute;
+  top: 0;
+  right: 2.5rem;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.65rem;
+  font-family: var(--font-geist-mono);
+  color: #4A6B8A;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
 /* Prose styling for MDX */
 .prose {
   @apply max-w-none;

@@ -102,7 +102,7 @@ export default function ThoughtClient({ post, relatedPosts = [] }: ThoughtClient
                        prose-strong:text-foreground prose-strong:font-semibold
                        prose-ul:text-foreground/90 prose-li:text-foreground/90
                        prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-foreground
-                       prose-pre:bg-secondary prose-pre:text-foreground"
+                       prose-pre:bg-[#0B1929] prose-pre:text-[#C8D6E5]"
           >
             <MDXRenderer code={post.body.code} />
           </motion.div>
