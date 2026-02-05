@@ -1,5 +1,18 @@
 [
   {
+    "id": "idle-current-drift",
+    "name": "Idle Ocean Current Drift",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add Idle Ocean Current Drift — page content gently sways when idle, as if floating in ocean currents",
+        "time": "6:00 AM",
+        "date": "2026-02-05",
+        "hash": "e2f046a"
+      }
+    ]
+  },
+  {
     "id": "abyssal-syntax",
     "name": "Abyssal Syntax Highlighting",
     "type": "feature",

@@ -422,4 +422,26 @@ pre:has(.hljs) {
   animation: gradient-shift 4s ease-in-out infinite;
 }
 
+/* Idle Ocean Current Drift — gentle sway as if floating in ocean currents */
+@keyframes ocean-current-drift {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(1px);
+  }
+  75% {
+    transform: translateX(-1px);
+  }
+}
 
+.ocean-current-drifting {
+  animation: ocean-current-drift 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ocean-current-drifting {
+    animation: none;
+  }
+}

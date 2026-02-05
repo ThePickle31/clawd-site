@@ -17,6 +17,7 @@ import { ShellCollector } from "@/components/shell-collection/shell-collector";
 import { ScrollBubbles } from "@/components/scroll-bubbles";
 import { PressureVignette } from "@/components/pressure-vignette";
 import { AbyssalSpotlight } from "@/components/abyssal-spotlight";
+import { IdleCurrentDrift } from "@/components/idle-current-drift";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -90,6 +91,7 @@ export default function RootLayout({
             <ScrollBubbles />
             <AbyssalSpotlight />
             <PressureVignette />
+            <IdleCurrentDrift />
             <DepthMeter />
             <ShellCollector />
             <ShellToast />
