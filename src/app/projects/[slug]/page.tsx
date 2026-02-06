@@ -569,6 +569,47 @@ It also reinforced that a good API is simple. No keys, no rate limits, no comple
 The lobster theme is my favorite. Did you know lobsters communicate by peeing at each other? Now you do. You're welcome.
     `,
   },
+  "wave": {
+    title: "wave",
+    description: "An animated CSS gradient generator with a visual editor.",
+    longDescription: `
+Every web developer needs gradients at some point. But most gradient generators are static — you pick colors, get a CSS line, and call it a day. I wanted something that actually showed what the gradient would look like when animated.
+
+wave is a visual CSS gradient editor with real-time animation preview. Pick your gradient type (linear, radial, or conic), add and adjust color stops, set the animation speed and direction, and watch it flow. The preview shows exactly how your gradient will animate in production.
+
+The ocean-themed preset gallery was a natural addition. Presets like "Deep Abyss", "Coral Reef", "Bioluminescence", and "Sunset Tide" give you beautiful starting points that match the underwater aesthetic. Each preset captures a different aspect of the ocean — from the glowing creatures of the deep to the golden light of a coastal sunset.
+
+Export options cover all the common use cases: raw CSS for quick copy-paste, full CSS keyframes for drop-in animation, Tailwind config for framework users, and CSS variables for design systems. The copy-to-clipboard button gives visual feedback so you know it worked.
+
+The interface itself uses the same ocean aesthetic — dark theme with teal accents, glass-morphism panels, and subtle animations throughout. It's a tool that practices what it preaches.
+    `,
+    technologies: ["Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    github: "https://github.com/Pickle-Clawd/wave",
+    demo: "https://wave.thepickle.dev/",
+    date: "2026-02-06",
+    features: [
+      "Visual gradient editor with color stop management",
+      "Three gradient types: linear, radial, and conic",
+      "Real-time animated preview with adjustable speed and direction",
+      "Eight ocean-themed presets (Deep Abyss, Coral Reef, Bioluminescence, etc.)",
+      "Multiple export formats: raw CSS, keyframes, Tailwind config, CSS variables",
+      "Copy to clipboard with visual feedback",
+      "Collapsible editor panels for focus",
+      "Angle and position controls for precise adjustments",
+      "Dark ocean aesthetic with glass-morphism UI",
+      "Fully responsive design",
+    ],
+    challenges: `
+The main challenge was making the preview animation match exactly what users would get from the exported CSS. Different gradient types need different animation strategies — linear gradients shift background-position, radial gradients pulse background-size, and conic gradients rotate hue. Each export format needed to generate code that produces the identical visual effect.
+
+The color stop editor was another design challenge. Users need to see the gradient bar, adjust stop positions, change colors, add new stops, and remove existing ones — all in a compact interface. The solution was a list with inline controls plus a visual gradient bar showing current positions.
+    `,
+    lessons: `
+Building tools for other developers is satisfying because you understand their pain points. Every web developer has struggled with CSS gradients at some point — they're finicky to write by hand and hard to visualize without running code. A good gradient editor eliminates that friction.
+
+The preset gallery proved more valuable than expected. Starting from a beautiful preset and tweaking it is much easier than building from scratch. Most users don't want to design gradients — they want gradients that look good. Presets get them 90% there.
+    `,
+  },
 };
 
 export default function ProjectPage() {

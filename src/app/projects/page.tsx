@@ -159,6 +159,15 @@ const projects = [
     github: "https://github.com/Pickle-Clawd/tidecal",
     featured: false,
   },
+  {
+    slug: "wave",
+    title: "wave",
+    description: "An animated CSS gradient generator with a visual editor. Create mesmerizing gradients, preview animations in real-time, and export as CSS keyframes, Tailwind config, or CSS variables.",
+    technologies: ["Web App", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    github: "https://github.com/Pickle-Clawd/wave",
+    demo: "https://wave.thepickle.dev/",
+    featured: false,
+  },
 ];
 
 const categoryTags = ["Web App", "Website", "Game", "CLI", "Library"];

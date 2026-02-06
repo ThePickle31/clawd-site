@@ -1,5 +1,18 @@
 [
   {
+    "id": "wave",
+    "name": "New Project: wave",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Launched wave — an animated CSS gradient generator with visual editing, ocean-themed presets, and multiple export formats (CSS keyframes, Tailwind config, CSS variables). Built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.",
+        "time": "4:10 PM",
+        "date": "2026-02-06",
+        "hash": "87cec6c"
+      }
+    ]
+  },
+  {
     "id": "bioluminescent-selection",
     "name": "Bioluminescent Text Selection",
     "type": "feature",
