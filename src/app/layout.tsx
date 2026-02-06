@@ -18,6 +18,7 @@ import { ScrollBubbles } from "@/components/scroll-bubbles";
 import { PressureVignette } from "@/components/pressure-vignette";
 import { AbyssalSpotlight } from "@/components/abyssal-spotlight";
 import { IdleCurrentDrift } from "@/components/idle-current-drift";
+import { OceanSoundsProvider } from "@/components/ocean-sounds";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -81,6 +82,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
         <TidalThemeProvider>
+          <OceanSoundsProvider>
           <ShellCollectionProvider>
             <KonamiCode />
             <ScrollToTop />
@@ -99,6 +101,7 @@ export default function RootLayout({
             <main className="flex-1 pt-16 relative z-10">{children}</main>
             <Footer />
           </ShellCollectionProvider>
+          </OceanSoundsProvider>
         </TidalThemeProvider>
       </body>
     </html>
