@@ -94,9 +94,22 @@
   }
 }
 
-/* Custom selection color */
+/* ── Bioluminescent Text Selection ─────────────────────────────────────
+   When text is selected, it glows with the soft cyan-teal light of
+   deep-sea bioluminescence — like the flash of a startled ctenophore
+   or the gentle pulse of a drifting jellyfish bell.                      */
+
 ::selection {
-  background-color: rgba(255, 107, 74, 0.3);
+  background-color: rgba(78, 205, 196, 0.35);
+  color: #E0FFFC;
+  text-shadow:
+    0 0 1px rgba(126, 219, 207, 0.8),
+    0 0 2px rgba(78, 205, 196, 0.4);
+}
+
+::-moz-selection {
+  background-color: rgba(78, 205, 196, 0.35);
+  color: #E0FFFC;
 }
 
 /* Code block styling */

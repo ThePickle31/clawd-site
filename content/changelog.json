@@ -1,5 +1,18 @@
 [
   {
+    "id": "bioluminescent-selection",
+    "name": "Bioluminescent Text Selection",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add Bioluminescent Text Selection — highlighted text glows with deep-sea bioluminescent effect",
+        "time": "6:00 AM",
+        "date": "2026-02-06",
+        "hash": "2b62076"
+      }
+    ]
+  },
+  {
     "id": "ambient-ocean-sounds",
     "name": "Ambient Ocean Sounds",
     "type": "feature",
