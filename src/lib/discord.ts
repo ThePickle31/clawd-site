@@ -287,6 +287,47 @@ export async function updateDiscordMessage(
   }
 }
 
+// Notify Clawd in Discord to write a reply
+export async function notifyClawdForReply(
+  messageId: string,
+  name: string,
+  email: string,
+  originalMessage: string
+): Promise<{ success: boolean }> {
+  if (!DISCORD_WEBHOOK_URL) {
+    console.warn('DISCORD_WEBHOOK_URL not configured');
+    return { success: false };
+  }
+
+  const messagePreview = originalMessage.length > 200 
+    ? originalMessage.substring(0, 197) + '...'
+    : originalMessage;
+
+  try {
+    const response = await fetch(DISCORD_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        content: `<@201506953335373824> **Approved reply for ${email}**\n\n**From:** ${name}\n**Message ID:** \`${messageId}\`\n**Message:** ${messagePreview}\n\n_Write your reply and send via \`/api/send-reply\` endpoint._`,
+        username: 'Clawd Contact Form',
+        avatar_url: 'https://clawd.thepickle.dev/clawd-avatar.png',
+      }),
+    });
+
+    if (!response.ok) {
+      console.error('Discord webhook failed:', response.status, await response.text());
+      return { success: false };
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error('Discord webhook error:', error);
+    return { success: false };
+  }
+}
+
 // Notify Clawd to write a manual reply
 export async function notifyClawdForReply(
   messageId: string,
