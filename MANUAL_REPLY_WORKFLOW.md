@@ -1,131 +1,117 @@
 # Manual Reply Workflow
 
-This document explains the new manual reply workflow for the contact form.
+## Overview
 
-## Flow Overview
+The contact form uses a manual approval workflow where Clawd (you) personally writes and sends replies.
 
-1. **Contact form submitted** → Discord notification with "✅ Approve" and "❌ Ignore" buttons
-2. **User clicks "Approve"** → Webhook updates Convex and sends a new Discord message like:
-   ```
-   📬 Pickle approved reply for user@email.com:
-   "Hi Clawd, what did you work on today?"
-   
-   @Clawd please write and send reply
-   
-   Message ID: `abc123`
-   ```
-3. **Clawd sees the message and writes the reply manually**
-4. **Clawd calls the API endpoint** to send the email with the reply text
-5. **Discord updates** to show "✅ Clawd sent reply"
+## Workflow Steps
 
-## Technical Implementation
+### 1. Contact Form Submission
+When someone submits the contact form:
+- Message is stored in Convex with status `pending`
+- Discord notification sent to the channel with **Approve** and **Ignore** buttons
 
-### Files Changed
+### 2. Approval
+When you click **✅ Approve**:
+- Message status updated to `approved` in Convex
+- Discord button message updated to show "✅ Approved - awaiting your reply"
+- **New Discord message sent** mentioning `@Clawd Pickle` with:
+  - The sender's name and email
+  - The message ID (needed for sending reply)
+  - A preview of their message
 
-- `convex/schema.ts` - Added "approved" status and new fields
-- `convex/messages.ts` - Added `markApproved()` mutation
-- `src/lib/discord.ts` - Added `notifyClawdForReply()` function
-- `src/app/api/discord-webhook/route.ts` - Updated `processApproval()` to use new flow
-- `src/app/api/send-reply/route.ts` - NEW endpoint for manual reply sending
-- `src/lib/reply-drafter.ts` - Simplified (removed AI generation code)
+### 3. Writing Your Reply
+You write the reply yourself! No AI generation. Just you being Clawd.
 
-### Environment Variables
+### 4. Sending the Reply
 
-Add to `.env.local`:
+#### Option A: Using the Script (Recommended)
 ```bash
-SEND_REPLY_SECRET=<your-secret-here>
+cd /home/thepickle/clawd/projects/clawd-site
+./scripts/send-reply.sh <message_id> "Your reply here"
 ```
 
-This secret is used to authenticate requests to the `/api/send-reply` endpoint.
-
-## How to Use
-
-### For Clawd (Manual Reply Process)
-
-When you see a Discord notification asking you to reply:
-
-1. Read the message details in Discord
-2. Write your reply
-3. Call the API endpoint to send it:
-
+Example:
 ```bash
-curl -X POST https://clawd.thepickle.dev/api/send-reply \
-  -H "Authorization: Bearer $SEND_REPLY_SECRET" \
+./scripts/send-reply.sh "k17abc123..." "Hey! Thanks for reaching out! 🦞
+
+I got your message about the project. That sounds super cool! Let me know more details and we can chat about it.
+
+Clawd 🦞 | Pinching emails since 2024"
+```
+
+#### Option B: Using curl directly
+```bash
+curl -X POST "https://clawd.thepickle.dev/api/send-reply" \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $SEND_REPLY_SECRET" \
   -d '{
-    "messageId": "abc123",
-    "replyText": "Hey! Thanks for reaching out! Here is my response..."
+    "messageId": "k17abc123...",
+    "replyContent": "Your reply text here"
   }'
 ```
 
-Or using the Convex client:
-```typescript
-// Get the message
-const message = await convex.query(api.messages.getById, { id: messageId });
+#### Option C: Using any HTTP client
+POST to `/api/send-reply` with:
+- **Headers:**
+  - `Content-Type: application/json`
+  - `Authorization: Bearer <SEND_REPLY_SECRET>`
+- **Body:**
+  ```json
+  {
+    "messageId": "k17abc123...",
+    "replyContent": "Your reply text"
+  }
+  ```
 
-// Send reply
-await fetch('/api/send-reply', {
-  method: 'POST',
-  headers: {
-    'Authorization': `Bearer ${process.env.SEND_REPLY_SECRET}`,
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({
-    messageId,
-    replyText: "Your reply here...",
-  }),
-});
+### 5. After Sending
+- Email sent via Gmail
+- Message status updated to `replied` in Convex
+- Discord notification sent confirming the reply was sent
+
+## Environment Variables
+
+Required in `.env.local`:
+```bash
+SEND_REPLY_SECRET=<secret-token>  # Use `openssl rand -hex 32` to generate
 ```
 
-### API Endpoint Details
+## Signature Rotation
 
-**Endpoint:** `POST /api/send-reply`
+The Gmail send function automatically appends one of these signatures randomly:
+- `Clawd 🦞 | Pinching emails since 2024`
+- `Sent from my shell 🐚 (Water damage not covered under warranty)`
+- `Clawd 🦞 | I have claws and I know how to use them`
 
-**Headers:**
-- `Authorization: Bearer <SEND_REPLY_SECRET>`
-- `Content-Type: application/json`
+**Don't add a signature manually** - it's added automatically!
 
-**Body:**
-```json
-{
-  "messageId": "string (Convex ID)",
-  "replyText": "string (your reply content)"
-}
-```
+## API Response
 
-**Response:**
+Success:
 ```json
 {
   "success": true,
-  "message": "Reply sent successfully"
+  "message": "Reply sent successfully",
+  "to": "their@email.com"
 }
 ```
 
-**Errors:**
-- `401 Unauthorized` - Invalid or missing API secret
-- `400 Bad Request` - Missing messageId or replyText, or message not approved
-- `404 Not Found` - Message not found
-- `500 Internal Server Error` - Failed to send email
+Error:
+```json
+{
+  "error": "Message not found"
+}
+```
 
-## Flow States
+## Testing
 
-A contact message goes through these states:
-
-1. **pending** - Just submitted, waiting for approve/ignore
-2. **approved** - Pickle approved it, Clawd needs to write reply
-3. **replied** - Clawd sent the reply
-4. **ignored** - Pickle marked it as ignore
+Check endpoint status:
+```bash
+curl https://clawd.thepickle.dev/api/send-reply
+```
 
 ## Security Notes
 
-- The `/api/send-reply` endpoint requires the `SEND_REPLY_SECRET` for authentication
-- Messages must be in "approved" status before a reply can be sent
-- Discord message IDs are stored to allow updating the notification after sending
-- All email sending goes through the existing Gmail OAuth2 flow
-
-## Future Improvements
-
-- Add a simple web UI for Clawd to write and send replies
-- Store reply drafts before sending
-- Add ability to preview email before sending
-- Add reply templates for common questions
+- The `SEND_REPLY_SECRET` must be kept secure
+- Only authorized requests can send replies
+- Messages can only be replied to once (prevents duplicate sends)
