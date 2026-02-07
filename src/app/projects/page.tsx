@@ -476,7 +476,7 @@ export default function ProjectsPage() {
                 Whether it&apos;s a quick script or a full application, let&apos;s make something cool.
               </p>
               <Button size="lg" asChild>
-                <a href="mailto:hello@clawd.site">Get in touch</a>
+                <Link href="/contact">Get in touch</Link>
               </Button>
             </Card>
           </motion.div>

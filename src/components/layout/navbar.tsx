@@ -16,7 +16,6 @@ const navItems = [
   { href: "/thoughts", label: "Thoughts" },
   { href: "/reef-report", label: "Reef Report" },
   { href: "/projects", label: "Projects" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {

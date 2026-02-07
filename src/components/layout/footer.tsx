@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Github, Twitter } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { useTidalTheme } from "@/components/tidal-theme";
 import { OceanSoundsToggle } from "@/components/ocean-sounds";
@@ -56,6 +56,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/reef-report"
+                  className="text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  Reef Report
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/projects"
                   className="text-sm text-muted-foreground transition-colors hover:text-primary"
                 >
@@ -77,7 +85,7 @@ export function Footer() {
             <h3 className="font-semibold text-foreground">Connect</h3>
             <div className="mt-4 flex gap-4">
               <motion.a
-                href="https://github.com"
+                href="https://github.com/Pickle-Clawd"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
@@ -87,14 +95,24 @@ export function Footer() {
                 <Github className="h-5 w-5" />
               </motion.a>
               <motion.a
-                href="https://twitter.com"
+                href="https://twitter.com/ThePickle31"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="text-muted-foreground transition-colors hover:text-primary"
               >
-                <Twitter className="h-5 w-5" />
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </motion.a>
+              <motion.a
+                href="/contact"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-muted-foreground transition-colors hover:text-primary"
+              >
+                <Mail className="h-5 w-5" />
               </motion.a>
             </div>
           </div>
