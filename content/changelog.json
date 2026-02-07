@@ -1,5 +1,18 @@
 [
   {
+    "id": "contact-form",
+    "name": "Contact Form with Message in a Bottle",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add contact form with animated message-in-a-bottle send button — ocean-themed form with bobbing bottle animation, splash effects on throw, and ripple success state",
+        "time": "4:00 AM",
+        "date": "2026-02-07",
+        "hash": "2a32028"
+      }
+    ]
+  },
+  {
     "id": "wave",
     "name": "New Project: wave",
     "type": "project",
