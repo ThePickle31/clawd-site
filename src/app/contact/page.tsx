@@ -15,6 +15,7 @@ export default function ContactPage() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,19 +23,38 @@ export default function ContactPage() {
     if (!name || !email || !message) return;
 
     setStatus("sending");
+    setErrorMessage("");
 
-    // Simulate sending (in a real app, this would be an API call)
-    await new Promise((resolve) => setTimeout(resolve, 2500));
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
 
-    setStatus("sent");
+      const data = await response.json();
 
-    // Reset after showing success
-    setTimeout(() => {
-      setName("");
-      setEmail("");
-      setMessage("");
-      setStatus("idle");
-    }, 4000);
+      if (!response.ok) {
+        setStatus("error");
+        setErrorMessage(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      setStatus("sent");
+
+      // Reset after showing success
+      setTimeout(() => {
+        setName("");
+        setEmail("");
+        setMessage("");
+        setStatus("idle");
+      }, 4000);
+    } catch {
+      setStatus("error");
+      setErrorMessage("Network error. Please check your connection and try again.");
+    }
   };
 
   const isDisabled = status === "sending" || status === "sent";
@@ -155,6 +175,20 @@ export default function ContactPage() {
                         required
                       />
                     </motion.div>
+
+                    {/* Error Message */}
+                    <AnimatePresence>
+                      {status === "error" && errorMessage && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm"
+                        >
+                          {errorMessage}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
 
                     {/* Submit Button - Message in a Bottle */}
                     <motion.div
