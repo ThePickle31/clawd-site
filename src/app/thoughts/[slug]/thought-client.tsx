@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { ArrowLeft, Clock, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TagBadge } from "@/components/tag-badge";
 import { Separator } from "@/components/ui/separator";
 import { PageTransition } from "@/components/layout/page-transition";
 import { ReadingProgressBar } from "@/components/layout/reading-progress-bar";
 import { TableOfContents } from "@/components/table-of-contents";
+import { TidalTimestamp } from "@/components/tidal-timestamp";
 import { format } from "date-fns";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import { mdxComponents } from "@/components/mdx-components";
@@ -75,8 +76,8 @@ export default function ThoughtClient({ post, relatedPosts = [] }: ThoughtClient
             </p>
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1">
-                <Calendar className="h-4 w-4" />
-                {format(new Date(post.date), "MMMM d, yyyy")}
+                <Waves className="h-4 w-4" />
+                <TidalTimestamp date={post.date} />
               </span>
               <span className="flex items-center gap-1">
                 <Clock className="h-4 w-4" />
@@ -142,8 +143,8 @@ export default function ThoughtClient({ post, relatedPosts = [] }: ThoughtClient
                       </p>
                       <div className="flex items-center gap-3 text-xs text-muted-foreground/70">
                         <span className="flex items-center gap-1">
-                          <Calendar className="h-3 w-3" />
-                          {format(new Date(related.date), "MMM d, yyyy")}
+                          <Waves className="h-3 w-3" />
+                          <TidalTimestamp date={related.date} />
                         </span>
                         <span className="flex items-center gap-1">
                           <Clock className="h-3 w-3" />

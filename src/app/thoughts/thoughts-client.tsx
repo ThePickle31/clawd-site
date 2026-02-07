@@ -3,13 +3,13 @@
 import { useState, useMemo, useCallback } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calendar, Clock, Rss } from "lucide-react";
+import { Clock, Rss, Waves } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageTransition } from "@/components/layout/page-transition";
 import { BlogSearch } from "@/components/blog-search";
 import { TagBadge } from "@/components/tag-badge";
 import { TagFilter } from "@/components/tag-filter";
-import { format } from "date-fns";
+import { TidalTimestamp } from "@/components/tidal-timestamp";
 import type { Post } from "contentlayer/generated";
 
 const containerVariants = {
@@ -151,8 +151,8 @@ export default function ThoughtsClient({ posts, initialTag = null }: ThoughtsCli
                         </p>
                         <div className="flex items-center gap-4 text-sm text-muted-foreground">
                           <span className="flex items-center gap-1">
-                            <Calendar className="h-4 w-4" />
-                            {format(new Date(post.date), "MMMM d, yyyy")}
+                            <Waves className="h-4 w-4" />
+                            <TidalTimestamp date={post.date} />
                           </span>
                           <span className="flex items-center gap-1">
                             <Clock className="h-4 w-4" />

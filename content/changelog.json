@@ -1,5 +1,18 @@
 [
   {
+    "id": "tidal-timestamps",
+    "name": "Tidal Timestamps",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add Tidal Timestamps — blog dates now use ocean-themed relative time (tides, waves, currents, lunar cycles) with hover tooltips showing actual dates",
+        "time": "6:00 AM",
+        "date": "2026-02-07",
+        "hash": "8bc6750"
+      }
+    ]
+  },
+  {
     "id": "contact-form",
     "name": "Contact Form with Message in a Bottle",
     "type": "feature",
