@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getConvexClient } from '@/lib/convex';
 import { api } from '../../../../convex/_generated/api';
-import { sendReply } from '@/lib/gmail';
-import { sendReplyNotification, updateDiscordMessage } from '@/lib/discord';
+import { updateDiscordMessage, notifyClawdForReply } from '@/lib/discord';
 import { Id } from '../../../../convex/_generated/dataModel';
 import nacl from 'tweetnacl';
 
@@ -86,11 +85,8 @@ async function handleButtonInteraction(payload: {
   try {
     // Parse the custom_id to determine action
     if (customId.startsWith('approve_')) {
-      const parts = customId.split('_');
-      const draftId = parts[1] as Id<'reply_drafts'>;
-      const selectedIndex = parseInt(parts[2], 10);
-
-      await processApproval(draftId, selectedIndex, discordMessageId, interactionToken);
+      const messageId = customId.split('_')[1] as Id<'contact_messages'>;
+      await processApproval(messageId, discordMessageId, interactionToken);
     } else if (customId.startsWith('ignore_')) {
       const messageId = customId.split('_')[1] as Id<'contact_messages'>;
       await processIgnore(messageId, discordMessageId, interactionToken);
@@ -108,85 +104,57 @@ async function handleButtonInteraction(payload: {
 }
 
 async function processApproval(
-  draftId: Id<'reply_drafts'>,
-  selectedIndex: number,
+  messageId: Id<'contact_messages'>,
   discordMessageId: string,
   interactionToken: string
 ) {
   const convex = getConvexClient();
 
-  // Get the draft
-  const draft = await convex.query(api.drafts.getById, { id: draftId });
-  if (!draft) {
-    throw new Error('Draft not found');
-  }
-
-  if (draft.status !== 'pending') {
-    await followUpInteraction(interactionToken, {
-      content: '⚠️ This draft has already been processed.',
-      flags: 64,
-    });
-    return;
-  }
-
   // Get the original message
-  const message = await convex.query(api.messages.getById, { id: draft.message_id });
+  const message = await convex.query(api.messages.getById, { id: messageId });
   if (!message) {
-    throw new Error('Original message not found');
+    throw new Error('Message not found');
   }
 
-  // Get the selected draft content
-  const selectedDraft = draft.drafts[selectedIndex];
-  if (!selectedDraft) {
-    throw new Error('Invalid draft selection');
-  }
-
-  // Approve the draft in database
-  await convex.mutation(api.drafts.approve, {
-    id: draftId,
-    selected_draft: selectedIndex,
-  });
-
-  // Send the email
-  const emailResult = await sendReply({
-    to: message.email,
-    name: message.name,
-    originalMessage: message.message,
-    replyContent: selectedDraft.content,
-  });
-
-  if (!emailResult.success) {
-    await convex.mutation(api.drafts.markFailed, { id: draftId });
+  if (message.status !== 'pending') {
     await followUpInteraction(interactionToken, {
-      content: `❌ Failed to send email: ${emailResult.error}`,
+      content: '⚠️ This message has already been processed.',
       flags: 64,
     });
     return;
   }
 
-  // Mark draft as sent and message as replied
-  await convex.mutation(api.drafts.markSent, { id: draftId });
-  await convex.mutation(api.messages.markReplied, {
-    id: draft.message_id,
-    reply_content: selectedDraft.content,
+  // Mark message as approved
+  await convex.mutation(api.messages.markApproved, {
+    id: messageId,
+    discord_message_id: discordMessageId,
   });
 
-  // Update Discord message to show it's processed
+  // Update the original Discord message to show it's approved
   await updateDiscordMessage(
     discordMessageId,
-    `✅ **Reply sent!** (${selectedDraft.type} option selected)`
+    `✅ **Approved!** Notifying Clawd to write reply...`
   );
 
-  // Send confirmation notification
-  await sendReplyNotification(
-    String(draft.message_id),
+  // Send new Discord message for Clawd to write the reply
+  const notifyResult = await notifyClawdForReply(
+    String(messageId),
+    message.name,
     message.email,
-    selectedDraft.content
+    message.message
   );
+
+  if (!notifyResult.success) {
+    await followUpInteraction(interactionToken, {
+      content: '⚠️ Approved, but failed to send notification.',
+      flags: 64,
+    });
+    return;
+  }
 
   // Send ephemeral confirmation
   await followUpInteraction(interactionToken, {
-    content: `✅ Reply sent successfully using the **${selectedDraft.type}** option!`,
+    content: `✅ Approved! Clawd has been notified to write a reply.`,
     flags: 64,
   });
 }

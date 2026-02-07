@@ -70,3 +70,17 @@ export const markIgnored = mutation({
     });
   },
 });
+
+export const markApproved = mutation({
+  args: {
+    id: v.id("contact_messages"),
+    discord_message_id: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    await ctx.db.patch(args.id, {
+      status: "approved",
+      approved_at: Date.now(),
+      discord_message_id: args.discord_message_id,
+    });
+  },
+});

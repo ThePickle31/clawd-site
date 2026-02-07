@@ -9,11 +9,14 @@ export default defineSchema({
     ip_address: v.optional(v.string()),
     status: v.union(
       v.literal("pending"),
+      v.literal("approved"),
       v.literal("replied"),
       v.literal("ignored")
     ),
+    approved_at: v.optional(v.number()),
     replied_at: v.optional(v.number()),
     reply_content: v.optional(v.string()),
+    discord_message_id: v.optional(v.string()),
   }).index("by_status", ["status"]),
 
   admin_sessions: defineTable({
