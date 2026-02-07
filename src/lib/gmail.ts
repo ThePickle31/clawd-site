@@ -4,7 +4,7 @@ import { google } from 'googleapis';
 const GMAIL_CLIENT_ID = process.env.GMAIL_CLIENT_ID;
 const GMAIL_CLIENT_SECRET = process.env.GMAIL_CLIENT_SECRET;
 const GMAIL_REFRESH_TOKEN = process.env.GMAIL_REFRESH_TOKEN;
-const GMAIL_USER = process.env.GMAIL_USER || 'mrpickles3311@gmail.com';
+const GMAIL_USER = process.env.GMAIL_USER;
 
 // Rotating signatures - randomly selected for each email
 const SIGNATURES = [
