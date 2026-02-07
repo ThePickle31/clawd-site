@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createMessage, checkRateLimit } from '@/lib/db';
+import { getConvexClient } from '@/lib/convex';
+import { api } from '../../../../convex/_generated/api';
 import { sendContactNotification } from '@/lib/discord';
 
 // Input sanitization
@@ -36,24 +37,27 @@ function getClientIP(request: NextRequest): string {
 
 export async function POST(request: NextRequest) {
   try {
+    const convex = getConvexClient();
+
     // Get client IP for rate limiting
     const clientIP = getClientIP(request);
 
     // Check rate limit (3 per IP per hour)
-    const rateLimit = checkRateLimit(clientIP);
+    const rateLimit = await convex.mutation(api.rateLimits.check, { ip_address: clientIP });
 
     if (!rateLimit.allowed) {
+      const resetAt = new Date(rateLimit.resetAt).toISOString();
       return NextResponse.json(
         {
           error: 'Too many requests. Please try again later.',
-          resetAt: rateLimit.resetAt.toISOString(),
+          resetAt,
         },
         {
           status: 429,
           headers: {
             'X-RateLimit-Remaining': '0',
-            'X-RateLimit-Reset': rateLimit.resetAt.toISOString(),
-            'Retry-After': String(Math.ceil((rateLimit.resetAt.getTime() - Date.now()) / 1000)),
+            'X-RateLimit-Reset': resetAt,
+            'Retry-After': String(Math.ceil((rateLimit.resetAt - Date.now()) / 1000)),
           },
         }
       );
@@ -107,22 +111,25 @@ export async function POST(request: NextRequest) {
     }
 
     // Create message in database
-    const contactMessage = createMessage(
-      sanitizedName,
-      sanitizedEmail,
-      sanitizedMessage,
-      clientIP
-    );
-
-    // Send Discord notification (don't wait for it, don't fail if it fails)
-    sendContactNotification({
-      id: contactMessage.id,
+    const contactMessage = await convex.mutation(api.messages.create, {
       name: sanitizedName,
       email: sanitizedEmail,
       message: sanitizedMessage,
-      createdAt: contactMessage.created_at,
-    }).catch(console.error);
+      ip_address: clientIP,
+    });
 
+    // Send Discord notification (don't wait for it, don't fail if it fails)
+    if (contactMessage) {
+      sendContactNotification({
+        id: contactMessage._id,
+        name: sanitizedName,
+        email: sanitizedEmail,
+        message: sanitizedMessage,
+        createdAt: contactMessage._creationTime,
+      }).catch(console.error);
+    }
+
+    const resetAt = new Date(rateLimit.resetAt).toISOString();
     return NextResponse.json(
       {
         success: true,
@@ -132,7 +139,7 @@ export async function POST(request: NextRequest) {
         status: 201,
         headers: {
           'X-RateLimit-Remaining': String(rateLimit.remaining),
-          'X-RateLimit-Reset': rateLimit.resetAt.toISOString(),
+          'X-RateLimit-Reset': resetAt,
         },
       }
     );

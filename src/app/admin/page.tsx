@@ -21,15 +21,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 interface Message {
-  id: number;
+  _id: string;
+  _creationTime: number;
   name: string;
   email: string;
   message: string;
-  ip_address: string | null;
-  created_at: string;
+  ip_address?: string;
   status: "pending" | "replied" | "ignored";
-  replied_at: string | null;
-  reply_content: string | null;
+  replied_at?: number;
+  reply_content?: string;
 }
 
 type ViewState = "login" | "messages";
@@ -131,7 +131,7 @@ export default function AdminPage() {
     setActionError("");
 
     try {
-      const res = await fetch(`/api/admin/messages/${selectedMessage.id}/reply`, {
+      const res = await fetch(`/api/admin/messages/${selectedMessage._id}/reply`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ replyContent: replyContent.trim() }),
@@ -155,7 +155,7 @@ export default function AdminPage() {
     }
   }
 
-  async function handleIgnore(id: number) {
+  async function handleIgnore(id: string) {
     try {
       const res = await fetch(`/api/admin/messages/${id}/ignore`, {
         method: "POST",
@@ -318,7 +318,7 @@ export default function AdminPage() {
             ) : (
               messages.map((msg, index) => (
                 <motion.div
-                  key={msg.id}
+                  key={msg._id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, x: -100 }}
@@ -347,7 +347,7 @@ export default function AdminPage() {
                             </span>
                             <span className="flex items-center gap-1 text-xs text-muted-foreground">
                               <Clock className="h-3 w-3" />
-                              {new Date(msg.created_at).toLocaleString()}
+                              {new Date(msg._creationTime).toLocaleString()}
                             </span>
                           </div>
 
@@ -385,7 +385,7 @@ export default function AdminPage() {
                             <Button
                               size="sm"
                               variant="ghost"
-                              onClick={() => handleIgnore(msg.id)}
+                              onClick={() => handleIgnore(msg._id)}
                             >
                               <X className="h-4 w-4" />
                             </Button>

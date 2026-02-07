@@ -1,20 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/admin-auth';
-import { getAllMessages, getPendingMessages } from '@/lib/db';
+import { getConvexClient } from '@/lib/convex';
+import { api } from '../../../../../convex/_generated/api';
 
 export async function GET(request: NextRequest) {
-  const auth = requireAuth(request);
+  const auth = await requireAuth(request);
   if (!auth.authenticated) {
     return auth.response;
   }
 
   try {
+    const convex = getConvexClient();
     const url = new URL(request.url);
     const filter = url.searchParams.get('filter');
 
     const messages = filter === 'pending'
-      ? getPendingMessages()
-      : getAllMessages();
+      ? await convex.query(api.messages.getPending, {})
+      : await convex.query(api.messages.getAll, {});
 
     return NextResponse.json({
       success: true,

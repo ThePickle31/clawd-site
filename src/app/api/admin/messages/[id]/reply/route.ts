@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/admin-auth';
-import { getMessageById, markAsReplied } from '@/lib/db';
+import { getConvexClient } from '@/lib/convex';
+import { api } from '../../../../../../../convex/_generated/api';
+import { Id } from '../../../../../../../convex/_generated/dataModel';
 import { sendReply, isGmailConfigured } from '@/lib/gmail';
 import { sendReplyNotification } from '@/lib/discord';
 
@@ -8,23 +10,18 @@ export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const auth = requireAuth(request);
+  const auth = await requireAuth(request);
   if (!auth.authenticated) {
     return auth.response;
   }
 
   try {
+    const convex = getConvexClient();
     const { id } = await params;
-    const messageId = parseInt(id, 10);
 
-    if (isNaN(messageId)) {
-      return NextResponse.json(
-        { error: 'Invalid message ID' },
-        { status: 400 }
-      );
-    }
-
-    const message = getMessageById(messageId);
+    const message = await convex.query(api.messages.getById, {
+      id: id as Id<"contact_messages">,
+    });
 
     if (!message) {
       return NextResponse.json(
@@ -76,10 +73,13 @@ export async function POST(
     }
 
     // Mark as replied in database
-    markAsReplied(messageId, trimmedReply);
+    await convex.mutation(api.messages.markReplied, {
+      id: id as Id<"contact_messages">,
+      reply_content: trimmedReply,
+    });
 
     // Send Discord notification (don't wait, don't fail)
-    sendReplyNotification(messageId, message.email, trimmedReply).catch(console.error);
+    sendReplyNotification(id, message.email, trimmedReply).catch(console.error);
 
     return NextResponse.json({
       success: true,

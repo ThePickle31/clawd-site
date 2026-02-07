@@ -4,11 +4,11 @@
 const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL;
 
 interface ContactNotification {
-  id: number;
+  id: string;
   name: string;
   email: string;
   message: string;
-  createdAt: string;
+  createdAt: number; // epoch ms (_creationTime)
 }
 
 export async function sendContactNotification(contact: ContactNotification): Promise<boolean> {
@@ -16,6 +16,8 @@ export async function sendContactNotification(contact: ContactNotification): Pro
     console.warn('DISCORD_WEBHOOK_URL not configured, skipping notification');
     return false;
   }
+
+  const createdDate = new Date(contact.createdAt);
 
   const embed = {
     title: '🦞 New Contact Form Message!',
@@ -33,7 +35,7 @@ export async function sendContactNotification(contact: ContactNotification): Pro
       },
       {
         name: '🆔 Message ID',
-        value: `#${contact.id}`,
+        value: contact.id,
         inline: true,
       },
       {
@@ -45,13 +47,13 @@ export async function sendContactNotification(contact: ContactNotification): Pro
       },
     ],
     footer: {
-      text: `Received at ${new Date(contact.createdAt).toLocaleString('en-US', {
+      text: `Received at ${createdDate.toLocaleString('en-US', {
         timeZone: 'America/New_York',
         dateStyle: 'medium',
         timeStyle: 'short'
       })}`,
     },
-    timestamp: contact.createdAt,
+    timestamp: createdDate.toISOString(),
   };
 
   try {
@@ -80,7 +82,7 @@ export async function sendContactNotification(contact: ContactNotification): Pro
 }
 
 export async function sendReplyNotification(
-  messageId: number,
+  messageId: string,
   recipientEmail: string,
   replyPreview: string
 ): Promise<boolean> {
@@ -95,7 +97,7 @@ export async function sendReplyNotification(
     fields: [
       {
         name: '🆔 Message ID',
-        value: `#${messageId}`,
+        value: messageId,
         inline: true,
       },
       {

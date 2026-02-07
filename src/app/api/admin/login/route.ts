@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createSession, cleanExpiredSessions } from '@/lib/db';
+import { getConvexClient } from '@/lib/convex';
+import { api } from '../../../../../convex/_generated/api';
 import crypto from 'crypto';
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
@@ -35,17 +36,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const convex = getConvexClient();
+
     // Clean up expired sessions
-    cleanExpiredSessions();
+    await convex.mutation(api.sessions.cleanExpired, {});
 
     // Generate secure session token
     const token = crypto.randomBytes(32).toString('hex');
-    const session = createSession(token, 24); // 24 hour expiry
+    const expiresAt = Date.now() + 24 * 60 * 60 * 1000; // 24 hours
+    await convex.mutation(api.sessions.create, { token, expires_at: expiresAt });
 
     const response = NextResponse.json({
       success: true,
       message: 'Logged in successfully',
-      expiresAt: session.expires_at,
+      expiresAt: new Date(expiresAt).toISOString(),
     });
 
     // Set secure HTTP-only cookie

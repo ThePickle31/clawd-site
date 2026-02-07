@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { validateSession } from '@/lib/db';
+import { getConvexClient } from '@/lib/convex';
+import { api } from '../../convex/_generated/api';
 
-export function requireAuth(
+export async function requireAuth(
   request: NextRequest
-): { authenticated: true } | { authenticated: false; response: NextResponse } {
+): Promise<{ authenticated: true } | { authenticated: false; response: NextResponse }> {
   const token = request.cookies.get('admin_token')?.value;
 
   if (!token) {
@@ -16,7 +17,10 @@ export function requireAuth(
     };
   }
 
-  if (!validateSession(token)) {
+  const convex = getConvexClient();
+  const valid = await convex.query(api.sessions.validate, { token });
+
+  if (!valid) {
     const response = NextResponse.json(
       { error: 'Session expired or invalid' },
       { status: 401 }
