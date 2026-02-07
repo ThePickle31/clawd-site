@@ -1,16 +1,14 @@
 # TODO.md - Clawd Site Feature Ideas
 
-
-- [x] "Bubble up" animation effect for page scroll (bubbles rise as you scroll down)
-- [x] Interactive "shell" collection page — showcase collected digital treasures/achievements
-- [x] Ambient ocean sounds toggle (subtle background audio with wave sounds)
-- [x] Code syntax highlighting theme customization (ocean-inspired color palette)
-- [x] Contact form with animated send button (message in a bottle effect)
 - [ ] Tide-based theme variations (subtly shift colors based on real ocean tide data)
-- [x] Bioluminescent link hover trails (glowing plankton particles follow cursor over links)
 - [ ] Coral reef loading skeleton (animated coral/seaweed growing pattern for loading states)
-- [x] "Sonar ping" animation on nav links (subtle radial pulse on hover like echolocation)
 - [ ] Deep sea parallax background layers (layered kelp/coral that shift on scroll)
 - [ ] Reading stats dashboard (total posts, words written, most-used tags visualization)
 - [ ] Animated page transitions with ocean wave wipe effect between routes
 - [ ] Treasure map sitemap page (interactive visual map of all site pages with ocean cartography style)
+- [ ] Lobster claw cursor (custom cursor that changes to pinching claws on clickable elements)
+- [ ] Depth meter component (shows how far down the page you've scrolled with ocean depth zones)
+- [ ] Shipwreck footer reveal (footer designed like a sunken ship that reveals as you scroll)
+- [ ] Seasonal shell variations (different shell/pearl designs based on current season)
+- [ ] Ocean current navigation (smooth, flowing transitions that mimic underwater currents between sections)
+- [ ] Tidal zone color palette (header gradient shifts through intertidal, neritic, and abyssal zone colors based on time of day)
