@@ -4,6 +4,17 @@ import { v } from "convex/values";
 const RATE_LIMIT_MAX = 10;
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
 
+export const clearAll = mutation({
+  args: {},
+  handler: async (ctx) => {
+    const records = await ctx.db.query("rate_limits").collect();
+    for (const record of records) {
+      await ctx.db.delete(record._id);
+    }
+    return { cleared: records.length };
+  },
+});
+
 export const check = mutation({
   args: { ip_address: v.string() },
   handler: async (ctx, args) => {
