@@ -78,8 +78,12 @@ export async function POST(
       reply_content: trimmedReply,
     });
 
-    // Send Discord notification (don't wait, don't fail)
-    sendReplyNotification(id, message.email, trimmedReply).catch(console.error);
+    // Send Discord notification
+    try {
+      await sendReplyNotification(id, message.email, trimmedReply);
+    } catch (e) {
+      console.error('Discord reply notification failed:', e);
+    }
 
     return NextResponse.json({
       success: true,

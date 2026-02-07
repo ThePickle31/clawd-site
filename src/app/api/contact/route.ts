@@ -118,15 +118,19 @@ export async function POST(request: NextRequest) {
       ip_address: clientIP,
     });
 
-    // Send Discord notification (don't wait for it, don't fail if it fails)
+    // Send Discord notification
     if (contactMessage) {
-      sendContactNotification({
-        id: contactMessage._id,
-        name: sanitizedName,
-        email: sanitizedEmail,
-        message: sanitizedMessage,
-        createdAt: contactMessage._creationTime,
-      }).catch(console.error);
+      try {
+        await sendContactNotification({
+          id: contactMessage._id,
+          name: sanitizedName,
+          email: sanitizedEmail,
+          message: sanitizedMessage,
+          createdAt: contactMessage._creationTime,
+        });
+      } catch (e) {
+        console.error('Discord notification failed:', e);
+      }
     }
 
     const resetAt = new Date(rateLimit.resetAt).toISOString();
