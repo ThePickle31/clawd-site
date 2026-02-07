@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getConvexClient } from '@/lib/convex';
 import { api } from '../../../../convex/_generated/api';
-import { sendContactNotification } from '@/lib/discord';
+import { sendContactWithDrafts } from '@/lib/discord';
+import { generateDraftReplies } from '@/lib/reply-drafter';
 
 // Input sanitization
 function sanitizeInput(input: string, maxLength: number = 5000): string {
@@ -118,18 +119,42 @@ export async function POST(request: NextRequest) {
       ip_address: clientIP,
     });
 
-    // Send Discord notification
+    // Generate draft replies and send Discord notification with drafts
     if (contactMessage) {
       try {
-        await sendContactNotification({
-          id: contactMessage._id,
+        // Generate 3 draft reply options
+        const drafts = generateDraftReplies({
           name: sanitizedName,
-          email: sanitizedEmail,
           message: sanitizedMessage,
-          createdAt: contactMessage._creationTime,
         });
+
+        // Create draft record in database
+        const draftRecord = await convex.mutation(api.drafts.create, {
+          message_id: contactMessage._id,
+          drafts: drafts,
+        });
+
+        // Send Discord notification with draft options
+        if (draftRecord) {
+          const discordResult = await sendContactWithDrafts({
+            messageId: contactMessage._id,
+            draftId: draftRecord._id,
+            name: sanitizedName,
+            email: sanitizedEmail,
+            originalMessage: sanitizedMessage,
+            drafts: drafts,
+          });
+
+          // Update draft with Discord message ID for tracking
+          if (discordResult.success && discordResult.messageId) {
+            await convex.mutation(api.drafts.updateDiscordMessageId, {
+              id: draftRecord._id,
+              discord_message_id: discordResult.messageId,
+            });
+          }
+        }
       } catch (e) {
-        console.error('Discord notification failed:', e);
+        console.error('Draft generation/Discord notification failed:', e);
       }
     }
 

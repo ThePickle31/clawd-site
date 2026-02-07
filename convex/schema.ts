@@ -26,4 +26,29 @@ export default defineSchema({
     request_count: v.number(),
     window_start: v.number(),
   }).index("by_ip", ["ip_address"]),
+
+  reply_drafts: defineTable({
+    message_id: v.id("contact_messages"),
+    drafts: v.array(
+      v.object({
+        type: v.union(
+          v.literal("friendly"),
+          v.literal("professional"),
+          v.literal("playful")
+        ),
+        content: v.string(),
+      })
+    ),
+    selected_draft: v.optional(v.number()), // index of selected draft (0, 1, or 2)
+    custom_reply: v.optional(v.string()), // for custom replies
+    discord_message_id: v.optional(v.string()),
+    status: v.union(
+      v.literal("pending"),
+      v.literal("approved"),
+      v.literal("sent"),
+      v.literal("failed")
+    ),
+    approved_at: v.optional(v.number()),
+    sent_at: v.optional(v.number()),
+  }).index("by_message_id", ["message_id"]).index("by_status", ["status"]),
 });

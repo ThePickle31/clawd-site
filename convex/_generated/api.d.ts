@@ -8,6 +8,7 @@
  * @module
  */
 
+import type * as drafts from "../drafts.js";
 import type * as messages from "../messages.js";
 import type * as rateLimits from "../rateLimits.js";
 import type * as sessions from "../sessions.js";
@@ -19,6 +20,7 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  drafts: typeof drafts;
   messages: typeof messages;
   rateLimits: typeof rateLimits;
   sessions: typeof sessions;
