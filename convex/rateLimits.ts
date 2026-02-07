@@ -1,8 +1,8 @@
 import { mutation } from "./_generated/server";
 import { v } from "convex/values";
 
-const RATE_LIMIT_MAX = 3;
-const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const RATE_LIMIT_MAX = 10;
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
 
 export const check = mutation({
   args: { ip_address: v.string() },

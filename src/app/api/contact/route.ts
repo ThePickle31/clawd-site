@@ -187,7 +187,7 @@ export async function GET() {
     status: 'ok',
     endpoint: '/api/contact',
     method: 'POST',
-    rateLimit: '3 requests per IP per hour',
+    rateLimit: '10 requests per IP per 15 minutes',
     fields: {
       name: 'string (required, max 100 chars)',
       email: 'string (required, valid email)',
