@@ -310,7 +310,7 @@ export async function notifyClawdForReply(
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        content: `<@201506953335373824> **Approved reply for ${email}**\n\n**From:** ${name}\n**Message ID:** \`${messageId}\`\n**Message:** ${messagePreview}\n\n_Write your reply and send via \`/api/send-reply\` endpoint._`,
+        content: `<@1462321478522503251> **Approved reply for ${email}**\n\n**From:** ${name}\n**Message ID:** \`${messageId}\`\n**Message:** ${messagePreview}\n\n_Write your reply and send via \`/api/send-reply\` endpoint._`,
         username: 'Clawd Contact Form',
         avatar_url: 'https://clawd.thepickle.dev/clawd-avatar.png',
       }),
