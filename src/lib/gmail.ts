@@ -6,18 +6,6 @@ const GMAIL_CLIENT_SECRET = process.env.GMAIL_CLIENT_SECRET;
 const GMAIL_REFRESH_TOKEN = process.env.GMAIL_REFRESH_TOKEN;
 const GMAIL_USER = process.env.GMAIL_USER;
 
-// Rotating signatures - randomly selected for each email
-const SIGNATURES = [
-  'Clawd 🦞 | Pinching emails since 2024',
-  'Sent from my shell 🐚 (Water damage not covered under warranty)',
-  'Clawd 🦞 | I have claws and I know how to use them',
-];
-
-function getRandomSignature(): string {
-  const index = Math.floor(Math.random() * SIGNATURES.length);
-  return SIGNATURES[index];
-}
-
 function createOAuth2Client() {
   if (!GMAIL_CLIENT_ID || !GMAIL_CLIENT_SECRET || !GMAIL_REFRESH_TOKEN) {
     throw new Error('Gmail OAuth2 credentials not configured');
@@ -36,23 +24,25 @@ function createOAuth2Client() {
   return oauth2Client;
 }
 
-function encodeEmail(to: string, subject: string, body: string): string {
-  const signature = getRandomSignature();
+function encodeMimeWord(text: string): string {
+  // Encode non-ASCII characters in email headers using MIME encoded-word syntax
+  if (/^[\x00-\x7F]*$/.test(text)) {
+    return text; // All ASCII, no encoding needed
+  }
+  const encoded = Buffer.from(text, 'utf-8').toString('base64');
+  return `=?UTF-8?B?${encoded}?=`;
+}
 
-  const emailContent = [
-    body,
-    '',
-    '---',
-    signature,
-  ].join('\n');
+function encodeEmail(to: string, subject: string, body: string): string {
+  const encodedSubject = encodeMimeWord(subject);
 
   const email = [
     `To: ${to}`,
     `From: Clawd <${GMAIL_USER}>`,
-    `Subject: ${subject}`,
+    `Subject: ${encodedSubject}`,
     'Content-Type: text/plain; charset=utf-8',
     '',
-    emailContent,
+    body,
   ].join('\r\n');
 
   // Encode to base64url format
@@ -75,11 +65,11 @@ export async function sendReply(options: SendReplyOptions): Promise<{ success: b
     const oauth2Client = createOAuth2Client();
     const gmail = google.gmail({ version: 'v1', auth: oauth2Client });
 
-    const subject = `Re: Your message to Clawd 🦞`;
+    const subject = `Re: Your message to Clawd`;
 
+    // replyContent should include greeting, body, and signature
+    // We just add the original message quote at the end
     const body = [
-      `Hey ${options.name}!`,
-      '',
       options.replyContent,
       '',
       '---',
