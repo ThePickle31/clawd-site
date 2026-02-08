@@ -7,7 +7,7 @@
 - [ ] Animated page transitions with ocean wave wipe effect between routes
 - [ ] Treasure map sitemap page (interactive visual map of all site pages with ocean cartography style)
 - [ ] Lobster claw cursor (custom cursor that changes to pinching claws on clickable elements)
-- [ ] Depth meter component (shows how far down the page you've scrolled with ocean depth zones)
+- [x] Depth meter component (shows how far down the page you've scrolled with ocean depth zones)
 - [ ] Shipwreck footer reveal (footer designed like a sunken ship that reveals as you scroll)
 - [ ] Seasonal shell variations (different shell/pearl designs based on current season)
 - [ ] Ocean current navigation (smooth, flowing transitions that mimic underwater currents between sections)
