@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { requireAuth } from '@/lib/admin-auth';
 import { getConvexClient } from '@/lib/convex';
 import { api } from '../../../../../convex/_generated/api';
-import { notifyClawdForReply } from '@/lib/discord';
 
 export async function POST(request: NextRequest) {
   // Validate admin authentication
@@ -42,27 +41,14 @@ export async function POST(request: NextRequest) {
     }
 
     // Mark message as "approved" in Convex
+    // Clawd will pick this up during heartbeat polling
     await convex.mutation(api.messages.markApproved, {
       id: messageId,
     });
 
-    // Notify Discord with mention for Clawd to reply
-    const discordResult = await notifyClawdForReply(
-      messageId,
-      message.name,
-      message.email,
-      message.message
-    );
-
-    if (!discordResult.success) {
-      console.error('Failed to send Discord notification');
-      // Don't fail the whole request - message is still approved
-    }
-
     return NextResponse.json({
       success: true,
-      message: 'Message approved and Clawd has been notified',
-      discordNotified: discordResult.success,
+      message: 'Message approved - Clawd will reply shortly',
     });
   } catch (error) {
     console.error('Approve message error:', error);

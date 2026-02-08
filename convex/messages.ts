@@ -84,3 +84,14 @@ export const markApproved = mutation({
     });
   },
 });
+
+export const getApproved = query({
+  args: {},
+  handler: async (ctx) => {
+    return await ctx.db
+      .query("contact_messages")
+      .withIndex("by_status", (q) => q.eq("status", "approved"))
+      .order("desc")
+      .collect();
+  },
+});
