@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getConvexClient } from '@/lib/convex';
 import { api } from '../../../../convex/_generated/api';
-import { sendContactForApproval } from '@/lib/discord';
 
 // Input sanitization
 function sanitizeInput(input: string, maxLength: number = 5000): string {
@@ -118,20 +117,8 @@ export async function POST(request: NextRequest) {
       ip_address: clientIP,
     });
 
-    // Send Discord notification with approve/ignore buttons
-    if (contactMessage) {
-      try {
-        await sendContactForApproval({
-          id: contactMessage._id,
-          name: sanitizedName,
-          email: sanitizedEmail,
-          message: sanitizedMessage,
-          createdAt: contactMessage._creationTime,
-        });
-      } catch (e) {
-        console.error('Discord notification failed:', e);
-      }
-    }
+    // NO Discord notification on form submission
+    // Admin will approve via /admin page, THEN Discord gets notified
 
     const resetAt = new Date(rateLimit.resetAt).toISOString();
     return NextResponse.json(

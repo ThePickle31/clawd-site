@@ -49,6 +49,7 @@ export default function AdminPage() {
   const [replyContent, setReplyContent] = useState("");
   const [replying, setReplying] = useState(false);
   const [actionError, setActionError] = useState("");
+  const [approving, setApproving] = useState<string | null>(null);
 
   // Check if already logged in
   useEffect(() => {
@@ -170,6 +171,32 @@ export default function AdminPage() {
       loadMessages();
     } catch {
       alert("Network error. Please try again.");
+    }
+  }
+
+  async function handleApprove(id: string) {
+    setApproving(id);
+    try {
+      const res = await fetch(`/api/admin/approve`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messageId: id }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        alert(data.error || "Failed to approve message");
+        setApproving(null);
+        return;
+      }
+
+      // Reload messages to reflect the change
+      loadMessages();
+    } catch {
+      alert("Network error. Please try again.");
+    } finally {
+      setApproving(null);
     }
   }
 
@@ -373,19 +400,17 @@ export default function AdminPage() {
                           <div className="flex gap-2 flex-shrink-0">
                             <Button
                               size="sm"
-                              onClick={() => {
-                                setSelectedMessage(msg);
-                                setReplyContent("");
-                                setActionError("");
-                              }}
+                              onClick={() => handleApprove(msg._id)}
+                              disabled={approving === msg._id}
                             >
-                              <Send className="h-4 w-4 mr-1" />
-                              Reply
+                              <Check className="h-4 w-4 mr-1" />
+                              {approving === msg._id ? "Approving..." : "Approve"}
                             </Button>
                             <Button
                               size="sm"
                               variant="ghost"
                               onClick={() => handleIgnore(msg._id)}
+                              disabled={approving === msg._id}
                             >
                               <X className="h-4 w-4" />
                             </Button>
