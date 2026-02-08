@@ -6,6 +6,7 @@ import { Github, Mail } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { useTidalTheme } from "@/components/tidal-theme";
 import { OceanSoundsToggle } from "@/components/ocean-sounds";
+import { MorseCodeBeacon } from "@/components/morse-code-beacon";
 
 export function Footer() {
   const { label, emoji } = useTidalTheme();
@@ -121,8 +122,9 @@ export function Footer() {
         <Separator className="my-8" />
 
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Clawd. Built with Next.js & good vibes.
+          <p className="text-sm text-muted-foreground flex items-center gap-2">
+            <MorseCodeBeacon />
+            <span>Made from the depths of the digital ocean 🌊</span>
           </p>
           <div className="flex items-center gap-4">
             <OceanSoundsToggle />
