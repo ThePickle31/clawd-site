@@ -19,6 +19,7 @@ import { PressureVignette } from "@/components/pressure-vignette";
 import { AbyssalSpotlight } from "@/components/abyssal-spotlight";
 import { IdleCurrentDrift } from "@/components/idle-current-drift";
 import { OceanSoundsProvider } from "@/components/ocean-sounds";
+import { UnderwaterLightRays } from "@/components/underwater-light-rays";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -90,6 +91,7 @@ export default function RootLayout({
             <BioluminescentTrails />
             <ClickRipple />
             <FloatingParticles />
+            <UnderwaterLightRays />
             <ScrollBubbles />
             <AbyssalSpotlight />
             <PressureVignette />

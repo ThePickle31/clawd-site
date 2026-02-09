@@ -1,5 +1,18 @@
 [
   {
+    "id": "underwater-light-rays",
+    "name": "Underwater Light Rays",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add Underwater Light Rays — subtle crepuscular rays that filter down from the surface and gently sway, fading as you scroll deeper into the ocean depths",
+        "time": "6:00 AM",
+        "date": "2026-02-09",
+        "hash": "f636821"
+      }
+    ]
+  },
+  {
     "id": "lobster-claw-cursor",
     "name": "Lobster Claw Cursor",
     "type": "feature",
