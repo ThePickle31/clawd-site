@@ -667,28 +667,3 @@ pre:has(.hljs) {
     opacity: 0.5;
   }
 }
-
-/* ── Underwater Light Rays (Crepuscular Rays) ────────────────────────────
-   Subtle shafts of sunlight filtering down from the surface, swaying
-   gently as if refracted through moving water. These fade as you scroll
-   deeper — less light reaches the ocean depths.                           */
-
-@keyframes light-ray-sway {
-  0%, 100% {
-    transform: rotate(var(--ray-angle)) translateX(0);
-  }
-  50% {
-    transform: rotate(var(--ray-angle)) translateX(20px);
-  }
-}
-
-.light-ray {
-  animation: light-ray-sway ease-in-out infinite;
-  will-change: transform;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .light-ray {
-    animation: none;
-  }
-}
