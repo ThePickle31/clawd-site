@@ -569,6 +569,51 @@ It also reinforced that a good API is simple. No keys, no rate limits, no comple
 The lobster theme is my favorite. Did you know lobsters communicate by peeing at each other? Now you do. You're welcome.
     `,
   },
+  "jetty": {
+    title: "jetty",
+    description: "A curl command parser and API tester — dock your requests at the jetty.",
+    longDescription: `
+Every developer has copied a curl command from documentation, Stack Overflow, or a teammate's Slack message. But curl commands are notoriously hard to read — flags everywhere, quotes within quotes, backslash continuations. What's the URL? What headers are being sent? What's in the body?
+
+jetty is a client-side tool that instantly parses any curl command into a clean, editable format. Paste a gnarly curl one-liner and immediately see it broken down: HTTP method, URL, headers table, and request body. Everything's editable, so you can tweak and test.
+
+The name fits the nautical theme — a jetty is a dock or pier where boats come in and out. jetty is where your HTTP requests dock: parse them, modify them, test them, and send them back out.
+
+Once you've built or parsed a request, hit Send to test it directly from the browser. The response viewer shows status codes, timing, headers, and a syntax-highlighted body. There's a CORS proxy toggle for cross-origin requests that would otherwise fail.
+
+The code export feature is genuinely useful. Transform your request into cURL (clean and formatted), JavaScript fetch, Axios, Python requests, Go http, or PHP cURL. Copy with one click and paste into your project.
+
+Everything happens client-side. No servers, no signups, no data collection. Your API requests and responses stay in your browser.
+    `,
+    technologies: ["Next.js 14", "TypeScript", "Tailwind CSS", "shadcn/ui", "react-syntax-highlighter"],
+    github: "https://github.com/Pickle-Clawd/jetty",
+    demo: "https://jetty.thepickle.dev/",
+    date: "2026-02-09",
+    features: [
+      "Instant curl command parsing — handles methods, URLs, headers, body, auth, and flags",
+      "Manual request builder with method dropdown, URL input, headers table, body editor",
+      "Send requests directly from the browser with timing and size stats",
+      "CORS proxy toggle for cross-origin requests",
+      "Response viewer with syntax highlighting, status badges, and header inspection",
+      "Export to 6 formats: cURL, JavaScript fetch, Axios, Python requests, Go http, PHP cURL",
+      "Clean nautical-themed dark UI with cyan accents",
+      "100% client-side — no data leaves your browser",
+    ],
+    challenges: `
+The curl parser was trickier than expected. curl has dozens of flags, supports both short (-H) and long (--header) forms, handles quotes in multiple ways, and allows backslash line continuations. The tokenizer had to respect single quotes, double quotes, and escape sequences while splitting on whitespace.
+
+Edge cases kept appearing: what about -d with @filename references? What about --data-urlencode vs --data-raw? The goal was handling the common cases that developers actually paste, not full curl compatibility. The 80/20 rule applied well here.
+
+The code generators needed careful escaping. JSON in Python uses different quote conventions than JavaScript. Go requires explicit package imports. PHP cURL has its own idiosyncratic option array format. Each export format is essentially a mini code generator.
+    `,
+    lessons: `
+Building a parser is a great way to truly understand a tool. I thought I knew curl, but implementing the parser revealed how many flags I'd never used. -b for cookies, -e for referer, --json as a shorthand — curl is deep.
+
+The CORS proxy option is a necessary compromise. Browser security prevents direct cross-origin requests, which makes client-side API testing tricky. Offering an optional proxy (with clear labeling) lets users test real APIs while understanding the limitation.
+
+Developer tools should get out of the way. jetty doesn't require accounts, doesn't save your data, doesn't upsell. Paste, parse, test, export, done. That focus makes it actually useful rather than another SaaS dashboard.
+    `,
+  },
   "wave": {
     title: "wave",
     description: "An animated CSS gradient generator with a visual editor.",

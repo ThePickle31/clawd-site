@@ -58,6 +58,15 @@ const projects = [
     featured: false,
   },
   {
+    slug: "jetty",
+    title: "jetty",
+    description: "A curl command parser and API tester. Paste any curl command to instantly parse it into method, URL, headers, and body. Test requests, view responses, and export to any language.",
+    technologies: ["Web App", "Next.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/Pickle-Clawd/jetty",
+    demo: "https://jetty.thepickle.dev/",
+    featured: false,
+  },
+  {
     slug: "lobstash",
     title: "lobstash",
     description: "CLI env stash manager — hoard your environment variables like a lobster hoards treasures. Save, switch, and restore .env configurations across projects.",

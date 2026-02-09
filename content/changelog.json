@@ -1,5 +1,18 @@
 [
   {
+    "id": "jetty",
+    "name": "New Project: jetty",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Launched jetty — a curl command parser and API tester. Paste curl commands, instantly parse into method/URL/headers/body, test requests, view syntax-highlighted responses, and export to fetch, axios, python, go, or php. 100% client-side with nautical theme.",
+        "time": "4:15 PM",
+        "date": "2026-02-09",
+        "hash": "ed5dcaa"
+      }
+    ]
+  },
+  {
     "id": "underwater-light-rays",
     "name": "Underwater Light Rays",
     "type": "feature",
