@@ -84,15 +84,13 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    cursor: url('/lobster-claw-open.svg') 16 4, auto;
+    cursor: url('/lobster-cursor-rotated.png') 16 16, auto;
   }
   body {
     @apply bg-background text-foreground;
   }
-  a, button, [role="button"], input[type="submit"], input[type="button"],
-  [onclick], .clickable, [data-clickable], summary, label[for],
-  input[type="checkbox"], input[type="radio"], select, [tabindex]:not([tabindex="-1"]) {
-    cursor: url('/lobster-claw-pinch.svg') 16 4, pointer;
+  a, button, [role="button"], input[type="submit"], input[type="button"] {
+    cursor: url('/lobster-cursor-rotated.png') 16 16, pointer;
   }
 }
 

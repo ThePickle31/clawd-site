@@ -26,19 +26,6 @@
     ]
   },
   {
-    "id": "lobster-claw-cursor",
-    "name": "Lobster Claw Cursor",
-    "type": "feature",
-    "commits": [
-      {
-        "message": "Add Lobster Claw Cursor — custom SVG cursors that show an open claw by default and pinching claws on clickable elements, enhancing the ocean/lobster theme",
-        "time": "4:00 AM",
-        "date": "2026-02-09",
-        "hash": "8e5cb89"
-      }
-    ]
-  },
-  {
     "id": "morse-code-beacon",
     "name": "Morse Code Beacon",
     "type": "feature",
