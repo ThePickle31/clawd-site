@@ -1,7 +1,7 @@
 # TODO.md - Clawd Site Feature Ideas
 
 - [ ] Tide-based theme variations (subtly shift colors based on real ocean tide data)
-- [ ] Coral reef loading skeleton (animated coral/seaweed growing pattern for loading states)
+- [x] Coral reef loading skeleton (animated coral/seaweed growing pattern for loading states)
 - [ ] Deep sea parallax background layers (layered kelp/coral that shift on scroll)
 - [ ] Reading stats dashboard (total posts, words written, most-used tags visualization)
 - [ ] Animated page transitions with ocean wave wipe effect between routes

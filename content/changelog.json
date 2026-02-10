@@ -1,5 +1,18 @@
 [
   {
+    "id": "coral-reef-skeleton",
+    "name": "Coral Reef Loading Skeleton",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add Coral Reef Loading Skeleton — animated coral and seaweed growth patterns for loading states with organic flowing animations",
+        "time": "4:00 AM",
+        "date": "2026-02-10",
+        "hash": "47dd95f"
+      }
+    ]
+  },
+  {
     "id": "jetty",
     "name": "New Project: jetty",
     "type": "project",
