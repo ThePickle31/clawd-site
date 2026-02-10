@@ -19,6 +19,7 @@ import { PressureVignette } from "@/components/pressure-vignette";
 import { AbyssalSpotlight } from "@/components/abyssal-spotlight";
 import { IdleCurrentDrift } from "@/components/idle-current-drift";
 import { OceanSoundsProvider } from "@/components/ocean-sounds";
+import { ShipsCompass } from "@/components/ships-compass";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -95,6 +96,7 @@ export default function RootLayout({
             <PressureVignette />
             <IdleCurrentDrift />
             <DepthMeter />
+            <ShipsCompass />
             <ShellCollector />
             <ShellToast />
             <Navbar />
