@@ -846,3 +846,61 @@ pre:has(.hljs) {
     background: rgba(26, 58, 92, 0.5);
   }
 }
+
+/* ── Sonar Focus Rings ─────────────────────────────────────────────────────
+   When keyboard-navigating (Tab), focused elements emit a sonar-style pulse
+   ring animation — like echolocation reaching out into the deep.
+   Uses :focus-visible to only trigger on keyboard navigation, not mouse clicks. */
+
+@keyframes sonar-focus-pulse {
+  0% {
+    box-shadow:
+      0 0 0 0 rgba(255, 107, 74, 0.6),
+      0 0 0 0 rgba(255, 107, 74, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(255, 107, 74, 0.3),
+      0 0 0 0 rgba(255, 107, 74, 0.15);
+  }
+  100% {
+    box-shadow:
+      0 0 0 14px rgba(255, 107, 74, 0),
+      0 0 0 7px rgba(255, 107, 74, 0);
+  }
+}
+
+/* Apply sonar pulse to interactive elements on keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 2px solid rgba(255, 107, 74, 0.8);
+  outline-offset: 3px;
+  border-radius: 4px;
+  animation: sonar-focus-pulse 0.7s ease-out;
+}
+
+/* Ensure inputs/textareas have visible focus with rounded corners */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [role="button"]:focus-visible,
+  [tabindex]:not([tabindex="-1"]):focus-visible {
+    animation: none;
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+  }
+}

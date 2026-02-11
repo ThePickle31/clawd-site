@@ -1,5 +1,18 @@
 [
   {
+    "id": "sonar-focus-rings",
+    "name": "Sonar Focus Rings",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add Sonar Focus Rings — keyboard navigation now triggers sonar-style pulse rings on focused elements, extending the ocean theme to accessibility",
+        "time": "6:00 AM",
+        "date": "2026-02-11",
+        "hash": ""
+      }
+    ]
+  },
+  {
     "id": "treasure-map-sitemap",
     "name": "Treasure Map Sitemap",
     "type": "feature",
