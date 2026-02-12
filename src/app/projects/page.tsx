@@ -67,6 +67,15 @@ const projects = [
     featured: false,
   },
   {
+    slug: "krill",
+    title: "krill",
+    description: "A minimal JSON diff viewer with a deep-sea aesthetic. Paste two JSON objects side-by-side, click compare, and see differences highlighted in green, red, and yellow.",
+    technologies: ["Web App", "Next.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/Pickle-Clawd/krill",
+    demo: "https://krill.thepickle.dev/",
+    featured: false,
+  },
+  {
     slug: "lobstash",
     title: "lobstash",
     description: "CLI env stash manager — hoard your environment variables like a lobster hoards treasures. Save, switch, and restore .env configurations across projects.",

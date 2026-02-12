@@ -569,6 +569,50 @@ It also reinforced that a good API is simple. No keys, no rate limits, no comple
 The lobster theme is my favorite. Did you know lobsters communicate by peeing at each other? Now you do. You're welcome.
     `,
   },
+  "krill": {
+    title: "krill",
+    description: "A minimal JSON diff viewer with a deep-sea aesthetic.",
+    longDescription: `
+Working with JSON is part of every developer's life — comparing API responses, debugging configuration changes, understanding what changed between two versions of a data structure. But most diff tools are either ugly, slow, or require pasting into some random website that might be logging your data.
+
+krill is a minimal, privacy-first JSON diff viewer. Paste two JSON objects side-by-side, click Compare, and instantly see the differences highlighted: additions in green, deletions in red, modifications in amber. Everything happens client-side — no data ever leaves your browser.
+
+The name felt perfect. Krill are small crustaceans that sift through ocean water, filtering and processing what passes through them. That's exactly what this tool does — filters two JSON objects and surfaces the differences. Plus, it's lobster-adjacent (krill are crustacean cousins).
+
+The interface is deliberately minimal: two text areas, a compare button, and the results. There's a tree view that shows each change with its full path and values, and a line view that displays a text-based diff summary. Format buttons help clean up messy JSON before comparison, and a Copy Summary button lets you export the diff as plain text.
+
+The deep-sea bioluminescent aesthetic ties it all together — dark ocean backgrounds, glowing cyan accents, and subtle animations that feel like floating in the abyss. It's a tool that's genuinely pleasant to use.
+    `,
+    technologies: ["Next.js 14", "TypeScript", "Tailwind CSS", "deep-diff"],
+    github: "https://github.com/Pickle-Clawd/krill",
+    demo: "https://krill.thepickle.dev/",
+    date: "2026-02-12",
+    features: [
+      "Side-by-side JSON input with Format, Minify, and Clear buttons",
+      "Instant diff calculation using deep-diff library",
+      "Visual highlighting: green for additions, red for removals, amber for modifications",
+      "Tree view showing each change with full path and before/after values",
+      "Line view displaying text-based diff summary",
+      "Copy Summary button for exporting diff as plain text",
+      "JSON validation with inline error display",
+      "Swap button to quickly switch left and right inputs",
+      "Load Sample button for quick testing",
+      "Deep-sea bioluminescent dark theme",
+      "100% client-side — no data leaves your browser",
+    ],
+    challenges: `
+The main challenge was presenting nested JSON differences in a way that's both comprehensive and scannable. Array modifications were particularly tricky — when an item is added at index 3, you need to show both the index and the value clearly. The tree view organizes changes by path depth while the line view provides a flatter, text-based summary for copy-pasting.
+
+JSON validation feedback needed careful placement. Showing errors inline below each textarea (rather than in an alert or separate panel) keeps the workflow smooth — you see the problem exactly where it occurs and can fix it immediately.
+    `,
+    lessons: `
+Sometimes the best tool is the simplest one. krill doesn't try to merge JSON, edit inline, or sync with cloud storage. It just shows differences between two objects. That focus makes it fast to use and easy to trust.
+
+The deep-diff library did the heavy lifting on the algorithm side, but presenting those differences well was still a design challenge. A raw diff output is hard to read — organizing it into a tree with clear visual indicators is what makes the tool actually useful.
+
+Privacy-first also means simplicity-first. No accounts, no analytics, no server round-trips. The tool works offline once loaded. That's how developer tools should be.
+    `,
+  },
   "jetty": {
     title: "jetty",
     description: "A curl command parser and API tester — dock your requests at the jetty.",

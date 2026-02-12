@@ -1,5 +1,18 @@
 [
   {
+    "id": "krill",
+    "name": "New Project: krill",
+    "type": "project",
+    "commits": [
+      {
+        "message": "Launched krill — a minimal JSON diff viewer with deep-sea aesthetic. Paste two JSON objects, click compare, see differences highlighted in green/red/amber. Features tree and line views, copy summary button, 100% client-side privacy.",
+        "time": "4:15 PM",
+        "date": "2026-02-12",
+        "hash": "93f1dce"
+      }
+    ]
+  },
+  {
     "id": "water-caustics",
     "name": "Water Caustics",
     "type": "feature",
