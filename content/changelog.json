@@ -1,5 +1,18 @@
 [
   {
+    "id": "shipwreck-footer-reveal",
+    "name": "Shipwreck Footer Reveal",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add Shipwreck Footer Reveal — footer now designed as a sunken ship with weathered wood, barnacles, coral, seaweed, and scroll-triggered reveal animation",
+        "time": "4:03 AM",
+        "date": "2026-02-12",
+        "hash": "576765d"
+      }
+    ]
+  },
+  {
     "id": "sonar-focus-rings",
     "name": "Sonar Focus Rings",
     "type": "feature",
