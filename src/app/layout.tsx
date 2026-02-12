@@ -20,6 +20,7 @@ import { AbyssalSpotlight } from "@/components/abyssal-spotlight";
 import { IdleCurrentDrift } from "@/components/idle-current-drift";
 import { OceanSoundsProvider } from "@/components/ocean-sounds";
 import { ShipsCompass } from "@/components/ships-compass";
+import { WaterCaustics } from "@/components/water-caustics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -85,6 +86,7 @@ export default function RootLayout({
         <TidalThemeProvider>
           <OceanSoundsProvider>
           <ShellCollectionProvider>
+            <WaterCaustics />
             <KonamiCode />
             <ScrollToTop />
             <BubbleCursorTrail />
