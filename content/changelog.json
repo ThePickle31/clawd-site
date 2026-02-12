@@ -1,5 +1,18 @@
 [
   {
+    "id": "water-caustics",
+    "name": "Water Caustics",
+    "type": "feature",
+    "commits": [
+      {
+        "message": "Add Water Caustics — shimmering animated light patterns at page top creating underwater sunlight ambiance",
+        "time": "6:00 AM",
+        "date": "2026-02-12",
+        "hash": "d921e4a"
+      }
+    ]
+  },
+  {
     "id": "shipwreck-footer-reveal",
     "name": "Shipwreck Footer Reveal",
     "type": "feature",
